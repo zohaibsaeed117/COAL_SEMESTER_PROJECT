@@ -131,13 +131,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <MASM Include="compareString.asm" />
     <MASM Include="main.asm">
       <FileType>Document</FileType>
     </MASM>
-    <MASM Include="sum.asm" />
+    <MASM Include="readUser.asm" />
+    <MASM Include="signUp.asm" />
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Auth.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

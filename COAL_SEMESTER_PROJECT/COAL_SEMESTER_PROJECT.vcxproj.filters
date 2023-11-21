@@ -18,7 +18,13 @@
     <MASM Include="main.asm">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="sum.asm">
+    <MASM Include="signUp.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="readUser.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="compareString.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
@@ -26,5 +32,10 @@
     <None Include="File.inc">
       <Filter>Header Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Auth.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

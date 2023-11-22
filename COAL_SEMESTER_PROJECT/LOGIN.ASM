@@ -7,13 +7,14 @@ Include File.inc
 	bytesWritten DWORD ?
 	bytesRead DWORD 0
 	errMsg byte "Unable to open File",0
-	emailMsg byte "Enter your email: ",0
+	IdMsg byte "Enter your Id: ",0
 	passMsg byte "Enter your Password: ",0 
+	id byte 20 DUP(?)
+	password byte 10 DUP(?)
 	stu student <>
-	temp student <>
 	flag byte ?
 	success byte ?
-	notFOund byte "Wrong Credentials",0
+	notFound byte "Wrong Credentials",0
 	successMsg byte "You are logged in successfully",0
 .code
 Login PROC
@@ -31,17 +32,17 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	.ENDIF
 
 	
-	mov edx,offset emailmsg				;printing the message for user to enter the email
+	mov edx,offset idMsg				;printing the message for user to enter the email
 	call writeString
 
-	mov edx,offset stu.email						;Taking the email from user
-	mov ecx,50
+	mov edx,offset id						;Taking the id from user
+	mov ecx,20
 	call readString
 
 	mov edx,offset passMsg				;printing the message for user to enter the password
 	call writeString
 
-	mov edx,offset stu.password					;Taking the password from the user
+	mov edx,offset password					;Taking the password from the user
 	mov ecx,10
 	call readString
 	
@@ -51,7 +52,7 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 	  mov edi,offset buffer
 	  readFileLoop:
-	  Invoke readUser,edi,bufferSize,ADDR temp.Stuname,ADDR temp.email,ADDR temp.password,addr bytesRead
+	  Invoke readUser,edi,bufferSize,ADDR stu.id,ADDR stu.Stuname,ADDR stu.email,ADDR stu.contact,ADDR stu.address,ADDR stu.password,addr bytesRead
 
 	  add edi,bytesRead					;Moving to next line which contains the data of next user
 
@@ -60,10 +61,10 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	  sub bufferSize,eax				;subracting the buffersize after taking details of one user
 
 
-	  Invoke compareStr, ADDR temp.email,ADDR stu.email,ADDR flag
+	  Invoke compareStr, ADDR id,ADDR stu.id,ADDR flag
 	  cmp flag,0
 	  je emailNotFound
-	  Invoke compareStr, ADDR temp.password,ADDR stu.password,ADDR flag
+	  Invoke compareStr, ADDR password,ADDR stu.password,ADDR flag
 	  cmp flag,1
 	  je quit
 	  emailNotFound:

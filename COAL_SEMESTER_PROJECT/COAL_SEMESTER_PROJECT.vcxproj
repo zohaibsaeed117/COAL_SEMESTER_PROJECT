@@ -138,7 +138,7 @@
     </MASM>
     <MASM Include="PrintMenu.asm" />
     <MASM Include="readUser.asm" />
-    <MASM Include="signUp.asm" />
+    <MASM Include="registerStudent.asm" />
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc" />

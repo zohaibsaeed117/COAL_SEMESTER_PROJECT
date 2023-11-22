@@ -12,7 +12,7 @@ main PROC
 	.IF choice==1
 		Invoke Login
 	.ELSEIF choice==2
-		Invoke Signup
+		Invoke registerStudent
 	.ENDIF
 
 

@@ -9,11 +9,17 @@ Include File.inc
 	space byte " "
 	newLine byte "!",0dh,0ah,0
 	errMsg byte "Unable to open File",0
+	idMsg byte "Enter your ID: ",0
 	nameMsg byte "Enter your name: ",0
+	ContactMsg byte "Enter your Contact Number: ",0
+	AddressMsg byte "Enter your Address: ",0
 	emailMsg byte "Enter your email: ",0
 	passMsg byte "Enter your Password: ",0 
 	len DWORD ?
+	idLen DWORD ?
 	nameLen DWORD ?
+	contactLen DWORD ?
+	AddressLen DWORD ?
 	emailLen DWORD ?
 	passwordlen DWORD ?
 	stu student <>
@@ -23,7 +29,7 @@ Include File.inc
 	userFoundMsg byte "User Already Exists",0
 	successMsg byte "User registred Successfully",0
 .code
-Signup PROC
+registerStudent PROC
 
 INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
@@ -37,6 +43,14 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	.ENDIF
 
 	takeCredentials:
+
+	mov edx,offset idMsg
+	call writeString
+
+	mov edx,offset stu.id
+	mov ecx,20
+	call readString
+	mov idLen,eax
 	
 	mov edx,offset namemsg				;printing the message for user to enter the name
 	call writeString
@@ -54,6 +68,23 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	mov ecx,50
 	call readString
 	mov emailLen,eax
+
+
+	mov edx,offset contactmsg				;printing the message for user to enter the contact number
+	call writeString
+
+	mov edx,offset stu.contact						;Taking the contact Number from user
+	mov ecx,50
+	call readString
+	mov contactLen,eax
+
+	mov edx,offset addressMsg				;printing the message for user to enter the contact number
+	call writeString
+
+	mov edx,offset stu.address					;Taking the contact Number from user
+	mov ecx,50
+	call readString
+	mov addressLen,eax
 
 	mov edx,offset passMsg				;printing the message for user to enter the password
 	call writeString
@@ -77,7 +108,7 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 	  mov edi,offset buffer
 	  readFileLoop:
-	  Invoke readUser,edi,bufferSize,ADDR temp.Stuname,ADDR temp.email,ADDR temp.password,addr bytesRead
+	  Invoke readUser,edi,bufferSize,ADDR temp.id,ADDR temp.Stuname,ADDR temp.email,ADDR temp.contact,ADDR temp.address,ADDR temp.password,addr bytesRead
 
 	  add edi,bytesRead					;Moving to next line which contains the data of next user
 
@@ -87,7 +118,7 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 
 
-	  Invoke compareStr, ADDR temp.email,ADDR stu.email,ADDR flag
+	  Invoke compareStr, ADDR temp.id,ADDR stu.id,ADDR flag
 	  cmp flag,1
 	  je userFound
 	  
@@ -102,22 +133,37 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	  filehandle,0,0,FILE_END	
 
 	INVOKE WriteFile,
-		filehandle,offset stu.stuName, namelen,
-		ADDR bytesWritten, 0				;writing the name of the user in the authentication file
+		filehandle,offset stu.id, idlen,
+		ADDR bytesWritten, 0				;writing the id of the user in the authentication file
 
-		mov len,1
 		INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END				
 
 	INVOKE WriteFile,
-		filehandle, ADDR space, len,		;Entering a space after the user name
+		filehandle, ADDR space, 1,		;Entering a space after the user id
 		ADDR bytesWritten, 0
 
-	
-	mov len,eax
+		;writing name in file
+
+	INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END	
+
+	INVOKE WriteFile,
+		filehandle,offset stu.stuName, namelen,
+		ADDR bytesWritten, 0				;writing the name of the user in the authentication file
+
+		INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END				
+
+	INVOKE WriteFile,
+		filehandle, ADDR space, 1,		;Entering a space after the user name
+		ADDR bytesWritten, 0
+
 	INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END
 
+
+	  ;writing email in file
 	INVOKE WriteFile,
 		filehandle, offset stu.email, emaillen,
 		ADDR bytesWritten, 0
@@ -128,6 +174,34 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 	INVOKE WriteFile,
 		filehandle, ADDR space, len,
+		ADDR bytesWritten, 0
+
+		INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END
+	  ;writing contact in file
+	INVOKE WriteFile,
+		filehandle, offset stu.contact, contactlen,
+		ADDR bytesWritten, 0
+
+	INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END
+
+	INVOKE WriteFile,
+		filehandle, ADDR space, len,
+		ADDR bytesWritten, 0
+
+		INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END
+	  ;writing contact
+	INVOKE WriteFile,
+		filehandle, offset stu.address, addresslen,
+		ADDR bytesWritten, 0
+
+	INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END
+
+	INVOKE WriteFile,
+		filehandle, ADDR space, 1,
 		ADDR bytesWritten, 0
 
 	INVOKE SetFilePointer,
@@ -160,5 +234,5 @@ quit:
 	call closeFile
 	movzx eax,success
 ret
-Signup endp
+registerStudent endp
 end

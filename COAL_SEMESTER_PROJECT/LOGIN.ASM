@@ -18,6 +18,7 @@ Include File.inc
 .code
 Login PROC
 
+takeCredentials:
 INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 
@@ -29,7 +30,6 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	  jmp  quit
 	.ENDIF
 
-	takeCredentials:
 	
 	mov edx,offset emailmsg				;printing the message for user to enter the email
 	call writeString
@@ -73,6 +73,8 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 mov edx,offset notFound
 call writeString
 call CRLF
+mov edx,fileHandle
+call closeFile
 jmp takeCredentials
 quit:
 mov edx,offset successMsg

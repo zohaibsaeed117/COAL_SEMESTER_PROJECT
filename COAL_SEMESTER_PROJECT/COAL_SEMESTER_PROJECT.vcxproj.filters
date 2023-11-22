@@ -30,6 +30,9 @@
     <MASM Include="LOGIN.ASM">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="PrintMenu.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

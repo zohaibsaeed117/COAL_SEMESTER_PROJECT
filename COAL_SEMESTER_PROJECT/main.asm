@@ -1,9 +1,20 @@
 INCLUDE file.inc
 .data
+	choice DWORD ?
 .code
 main PROC
 
-	Invoke signup
+
+	call printMenu
+	mov eax,choice
+	call ReadInt
+	mov choice,eax
+	.IF choice==1
+		Invoke Login
+	.ELSEIF choice==2
+		Invoke Signup
+	.ENDIF
+
 
 
 

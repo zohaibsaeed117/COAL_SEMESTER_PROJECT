@@ -7,6 +7,7 @@ STUDENT struct
 	password byte 10 DUP(?)
 STUDENT ENDS
 
+PrintMEnu PROTO
 
 Signup PROTO
 

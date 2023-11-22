@@ -21,6 +21,7 @@ Include File.inc
 	flag byte ?
 	success byte ?
 	userFoundMsg byte "User Already Exists",0
+	successMsg byte "User registred Successfully",0
 .code
 Signup PROC
 
@@ -35,7 +36,7 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	  jmp  quit
 	.ENDIF
 
-
+	takeCredentials:
 	
 	mov edx,offset namemsg				;printing the message for user to enter the name
 	call writeString
@@ -146,11 +147,14 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 
 	mov success,1				;If the user is registered Successfully
+	mov edx,offset successMsg
+	call writeString
 	jmp quit
 userFound:
 mov edx,offset userFoundMsg
 call writeString
-mov success,0
+call CRLF
+jmp takeCredentials
 quit:
 	mov edx,filehandle
 	call closeFile

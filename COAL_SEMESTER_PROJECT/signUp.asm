@@ -2,8 +2,8 @@ Include File.inc
 .data
 	authentication byte "Auth.txt",0
 	buffer byte 5000 DUP(?)
-	bufferSize DWORD ?
-	filehandler DWORD ?
+	bufferSize SDWORD ?
+	filehandle DWORD ?
 	bytesWritten DWORD ?
 	bytesRead DWORD 0
 	space byte " "
@@ -18,7 +18,8 @@ Include File.inc
 	passwordlen DWORD ?
 	stu student <>
 	temp student <>
-	flag BYTE ?
+	flag byte ?
+	success byte ?
 	userFoundMsg byte "User Already Exists",0
 .code
 Signup PROC
@@ -27,12 +28,13 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 
 
-	mov fileHandler,eax			; save file handle
+	mov filehandle,eax			; save file handle
 	.IF eax == INVALID_HANDLE_VALUE
 	  mov  edx,OFFSET errMsg		; Display error message
 	  call WriteString
-	  jmp  quitNow
+	  jmp  quit
 	.ENDIF
+
 
 	
 	mov edx,offset namemsg				;printing the message for user to enter the name
@@ -65,14 +67,19 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 	;-----------------------------------------Checking whether the user exists already or not-------------------------|
 
-	Invoke ReadFile,fileHandler,offset buffer,5000,ADDR bufferSize,0
+	Invoke ReadFile,filehandle,offset buffer,5000,ADDR bufferSize,0
+
+
+	.IF bufferSize==0			;If the file is empty
+		jmp registerUser
+	.ENDIF
 
 	  mov edi,offset buffer
-	  add edi,bytesRead
 	  readFileLoop:
 	  Invoke readUser,edi,bufferSize,ADDR temp.Stuname,ADDR temp.email,ADDR temp.password,addr bytesRead
 
 	  add edi,bytesRead					;Moving to next line which contains the data of next user
+
 
 	  mov eax,bytesRead
 	  sub bufferSize,eax				;subracting the buffersize after taking details of one user
@@ -80,72 +87,74 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 
 	  Invoke compareStr, ADDR temp.email,ADDR stu.email,ADDR flag
-
 	  cmp flag,1
 	  je userFound
+	  
+
 	  cmp bufferSize,0
-	  ja readFileLoop
+	  jnle readFileLoop
 
 
-
+	registerUser:
 	;--------------------------------------------Writing all the credentials in the file---------------------------|
 	INVOKE SetFilePointer,
-	  fileHandler,0,0,FILE_END	
+	  filehandle,0,0,FILE_END	
 
 	INVOKE WriteFile,
-		fileHandler,offset stu.stuName, namelen,
+		filehandle,offset stu.stuName, namelen,
 		ADDR bytesWritten, 0				;writing the name of the user in the authentication file
 
 		mov len,1
 		INVOKE SetFilePointer,
-	  fileHandler,0,0,FILE_END				
+	  filehandle,0,0,FILE_END				
 
 	INVOKE WriteFile,
-		fileHandler, ADDR space, len,		;Entering a space after the user name
+		filehandle, ADDR space, len,		;Entering a space after the user name
 		ADDR bytesWritten, 0
 
 	
 	mov len,eax
 	INVOKE SetFilePointer,
-	  fileHandler,0,0,FILE_END
+	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
-		fileHandler, offset stu.email, emaillen,
+		filehandle, offset stu.email, emaillen,
 		ADDR bytesWritten, 0
 	mov len,1
 
 	INVOKE SetFilePointer,
-	  fileHandler,0,0,FILE_END
+	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
-		fileHandler, ADDR space, len,
+		filehandle, ADDR space, len,
 		ADDR bytesWritten, 0
 
 	INVOKE SetFilePointer,
-	  fileHandler,0,0,FILE_END
+	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
-		fileHandler, offset stu.password, passwordlen,
+		filehandle, offset stu.password, passwordlen,
 		ADDR bytesWritten, 0
 		mov len,1
 
 		INVOKE SetFilePointer,
-	  fileHandler,0,0,FILE_END
+	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
-		fileHandler, ADDR newLine, 3,
+		filehandle, ADDR newLine, 3,
 		ADDR bytesWritten, 0
 
-	
-QuitNow:
-	mov eax,fileHandler
-	call CloseFile
+
+	mov success,1				;If the user is registered Successfully
 	jmp quit
 userFound:
-	mov edx,offset userFoundmsg
-	call writeString
-
+mov edx,offset userFoundMsg
+call writeString
+mov success,0
 quit:
+	mov edx,filehandle
+	call closeFile
+	movzx eax,success
 ret
 Signup endp
 end

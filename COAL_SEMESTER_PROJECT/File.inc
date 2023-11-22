@@ -10,6 +10,8 @@ STUDENT ENDS
 
 Signup PROTO
 
+Login PROTO
+
 ReadUser PROTO,
 buffer:PTR DWORD,
 sizeOfBuffer:DWORD,

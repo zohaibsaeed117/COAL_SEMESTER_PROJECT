@@ -14,78 +14,65 @@ email:PTR DWORD,
 password:PTR DWORD,
 bytesRead:PTR DWORD
 
-mov edx,buffer
-mov ecx,bufferSize
-mov esi,0
-
-
-	loop1:
-		cmp BYTE PTR[edx],'!'
-		je breakLoop
-		mov bl,BYTE PTR[edx]
-		mov temp[esi],bl
-		inc esi
-		inc edx
-	loop loop1
-	breakLoop:
-	mov temp[esi],0
-
-
-
 mov eax,bytesRead	
-mov DWORD PTR[eax],esi
-add DWORD PTR[eax],3
-
-
-
+mov DWORD PTR[eax],0
 
 	;Taken data of a whole user in the string temp
 
 	mov esi,stuname
-	mov edx,offset temp
-	mov ecx,DWORD PTR[eax]
+	mov edx,buffer
+	mov ecx,20												;max size of name can be 20
 	nameLoop:
-		cmp byte PTR[edx]," "
-		je nameBreak
 		mov bl,byte PTR[edx]
 		mov BYTE PTR [esi],bl
 		inc edx
 		inc esi
+		inc DWORD PTR[eax]									;telling number of bytes read in first user
+		cmp byte PTR[edx]," "
+		je nameBreak
 		loop nameLoop
 		nameBreak:
-		mov BYTE PTR [esi],0
 
-		inc edx					;Passing the space after name
+		mov BYTE PTR [esi],0								;Adding null termianator at the end of name
+
+		inc edx												;incrementing the space in the buffer after the name
+		inc DWORD PTR[eax]									;incrementing the space in the buffer after the name
 
 
 	mov esi,email
+	mov ecx,50												;max size of email can be 50
 	emailLoop:
-		cmp BYTE PTR[edx]," "
-		je emailBreak
 		mov bl,byte PTR[edx]
 		mov BYTE PTR [esi],bl
 		inc edx
 		inc esi
+		inc DWORD PTR[eax]	
+		cmp BYTE PTR[edx]," "
+		je emailBreak
 		loop emailLoop
 		emailBreak:
-		mov BYTE PTR [esi],0
+		mov BYTE PTR [esi],0								;Adding null termianator at the end of name
 
-		inc edx						;Passing the space after email
+		inc edx												;incrementing the space in the buffer after the email
+		inc DWORD PTR[eax]								;incrementing the space in the buffer after the email
 
 
 	mov esi,password
-	passwordLoop:
-		cmp byte PTR[edx],0
+	mov ecx,10												;max size of password can be 10
+	passwordLoop:									
+		cmp byte PTR[edx],'!'
 		je passwordBreak
 		mov bl,byte PTR[edx]
 		mov BYTE PTR [esi],bl
 		inc edx
 		inc esi
+		inc DWORD PTR[eax]	
 		loop passwordLoop
 	passwordBreak:
-	mov BYTE PTR [esi],0
+		mov BYTE PTR [esi],0								;Adding null termianator at the end of name
 		
-
+										
+		add DWORD PTR[eax],3								;incrementing the space in the buffer after the name
 	
 ret
 readUser ENDP

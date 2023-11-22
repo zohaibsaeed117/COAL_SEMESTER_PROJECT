@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <MASM Include="compareString.asm" />
+    <MASM Include="LOGIN.ASM" />
     <MASM Include="main.asm">
       <FileType>Document</FileType>
     </MASM>

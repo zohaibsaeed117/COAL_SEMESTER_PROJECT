@@ -27,6 +27,9 @@
     <MASM Include="compareString.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="LOGIN.ASM">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

@@ -132,10 +132,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <MASM Include="compareString.asm" />
+    <MASM Include="coursedescrription.asm" />
+    <MASM Include="courseschedule.asm" />
+    <MASM Include="gradepaper.asm" />
+    <MASM Include="gradestore.asm" />
     <MASM Include="LOGIN.ASM" />
     <MASM Include="main.asm">
       <FileType>Document</FileType>
     </MASM>
+    <MASM Include="paper.asm" />
     <MASM Include="PrintMenu.asm" />
     <MASM Include="readUser.asm" />
     <MASM Include="registerStudent.asm" />
@@ -145,6 +150,18 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Auth.txt" />
+    <Text Include="biog.txt" />
+    <Text Include="biomedical.txt" />
+    <Text Include="bioschedule.txt" />
+    <Text Include="chemg.txt" />
+    <Text Include="chemical.txt" />
+    <Text Include="chemsched.txt" />
+    <Text Include="comp.txt" />
+    <Text Include="compsched.txt" />
+    <Text Include="elecg.txt" />
+    <Text Include="elecshed.txt" />
+    <Text Include="electrical.txt" />
+    <Text Include="gradecomp.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

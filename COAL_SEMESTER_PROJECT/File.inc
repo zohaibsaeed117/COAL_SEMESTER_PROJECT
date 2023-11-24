@@ -31,3 +31,14 @@ compareStr PROTO,
 string1:PTR DWORD,
 string2:PTR DWORD,
 flag:PTR DWORD
+
+description PROTO
+
+schedule PROTO
+
+paper PROTO
+
+grade PROTO,
+marrk:DWORD
+
+gradest PROTO

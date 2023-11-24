@@ -1,0 +1,203 @@
+Department:Electrical Engineering
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Semster 1
+*********
+______________________________________________________________________________________
+Roll no.    | Student's Name    | PF     | COAL   | DSA   | AP    | TWPS   | LA     |
+-------------------------------------------------------------------------------------
+2022-cs-601 | Maryam Riaz       |  A     |  B     |  A    |  C    |   D    |   A    |
+2022-cs-602 | Hifsa Amir        |  A     |  A     |  C    |  A    |   A    |   I    |
+2022-cs-603 | Rabia Imtiaz      |  C     |  C     |  A    |  F    |   C    |   D    |
+2022-cs-604 | Khadija Javed     |  D     |  B     |  C    |  A    |   A    |   D    |
+2022-cs-605 | Muzamil Noor      |  A     |  D     |  A    |  A    |   E    |   W    |
+2022-cs-606 | Faiqa Tasawar     |  C     |  B     |  B    |  C    |   A    |   A    |
+2022-cs-607 | Muzamil Noor      |  A     |  F     |  A    |  A    |   F    |   K    |
+2022-cs-609 | Dua Khan          |  A     |  B     |  F    |  I    |   A    |   I    |
+2022-cs-610 | Moazam Ali        |  A     |  C     |  A    |  E    |   A    |   C    |
+2022-cs-611 | Muzamil Noor      |  A     |  F     |  A    |  D    |   I    |   A    |
+2022-cs-612 | Dua Khan          |  A     |  B     |  F    |  F    |   B    |   A    |
+2022-cs-613 | Moazam Ali        |  A     |  C     |  A    |  C    |   B    |   A    |
+2022-cs-614 | Talha Mushtaq     |  B     |  D     |  B    |  B    |   C    |   B    |
+2022-cs-615 | Husnain Ahmad     |  A     |  B     |  A    |  A    |   D    |   C    |
+2022-cs-616 | Rabia Imtiaz      |  F     |  B     |  F    |  A    |   A    |   D    |
+2022-cs-617 | Khadija Javed     |  A     |  B     |  C    |  A    |   I    |   A    |
+2022-cs-618 | Muzamil Noor      |  D     |  B     |  D    |  E    |   C    |   A    |
+2022-cs-619 | Faiqa Tasawar     |  A     |  B     |  A    |  A    |   F    |   A    |
+2022-cs-620 | Muzamil Noor      |  A     |  C     |  B    |  F    |   P    |   D    |
+-------------------------------------------------------------------------------------
+Semster 2
+*********
+_____________________________________________________________________________________
+Roll no.    | Student's Name    | PF     | COAL   | DSA   | AP    | TWPS   | LA     |
+-------------------------------------------------------------------------------------
+2022-cs-601 | Maryam Riaz       |  A     |  B     |  A    |  C    |   D    |   A    |
+2022-cs-602 | Hifsa Amir        |  A     |  A     |  C    |  A    |   A    |   I    |
+2022-cs-603 | Rabia Imtiaz      |  C     |  C     |  A    |  F    |   C    |   D    |
+2022-cs-604 | Khadija Javed     |  D     |  B     |  C    |  A    |   A    |   D    |
+2022-cs-605 | Muzamil Noor      |  A     |  D     |  A    |  A    |   E    |   W    |
+2022-cs-606 | Faiqa Tasawar     |  C     |  B     |  B    |  C    |   A    |   A    |
+2022-cs-607 | Muzamil Noor      |  A     |  F     |  A    |  A    |   F    |   K    |
+2022-cs-609 | Dua Khan          |  A     |  B     |  F    |  I    |   A    |   I    |
+2022-cs-610 | Moazam Ali        |  A     |  C     |  A    |  E    |   A    |   C    |
+2022-cs-611 | Muzamil Noor      |  A     |  F     |  A    |  D    |   I    |   A    |
+2022-cs-612 | Dua Khan          |  A     |  B     |  F    |  F    |   B    |   A    |
+2022-cs-613 | Moazam Ali        |  A     |  C     |  A    |  C    |   B    |   A    |
+2022-cs-614 | Talha Mushtaq     |  B     |  D     |  B    |  B    |   C    |   B    |
+2022-cs-615 | Husnain Ahmad     |  A     |  B     |  A    |  A    |   D    |   C    |
+2022-cs-616 | Rabia Imtiaz      |  F     |  B     |  F    |  A    |   A    |   D    |
+2022-cs-617 | Khadija Javed     |  A     |  B     |  C    |  A    |   I    |   A    |
+2022-cs-618 | Muzamil Noor      |  D     |  B     |  D    |  E    |   C    |   A    |
+2022-cs-619 | Faiqa Tasawar     |  A     |  B     |  A    |  A    |   F    |   A    |
+2022-cs-620 | Muzamil Noor      |  A     |  C     |  B    |  F    |   P    |   D    |
+-------------------------------------------------------------------------------------
+Semster 3
+*********
+_____________________________________________________________________________________
+Roll no.    | Student's Name    | PF     | COAL   | DSA   | AP    | TWPS   | LA     |
+-------------------------------------------------------------------------------------
+2022-cs-601 | Maryam Riaz       |  A     |  B     |  A    |  C    |   D    |   A    |
+2022-cs-602 | Hifsa Amir        |  A     |  A     |  C    |  A    |   A    |   I    |
+2022-cs-603 | Rabia Imtiaz      |  C     |  C     |  A    |  F    |   C    |   D    |
+2022-cs-604 | Khadija Javed     |  D     |  B     |  C    |  A    |   A    |   D    |
+2022-cs-605 | Muzamil Noor      |  A     |  D     |  A    |  A    |   E    |   W    |
+2022-cs-606 | Faiqa Tasawar     |  C     |  B     |  B    |  C    |   A    |   A    |
+2022-cs-607 | Muzamil Noor      |  A     |  F     |  A    |  A    |   F    |   K    |
+2022-cs-609 | Dua Khan          |  A     |  B     |  F    |  I    |   A    |   I    |
+2022-cs-610 | Moazam Ali        |  A     |  C     |  A    |  E    |   A    |   C    |
+2022-cs-611 | Muzamil Noor      |  A     |  F     |  A    |  D    |   I    |   A    |
+2022-cs-612 | Dua Khan          |  A     |  B     |  F    |  F    |   B    |   A    |
+2022-cs-613 | Moazam Ali        |  A     |  C     |  A    |  C    |   B    |   A    |
+2022-cs-614 | Talha Mushtaq     |  B     |  D     |  B    |  B    |   C    |   B    |
+2022-cs-615 | Husnain Ahmad     |  A     |  B     |  A    |  A    |   D    |   C    |
+2022-cs-616 | Rabia Imtiaz      |  F     |  B     |  F    |  A    |   A    |   D    |
+2022-cs-617 | Khadija Javed     |  A     |  B     |  C    |  A    |   I    |   A    |
+2022-cs-618 | Muzamil Noor      |  D     |  B     |  D    |  E    |   C    |   A    |
+2022-cs-619 | Faiqa Tasawar     |  A     |  B     |  A    |  A    |   F    |   A    |
+2022-cs-620 | Muzamil Noor      |  A     |  C     |  B    |  F    |   P    |   D    |
+-------------------------------------------------------------------------------------
+Semster 4
+*********
+_____________________________________________________________________________________
+Roll no.    | Student's Name    | PF     | COAL   | DSA   | AP    | TWPS   | LA     |
+-------------------------------------------------------------------------------------
+2022-cs-601 | Maryam Riaz       |  A     |  B     |  A    |  C    |   D    |   A    |
+2022-cs-602 | Hifsa Amir        |  A     |  A     |  C    |  A    |   A    |   I    |
+2022-cs-603 | Rabia Imtiaz      |  C     |  C     |  A    |  F    |   C    |   D    |
+2022-cs-604 | Khadija Javed     |  D     |  B     |  C    |  A    |   A    |   D    |
+2022-cs-605 | Muzamil Noor      |  A     |  D     |  A    |  A    |   E    |   W    |
+2022-cs-606 | Faiqa Tasawar     |  C     |  B     |  B    |  C    |   A    |   A    |
+2022-cs-607 | Muzamil Noor      |  A     |  F     |  A    |  A    |   F    |   K    |
+2022-cs-609 | Dua Khan          |  A     |  B     |  F    |  I    |   A    |   I    |
+2022-cs-610 | Moazam Ali        |  A     |  C     |  A    |  E    |   A    |   C    |
+2022-cs-611 | Muzamil Noor      |  A     |  F     |  A    |  D    |   I    |   A    |
+2022-cs-612 | Dua Khan          |  A     |  B     |  F    |  F    |   B    |   A    |
+2022-cs-613 | Moazam Ali        |  A     |  C     |  A    |  C    |   B    |   A    |
+2022-cs-614 | Talha Mushtaq     |  B     |  D     |  B    |  B    |   C    |   B    |
+2022-cs-615 | Husnain Ahmad     |  A     |  B     |  A    |  A    |   D    |   C    |
+2022-cs-616 | Rabia Imtiaz      |  F     |  B     |  F    |  A    |   A    |   D    |
+2022-cs-617 | Khadija Javed     |  A     |  B     |  C    |  A    |   I    |   A    |
+2022-cs-618 | Muzamil Noor      |  D     |  B     |  D    |  E    |   C    |   A    |
+2022-cs-619 | Faiqa Tasawar     |  A     |  B     |  A    |  A    |   F    |   A    |
+2022-cs-620 | Muzamil Noor      |  A     |  C     |  B    |  F    |   P    |   D    |
+-------------------------------------------------------------------------------------
+Semster 5
+*********
+_____________________________________________________________________________________
+Roll no.    | Student's Name    | PF     | COAL   | DSA   | AP    | TWPS   | LA     |
+-------------------------------------------------------------------------------------
+2022-cs-601 | Maryam Riaz       |  A     |  B     |  A    |  C    |   D    |   A    |
+2022-cs-602 | Hifsa Amir        |  A     |  A     |  C    |  A    |   A    |   I    |
+2022-cs-603 | Rabia Imtiaz      |  C     |  C     |  A    |  F    |   C    |   D    |
+2022-cs-604 | Khadija Javed     |  D     |  B     |  C    |  A    |   A    |   D    |
+2022-cs-605 | Muzamil Noor      |  A     |  D     |  A    |  A    |   E    |   W    |
+2022-cs-606 | Faiqa Tasawar     |  C     |  B     |  B    |  C    |   A    |   A    |
+2022-cs-607 | Muzamil Noor      |  A     |  F     |  A    |  A    |   F    |   K    |
+2022-cs-609 | Dua Khan          |  A     |  B     |  F    |  I    |   A    |   I    |
+2022-cs-610 | Moazam Ali        |  A     |  C     |  A    |  E    |   A    |   C    |
+2022-cs-611 | Muzamil Noor      |  A     |  F     |  A    |  D    |   I    |   A    |
+2022-cs-612 | Dua Khan          |  A     |  B     |  F    |  F    |   B    |   A    |
+2022-cs-613 | Moazam Ali        |  A     |  C     |  A    |  C    |   B    |   A    |
+2022-cs-614 | Talha Mushtaq     |  B     |  D     |  B    |  B    |   C    |   B    |
+2022-cs-615 | Husnain Ahmad     |  A     |  B     |  A    |  A    |   D    |   C    |
+2022-cs-616 | Rabia Imtiaz      |  F     |  B     |  F    |  A    |   A    |   D    |
+2022-cs-617 | Khadija Javed     |  A     |  B     |  C    |  A    |   I    |   A    |
+2022-cs-618 | Muzamil Noor      |  D     |  B     |  D    |  E    |   C    |   A    |
+2022-cs-619 | Faiqa Tasawar     |  A     |  B     |  A    |  A    |   F    |   A    |
+2022-cs-620 | Muzamil Noor      |  A     |  C     |  B    |  F    |   P    |   D    |
+-------------------------------------------------------------------------------------
+
+Semster 6
+*********
+_____________________________________________________________________________________
+Roll no.    | Student's Name    | PF     | COAL   | DSA   | AP    | TWPS   | LA     |
+-------------------------------------------------------------------------------------
+2022-cs-601 | Maryam Riaz       |  A     |  B     |  A    |  C    |   D    |   A    |
+2022-cs-602 | Hifsa Amir        |  A     |  A     |  C    |  A    |   A    |   I    |
+2022-cs-603 | Rabia Imtiaz      |  C     |  C     |  A    |  F    |   C    |   D    |
+2022-cs-604 | Khadija Javed     |  D     |  B     |  C    |  A    |   A    |   D    |
+2022-cs-605 | Muzamil Noor      |  A     |  D     |  A    |  A    |   E    |   W    |
+2022-cs-606 | Faiqa Tasawar     |  C     |  B     |  B    |  C    |   A    |   A    |
+2022-cs-607 | Muzamil Noor      |  A     |  F     |  A    |  A    |   F    |   K    |
+2022-cs-609 | Dua Khan          |  A     |  B     |  F    |  I    |   A    |   I    |
+2022-cs-610 | Moazam Ali        |  A     |  C     |  A    |  E    |   A    |   C    |
+2022-cs-611 | Muzamil Noor      |  A     |  F     |  A    |  D    |   I    |   A    |
+2022-cs-612 | Dua Khan          |  A     |  B     |  F    |  F    |   B    |   A    |
+2022-cs-613 | Moazam Ali        |  A     |  C     |  A    |  C    |   B    |   A    |
+2022-cs-614 | Talha Mushtaq     |  B     |  D     |  B    |  B    |   C    |   B    |
+2022-cs-615 | Husnain Ahmad     |  A     |  B     |  A    |  A    |   D    |   C    |
+2022-cs-616 | Rabia Imtiaz      |  F     |  B     |  F    |  A    |   A    |   D    |
+2022-cs-617 | Khadija Javed     |  A     |  B     |  C    |  A    |   I    |   A    |
+2022-cs-618 | Muzamil Noor      |  D     |  B     |  D    |  E    |   C    |   A    |
+2022-cs-619 | Faiqa Tasawar     |  A     |  B     |  A    |  A    |   F    |   A    |
+2022-cs-620 | Muzamil Noor      |  A     |  C     |  B    |  F    |   P    |   D    |
+-------------------------------------------------------------------------------------
+Semster 7
+*********
+_____________________________________________________________________________________
+Roll no.    | Student's Name    | PF     | COAL   | DSA   | AP    | TWPS   | LA     |
+-------------------------------------------------------------------------------------
+2022-cs-601 | Maryam Riaz       |  A     |  B     |  A    |  C    |   D    |   A    |
+2022-cs-602 | Hifsa Amir        |  A     |  A     |  C    |  A    |   A    |   I    |
+2022-cs-603 | Rabia Imtiaz      |  C     |  C     |  A    |  F    |   C    |   D    |
+2022-cs-604 | Khadija Javed     |  D     |  B     |  C    |  A    |   A    |   D    |
+2022-cs-605 | Muzamil Noor      |  A     |  D     |  A    |  A    |   E    |   W    |
+2022-cs-606 | Faiqa Tasawar     |  C     |  B     |  B    |  C    |   A    |   A    |
+2022-cs-607 | Muzamil Noor      |  A     |  F     |  A    |  A    |   F    |   K    |
+2022-cs-609 | Dua Khan          |  A     |  B     |  F    |  I    |   A    |   I    |
+2022-cs-610 | Moazam Ali        |  A     |  C     |  A    |  E    |   A    |   C    |
+2022-cs-611 | Muzamil Noor      |  A     |  F     |  A    |  D    |   I    |   A    |
+2022-cs-612 | Dua Khan          |  A     |  B     |  F    |  F    |   B    |   A    |
+2022-cs-613 | Moazam Ali        |  A     |  C     |  A    |  C    |   B    |   A    |
+2022-cs-614 | Talha Mushtaq     |  B     |  D     |  B    |  B    |   C    |   B    |
+2022-cs-615 | Husnain Ahmad     |  A     |  B     |  A    |  A    |   D    |   C    |
+2022-cs-616 | Rabia Imtiaz      |  F     |  B     |  F    |  A    |   A    |   D    |
+2022-cs-617 | Khadija Javed     |  A     |  B     |  C    |  A    |   I    |   A    |
+2022-cs-618 | Muzamil Noor      |  D     |  B     |  D    |  E    |   C    |   A    |
+2022-cs-619 | Faiqa Tasawar     |  A     |  B     |  A    |  A    |   F    |   A    |
+2022-cs-620 | Muzamil Noor      |  A     |  C     |  B    |  F    |   P    |   D    |
+-------------------------------------------------------------------------------------
+Semster 8
+*********
+_____________________________________________________________________________________
+Roll no.    | Student's Name    | PF     | COAL   | DSA   | AP    | TWPS   | LA     |
+-------------------------------------------------------------------------------------
+2022-cs-601 | Maryam Riaz       |  A     |  B     |  A    |  C    |   D    |   A    |
+2022-cs-602 | Hifsa Amir        |  A     |  A     |  C    |  A    |   A    |   I    |
+2022-cs-603 | Rabia Imtiaz      |  C     |  C     |  A    |  F    |   C    |   D    |
+2022-cs-604 | Khadija Javed     |  D     |  B     |  C    |  A    |   A    |   D    |
+2022-cs-605 | Muzamil Noor      |  A     |  D     |  A    |  A    |   E    |   W    |
+2022-cs-606 | Faiqa Tasawar     |  C     |  B     |  B    |  C    |   A    |   A    |
+2022-cs-607 | Muzamil Noor      |  A     |  F     |  A    |  A    |   F    |   K    |
+2022-cs-609 | Dua Khan          |  A     |  B     |  F    |  I    |   A    |   I    |
+2022-cs-610 | Moazam Ali        |  A     |  C     |  A    |  E    |   A    |   C    |
+2022-cs-611 | Muzamil Noor      |  A     |  F     |  A    |  D    |   I    |   A    |
+2022-cs-612 | Dua Khan          |  A     |  B     |  F    |  F    |   B    |   A    |
+2022-cs-613 | Moazam Ali        |  A     |  C     |  A    |  C    |   B    |   A    |
+2022-cs-614 | Talha Mushtaq     |  B     |  D     |  B    |  B    |   C    |   B    |
+2022-cs-615 | Husnain Ahmad     |  A     |  B     |  A    |  A    |   D    |   C    |
+2022-cs-616 | Rabia Imtiaz      |  F     |  B     |  F    |  A    |   A    |   D    |
+2022-cs-617 | Khadija Javed     |  A     |  B     |  C    |  A    |   I    |   A    |
+2022-cs-618 | Muzamil Noor      |  D     |  B     |  D    |  E    |   C    |   A    |
+2022-cs-619 | Faiqa Tasawar     |  A     |  B     |  A    |  A    |   F    |   A    |
+2022-cs-620 | Muzamil Noor      |  A     |  C     |  B    |  F    |   P    |   D    |
+-------------------------------------------------------------------------------------

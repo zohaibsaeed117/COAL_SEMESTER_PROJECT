@@ -3,10 +3,12 @@ INCLUDE file.inc
 	choice DWORD ?
 	user student <>
 	welcome byte "Welcome ",0
+	invalid BYTE "Invalid number entered!",13,10,0
 .code
 main PROC
 
-	call HomeMenu
+
+	call printMenu
 	mov eax,choice
 	call ReadInt
 	mov choice,eax
@@ -15,7 +17,20 @@ main PROC
 	.ELSEIF choice==2
 		Invoke registerStudent
 	.ELSEIF choice==3
-		Invoke ChangePassword
+	Invoke ChangePassword
+	.ELSEIF choice==4
+	    Invoke description
+	.ELSEIF choice==5
+	    Invoke schedule
+	.ELSEIF choice==6
+	    Invoke gradest
+	.ELSE
+		mov eax,red+(black * 16)
+		call settextcolor
+		mov edx,offset invalid
+		call writestring
+		mov eax,white+(black * 16)				   
+		call settextcolor
 	.ENDIF
 	call waitMsg
 	call clrscr
@@ -30,7 +45,8 @@ main PROC
 
 
 
-quitNow:
+
+	quitNow:
 INVOKE ExitProcess,0 
 main ENDP
 END main

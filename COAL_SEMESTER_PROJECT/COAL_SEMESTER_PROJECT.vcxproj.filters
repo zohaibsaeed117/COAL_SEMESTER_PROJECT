@@ -36,6 +36,21 @@
     <MASM Include="changePassword.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="coursedescrription.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="courseschedule.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="paper.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="gradepaper.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="gradestore.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">
@@ -44,6 +59,42 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Auth.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="biomedical.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="bioschedule.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="chemical.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="chemsched.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="comp.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="compsched.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="elecshed.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="electrical.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="gradecomp.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="elecg.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="biog.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="chemg.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

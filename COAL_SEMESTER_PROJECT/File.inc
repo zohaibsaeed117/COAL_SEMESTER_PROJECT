@@ -10,11 +10,17 @@ STUDENT struct
 	address byte 20 DUP(0)
 STUDENT ENDS
 
-PrintMEnu PROTO
+HomeMenu PROTO
 
 registerStudent PROTO
 
-Login PROTO
+Login PROTO,
+id:PTR DWORD,
+stuName:PTR DWORD,
+email:PTR DWORD,
+contact:PTR DWORD,
+address:PTR DWORD,
+password:PTR DWORD,
 
 ReadUser PROTO,
 buffer:PTR DWORD,
@@ -26,6 +32,8 @@ contact:PTR DWORD,
 address:PTR DWORD,
 password:PTR DWORD,
 bytesRead:PTR DWORD
+
+ChangePassword PROTO
 
 compareStr PROTO,
 string1:PTR DWORD,

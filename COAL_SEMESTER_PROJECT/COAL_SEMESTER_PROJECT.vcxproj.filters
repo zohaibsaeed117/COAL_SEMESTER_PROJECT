@@ -30,7 +30,10 @@
     <MASM Include="LOGIN.ASM">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="PrintMenu.asm">
+    <MASM Include="HomeMenu.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="changePassword.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>

@@ -136,8 +136,9 @@
     <MASM Include="main.asm">
       <FileType>Document</FileType>
     </MASM>
-    <MASM Include="PrintMenu.asm" />
+    <MASM Include="HomeMenu.asm" />
     <MASM Include="readUser.asm" />
+    <MASM Include="changePassword.asm" />
     <MASM Include="registerStudent.asm" />
   </ItemGroup>
   <ItemGroup>

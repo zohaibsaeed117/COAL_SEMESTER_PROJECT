@@ -141,7 +141,7 @@
       <FileType>Document</FileType>
     </MASM>
     <MASM Include="paper.asm" />
-    <MASM Include="HomeMenu.asm" />
+    <MASM Include="printMenu.asm" />
     <MASM Include="readUser.asm" />
     <MASM Include="changePassword.asm" />
     <MASM Include="registerStudent.asm" />

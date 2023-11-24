@@ -8,7 +8,7 @@ INCLUDE file.inc
 main PROC
 
 
-	call printMenu
+	call PrintMenu
 	mov eax,choice
 	call ReadInt
 	mov choice,eax

@@ -10,7 +10,7 @@ STUDENT struct
 	address byte 20 DUP(0)
 STUDENT ENDS
 
-HomeMenu PROTO
+PrintMenu PROTO
 
 registerStudent PROTO
 

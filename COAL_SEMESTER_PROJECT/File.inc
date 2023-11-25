@@ -35,6 +35,9 @@ bytesRead:PTR DWORD
 
 ChangePassword PROTO
 
+RegisterCourse PROTO,
+studentName:PTR DWORD
+
 compareStr PROTO,
 string1:PTR DWORD,
 string2:PTR DWORD,

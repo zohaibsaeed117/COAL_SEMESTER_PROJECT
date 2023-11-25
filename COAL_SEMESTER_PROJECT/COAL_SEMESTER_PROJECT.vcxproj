@@ -145,6 +145,7 @@
     <MASM Include="printMenu.asm" />
     <MASM Include="readUser.asm" />
     <MASM Include="changePassword.asm" />
+    <MASM Include="RegisterCourse.asm" />
     <MASM Include="registerStudent.asm" />
   </ItemGroup>
   <ItemGroup>

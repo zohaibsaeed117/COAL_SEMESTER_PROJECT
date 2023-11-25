@@ -54,6 +54,9 @@
     <MASM Include="concatStr.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="RegisterCourse.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

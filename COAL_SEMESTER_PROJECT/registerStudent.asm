@@ -225,10 +225,9 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	mov success,1				;If the user is registered Successfully
 	mov edx,offset successMsg
 	call writeString
-
-	Invoke concatstr,ADDR stu.stuName,ADDR txt,ADDR newFile
+	;Creating a file of newly registered student
+	Invoke concatstr,ADDR stu.id,ADDR txt,ADDR newFile
 	invoke CreateFile,ADDR newFile,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
-	call writeWindowsMsg
 	mov edx,eax
 	call closeFile
 	jmp quit

@@ -1,0 +1,90 @@
+Chemical Engineering
+~~~~~~~~~~~~~~~~~~~~
+Semster 1
+*********
+_____________________________________________________________________________________________________________
+ Date      | Day        | Subject                                     | Subject In Charge|Time    |Room no. |
+-------------------------------------------------------------------------------------------------------------
+30-10-2023 | Monday     | Linear Algebra                              | Mr.Usama Majeed  |09:00am |Room F-4 |
+31-10-2023 | Tuesday    | Data Structures and Algorithms              | Mr.Danish Mohsin |09:00am |Room F-5 |
+01-10-2023 | Wednesday  | Computer Organization and Assembly Language | Mr.Nadeem Iqbal  |09:00am |Room G-7 |
+02-11-2023 | Thursday   | Technical Writing and Presentation Skills   | Mr.Hassan Imtiaz |09:00am |Room G-4 |
+03-11-2023 | Friday     | Discrete Maths                              | Ms.Namra Sheikh  |09:00am |Room F-11|
+-------------------------------------------------------------------------------------------------------------
+Semster 2
+*********
+_____________________________________________________________________________________________________________
+ Date      | Day        | Subject                                     | Subject In Charge|Time    |Room no. |
+-------------------------------------------------------------------------------------------------------------
+30-10-2023 | Monday     | Linear Algebra                              | Mr.Usama Majeed  |09:00am |Room F-4 |
+31-10-2023 | Tuesday    | Data Structures and Algorithms              | Mr.Danish Mohsin |09:00am |Room F-5 |
+01-10-2023 | Wednesday  | Computer Organization and Assembly Language | Mr.Nadeem Iqbal  |09:00am |Room G-7 |
+02-11-2023 | Thursday   | Technical Writing and Presentation Skills   | Mr.Hassan Imtiaz |09:00am |Room G-4 |
+03-11-2023 | Friday     | Discrete Maths                              | Ms.Namra Sheikh  |09:00am |Room F-11|
+-------------------------------------------------------------------------------------------------------------
+Semster 3
+*********
+_____________________________________________________________________________________________________________
+ Date      | Day        | Subject                                     | Subject In Charge|Time    |Room no. |
+-------------------------------------------------------------------------------------------------------------
+30-10-2023 | Monday     | Linear Algebra                              | Mr.Usama Majeed  |09:00am |Room F-4 |
+31-10-2023 | Tuesday    | Data Structures and Algorithms              | Mr.Danish Mohsin |09:00am |Room F-5 |
+01-10-2023 | Wednesday  | Computer Organization and Assembly Language | Mr.Nadeem Iqbal  |09:00am |Room G-7 |
+02-11-2023 | Thursday   | Technical Writing and Presentation Skills   | Mr.Hassan Imtiaz |09:00am |Room G-4 |
+03-11-2023 | Friday     | Discrete Maths                              | Ms.Namra Sheikh  |09:00am |Room F-11|
+-------------------------------------------------------------------------------------------------------------
+Semster 4
+*********
+_____________________________________________________________________________________________________________
+ Date      | Day        | Subject                                     | Subject In Charge|Time    |Room no. |
+-------------------------------------------------------------------------------------------------------------
+30-10-2023 | Monday     | Linear Algebra                              | Mr.Usama Majeed  |09:00am |Room F-4 |
+31-10-2023 | Tuesday    | Data Structures and Algorithms              | Mr.Danish Mohsin |09:00am |Room F-5 |
+01-10-2023 | Wednesday  | Computer Organization and Assembly Language | Mr.Nadeem Iqbal  |09:00am |Room G-7 |
+02-11-2023 | Thursday   | Technical Writing and Presentation Skills   | Mr.Hassan Imtiaz |09:00am |Room G-4 |
+03-11-2023 | Friday     | Discrete Maths                              | Ms.Namra Sheikh  |09:00am |Room F-11|
+-------------------------------------------------------------------------------------------------------------
+Semster 5
+*********
+_____________________________________________________________________________________________________________
+ Date      | Day        | Subject                                     | Subject In Charge|Time    |Room no. |
+-------------------------------------------------------------------------------------------------------------
+30-10-2023 | Monday     | Linear Algebra                              | Mr.Usama Majeed  |09:00am |Room F-4 |
+31-10-2023 | Tuesday    | Data Structures and Algorithms              | Mr.Danish Mohsin |09:00am |Room F-5 |
+01-10-2023 | Wednesday  | Computer Organization and Assembly Language | Mr.Nadeem Iqbal  |09:00am |Room G-7 |
+02-11-2023 | Thursday   | Technical Writing and Presentation Skills   | Mr.Hassan Imtiaz |09:00am |Room G-4 |
+03-11-2023 | Friday     | Discrete Maths                              | Ms.Namra Sheikh  |09:00am |Room F-11|
+-------------------------------------------------------------------------------------------------------------
+Semster 6
+*********
+_____________________________________________________________________________________________________________
+ Date      | Day        | Subject                                     | Subject In Charge|Time    |Room no. |
+-------------------------------------------------------------------------------------------------------------
+30-10-2023 | Monday     | Linear Algebra                              | Mr.Usama Majeed  |09:00am |Room F-4 |
+31-10-2023 | Tuesday    | Data Structures and Algorithms              | Mr.Danish Mohsin |09:00am |Room F-5 |
+01-10-2023 | Wednesday  | Computer Organization and Assembly Language | Mr.Nadeem Iqbal  |09:00am |Room G-7 |
+02-11-2023 | Thursday   | Technical Writing and Presentation Skills   | Mr.Hassan Imtiaz |09:00am |Room G-4 |
+03-11-2023 | Friday     | Discrete Maths                              | Ms.Namra Sheikh  |09:00am |Room F-11|
+-------------------------------------------------------------------------------------------------------------
+Semster 7
+*********
+_____________________________________________________________________________________________________________
+ Date      | Day        | Subject                                     | Subject In Charge|Time    |Room no. |
+-------------------------------------------------------------------------------------------------------------
+30-10-2023 | Monday     | Linear Algebra                              | Mr.Usama Majeed  |09:00am |Room F-4 |
+31-10-2023 | Tuesday    | Data Structures and Algorithms              | Mr.Danish Mohsin |09:00am |Room F-5 |
+01-10-2023 | Wednesday  | Computer Organization and Assembly Language | Mr.Nadeem Iqbal  |09:00am |Room G-7 |
+02-11-2023 | Thursday   | Technical Writing and Presentation Skills   | Mr.Hassan Imtiaz |09:00am |Room G-4 |
+03-11-2023 | Friday     | Discrete Maths                              | Ms.Namra Sheikh  |09:00am |Room F-11|
+-------------------------------------------------------------------------------------------------------------
+Semster 8
+*********
+_____________________________________________________________________________________________________________
+ Date      | Day        | Subject                                     | Subject In Charge|Time    |Room no. |
+-------------------------------------------------------------------------------------------------------------
+30-10-2023 | Monday     | Linear Algebra                              | Mr.Usama Majeed  |09:00am |Room F-4 |
+31-10-2023 | Tuesday    | Data Structures and Algorithms              | Mr.Danish Mohsin |09:00am |Room F-5 |
+01-10-2023 | Wednesday  | Computer Organization and Assembly Language | Mr.Nadeem Iqbal  |09:00am |Room G-7 |
+02-11-2023 | Thursday   | Technical Writing and Presentation Skills   | Mr.Hassan Imtiaz |09:00am |Room G-4 |
+03-11-2023 | Friday     | Discrete Maths                              | Ms.Namra Sheikh  |09:00am |Room F-11|
+-------------------------------------------------------------------------------------------------------------

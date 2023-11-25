@@ -26,6 +26,8 @@ main PROC
 	    Invoke schedule
 	.ELSEIF choice==6
 	    Invoke gradest
+	.ELSEIF choice==7
+	    Invoke examings
 	.ELSEIF choice==0
 	jmp quitNow
 	.ELSE

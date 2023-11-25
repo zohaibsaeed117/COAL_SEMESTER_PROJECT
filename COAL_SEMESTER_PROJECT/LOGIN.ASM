@@ -15,6 +15,7 @@ Include File.inc
 	successMsg byte "You are logged in successfully",0
 	tempId byte 20 DUP(?)
 	tempPassword byte 10 DUP(?)
+
 .code
 Login PROC,
 id:PTR DWORD,
@@ -22,7 +23,7 @@ stuName:PTR DWORD,
 email:PTR DWORD,
 contact:PTR DWORD,
 address:PTR DWORD,
-password:PTR DWORD,
+password:PTR DWORD
 
 takeCredentials:
 INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File

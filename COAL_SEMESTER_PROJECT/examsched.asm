@@ -3,12 +3,12 @@ INCLUDE File.inc
 .data
 
 buffersize=50000
-compg BYTE "gradecomp.txt",0
-electrig BYTE "elecg.txt",0
-biolog BYTE "biog.txt",0
-chemicalg BYTE "chemg,txt",0
-buffer BYTE buffersize DUP(?)
-filehandle dd ?
+comps BYTE "compexam.txt",0
+boys BYTE "bioexam.txt",0
+chems BYTE "chemexam.txt",0
+elecs BYTE "elecexam.txt",0
+buffer BYTE buffersize DUP (?)
+filehandle DWORD ?
 errorMsg BYTE "File cannot be opened!",0dh,0ah,0
 comp BYTE "1. Computer Science",13,10
  BYTE "2. Electrical Engineering",13,10
@@ -19,7 +19,7 @@ invalid BYTE "Invalid number entered!",13,10,0
 
 .code
 
-gradest PROC 
+examings PROC 
 
 mov edx,offset comp
 call writestring
@@ -30,7 +30,7 @@ call readdec
 mov eax,cyan+(black * 16)
 call settextcolor
 
-mov edx,offset compg
+mov edx,offset comps
 call openinputfile
 mov filehandle,eax
 
@@ -51,10 +51,10 @@ jmp quit
 
 .ELSEIF eax==2
 
-mov eax,cyan+(black * 16)
+mov eax,lightgreen+(black * 16)
 call settextcolor
 
-mov edx,offset electrig
+mov edx,offset elecs
 call openinputfile
 mov filehandle,eax
 
@@ -75,10 +75,10 @@ jmp quit
 
 .ELSEIF eax==3
 
-mov eax,cyan+(black * 16)
+mov eax,lightgreen+(black * 16)
 call settextcolor
 
-mov edx,offset biolog
+mov edx,offset boys
 call openinputfile
 mov filehandle,eax
 
@@ -98,10 +98,10 @@ call closefile
 
 .ELSEIF eax==4
 
-mov eax,cyan+(black * 16)
+mov eax,lightgreen+(black * 16)
 call settextcolor
 
-mov edx,offset chemicalg
+mov edx,offset chems
 call openinputfile
 mov filehandle,eax
 
@@ -135,6 +135,6 @@ call settextcolor
 nop 
 
 ret
-gradest ENDP
+examings ENDP
 
 END

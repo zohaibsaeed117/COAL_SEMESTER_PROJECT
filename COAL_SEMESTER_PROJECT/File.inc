@@ -20,7 +20,7 @@ stuName:PTR DWORD,
 email:PTR DWORD,
 contact:PTR DWORD,
 address:PTR DWORD,
-password:PTR DWORD,
+password:PTR DWORD
 
 ReadUser PROTO,
 buffer:PTR DWORD,
@@ -58,3 +58,5 @@ grade PROTO,
 marrk:DWORD
 
 gradest PROTO
+
+examings PROTO

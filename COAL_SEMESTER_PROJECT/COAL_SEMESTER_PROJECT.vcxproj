@@ -135,6 +135,7 @@
     <MASM Include="concatStr.asm" />
     <MASM Include="coursedescrription.asm" />
     <MASM Include="courseschedule.asm" />
+    <MASM Include="examsched.asm" />
     <MASM Include="gradepaper.asm" />
     <MASM Include="gradestore.asm" />
     <MASM Include="LOGIN.ASM" />
@@ -153,14 +154,18 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Auth.txt" />
+    <Text Include="bioexam.txt" />
     <Text Include="biog.txt" />
     <Text Include="biomedical.txt" />
     <Text Include="bioschedule.txt" />
+    <Text Include="chemexam.txt" />
     <Text Include="chemg.txt" />
     <Text Include="chemical.txt" />
     <Text Include="chemsched.txt" />
     <Text Include="comp.txt" />
+    <Text Include="compexam.txt" />
     <Text Include="compsched.txt" />
+    <Text Include="elecexam.txt" />
     <Text Include="elecg.txt" />
     <Text Include="elecshed.txt" />
     <Text Include="electrical.txt" />

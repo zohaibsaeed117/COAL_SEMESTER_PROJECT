@@ -2,12 +2,14 @@ INCLUDE file.inc
 .data
 	choice DWORD ?
 	user student <>
-	welcome byte "Welcome ",0
+	welcome byte "Welcome",0
 	invalid BYTE "Invalid number entered!",13,10,0
+	msg byte ".txt",0
+	result byte 100 DUP(?)
 .code
 main PROC
-
-
+	again:
+	call clrscr
 	call PrintMenu
 	mov eax,choice
 	call ReadInt
@@ -24,6 +26,8 @@ main PROC
 	    Invoke schedule
 	.ELSEIF choice==6
 	    Invoke gradest
+	.ELSEIF choice==0
+	jmp quitNow
 	.ELSE
 		mov eax,red+(black * 16)
 		call settextcolor
@@ -33,14 +37,11 @@ main PROC
 		call settextcolor
 	.ENDIF
 	call waitMsg
-	call clrscr
-	mov edx,offset welcome
-	call writeString
-	mov edx,offset user.stuName
-	call writeString
-
+	jmp again
 	call CRLF
 	
+
+
 
 
 

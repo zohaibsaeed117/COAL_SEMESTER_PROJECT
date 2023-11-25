@@ -28,6 +28,8 @@ Include File.inc
 	success byte ?
 	userFoundMsg byte "User Already Exists",0
 	successMsg byte "User registred Successfully",0
+	txt byte ".txt",0
+	newFile byte 20 DUP(?)
 .code
 registerStudent PROC
 
@@ -223,7 +225,14 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	mov success,1				;If the user is registered Successfully
 	mov edx,offset successMsg
 	call writeString
+
+	Invoke concatstr,ADDR stu.stuName,ADDR txt,ADDR newFile
+	invoke CreateFile,ADDR newFile,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
+	call writeWindowsMsg
+	mov edx,eax
+	call closeFile
 	jmp quit
+
 userFound:
 mov edx,offset userFoundMsg
 call writeString

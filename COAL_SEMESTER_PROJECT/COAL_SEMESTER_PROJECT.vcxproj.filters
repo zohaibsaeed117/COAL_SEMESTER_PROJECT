@@ -30,9 +30,6 @@
     <MASM Include="LOGIN.ASM">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="HomeMenu.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
     <MASM Include="changePassword.asm">
       <Filter>Source Files</Filter>
     </MASM>
@@ -49,6 +46,12 @@
       <Filter>Source Files</Filter>
     </MASM>
     <MASM Include="gradestore.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="printMenu.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="concatStr.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>

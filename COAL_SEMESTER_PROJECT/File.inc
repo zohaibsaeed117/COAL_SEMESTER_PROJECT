@@ -40,6 +40,11 @@ string1:PTR DWORD,
 string2:PTR DWORD,
 flag:PTR DWORD
 
+concatStr PROTO,
+string1:PTR DWORD,
+string2:PTR DWORD,
+result:PTR DWORD
+
 description PROTO
 
 schedule PROTO

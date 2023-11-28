@@ -21,13 +21,13 @@
     <MASM Include="registerStudent.asm">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="readUser.asm">
+    <MASM Include="readStudent.asm">
       <Filter>Source Files</Filter>
     </MASM>
     <MASM Include="compareString.asm">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="LOGIN.ASM">
+    <MASM Include="LoginStudent.ASM">
       <Filter>Source Files</Filter>
     </MASM>
     <MASM Include="changePassword.asm">
@@ -57,6 +57,27 @@
     <MASM Include="RegisterCourse.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="examsched.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="PrintMainMenu.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="StudentMenu.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="PrintLoginMenu.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="LoginFaculty.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="ReadFaculty.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="FacultyMenu.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">
@@ -64,7 +85,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Auth.txt">
+    <Text Include="AuthStudent.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="biomedical.txt">
@@ -101,6 +122,21 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="chemg.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="bioexam.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="chemexam.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="compexam.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="elecexam.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="AuthFaculty.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

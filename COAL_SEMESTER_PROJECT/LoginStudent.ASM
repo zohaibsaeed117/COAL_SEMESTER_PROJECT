@@ -1,30 +1,33 @@
 Include File.inc
 .data
-	authentication byte "Auth.txt",0
+	authentication byte "AuthStudent.txt",0
 	buffer byte 5000 DUP(?)
 	bufferSize DWORD ?
 	filehandle DWORD ?
-	bytesbuffer DWORD ?
 	bytesWritten DWORD ?
 	bytesRead DWORD 0
 	errMsg byte "Unable to open File",0
 	IdMsg byte "Enter your Id: ",0
 	passMsg byte "Enter your Password: ",0 
-	newpassMsg byte "Enter your new Password: ",0 
 	flag byte ?
-	success byte ?
 	notFound byte "Wrong Credentials",0
-	successMsg byte "Your password has been changed successfully",0
+	successMsg byte "You are logged in successfully",0
 	tempId byte 20 DUP(?)
 	tempPassword byte 10 DUP(?)
-	newPassword byte 10 DUP(?)
-	stu student <>
+	tabp byte "	",0
 
 .code
-changePassword PROC
+LoginStudent PROC,
+id:PTR BYTE,
+stuName:PTR BYTE,
+email:PTR BYTE,
+contact:PTR BYTE,
+address:PTR BYTE,
+password:PTR BYTE
 
 takeCredentials:
-INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
+call clrscr
+INVOKE createFile, ADDR authentication,GENERIC_READ,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 
 
@@ -35,7 +38,12 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	  jmp  quit
 	.ENDIF
 
-	
+	call CRLF
+	call CRLF
+	call CRLF
+	mov edx,offset tabp
+	call writeString
+
 	mov edx,offset idMsg				;printing the message for user to enter the email
 	call writeString
 
@@ -43,6 +51,11 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	mov ecx,20
 	call readString
 
+	call CRLF
+	call CRLF
+	call CRLF
+	mov edx,offset tabp
+	call writeString
 	mov edx,offset passMsg				;printing the message for user to enter the password
 	call writeString
 
@@ -53,12 +66,11 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	;-----------------------------------------Checking whether the user exists already or not-------------------------|
 
 	Invoke ReadFile,filehandle,offset buffer,5000,ADDR bufferSize,0
-	Invoke closehandle,fileHandle
+	
 	  mov edi,offset buffer
-	  mov eax,bufferSize
-	  mov bytesBuffer,eax
 	  readFileLoop:
-	  Invoke readStudent,edi,bufferSize,ADDR stu.id,ADDR stu.Stuname,ADDR stu.email,ADDR stu.contact,ADDR stu.address,ADDR stu.password,addr bytesRead
+	  Invoke readStudent,edi,bufferSize,id,Stuname,email,contact,address,password,addr bytesRead
+
 	  add edi,bytesRead					;Moving to next line which contains the data of next user
 
 
@@ -66,54 +78,30 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	  sub bufferSize,eax				;subracting the buffersize after taking details of one user
 
 
-	  Invoke compareStr, ADDR stu.id,ADDR Tempid,ADDR flag
+	  Invoke compareStr, id,ADDR Tempid,ADDR flag
 	  cmp flag,0
 	  je emailNotFound
-	  Invoke compareStr, ADDr stu.password,ADDR temppassword,ADDR flag
+	  Invoke compareStr, password,ADDR temppassword,ADDR flag
 	  cmp flag,1
-	  je userFound
+	  je quit
 	  emailNotFound:
 	  cmp bufferSize,0
 	  jnle readFileLoop
-	  jmp quit
-userFound:
-	mov al," "			;going back in the buffer to find the space
-	mov ecx,12			
-	std
-	repne scasb
-	add edi,2
-	mov edx,offset newPassMsg
-	call writeString
 
-	mov edx,offset newpassword
-	mov ecx,10
-	call readString
-
-	mov esi,offset newpassword
-	cld
-	mov ecx,eax
-	rep movsb
-
-	invoke CreateFile,ADDR authentication,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
-	mov filehandle,eax
-	.IF eax == INVALID_HANDLE_VALUE
-	  mov  edx,OFFSET errMsg		; Display error message
-	  call WriteString
-	  jmp  quit
-	.ENDIF
-
-	Invoke WriteFile,filehandle,offset buffer,bytesBuffer,ADDR bytesWritten,0
-
-	mov edx,offset successMsg
-	call writeString
-	jmp quitProc
+mov edx,offset notFound
+call writeString
+call CRLF
+mov edx,fileHandle
+call closeFile
+call waitMsg
+jmp takeCredentials
 quit:
-	mov edx,offset notFound
-	call writeString
-	call CRLF
-quitPROC:
+mov edx,offset successMsg
+call writeString
+mov eax,1
+call CRLF
 	mov edx,filehandle
 	call closeFile
 ret
-changePassword endp
+LoginStudent endp
 end

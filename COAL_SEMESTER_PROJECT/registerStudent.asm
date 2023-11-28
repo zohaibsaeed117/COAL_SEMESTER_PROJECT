@@ -1,6 +1,6 @@
 Include File.inc
 .data
-	authentication byte "Auth.txt",0
+	authentication byte "AuthStudent.txt",0
 	buffer byte 5000 DUP(?)
 	bufferSize SDWORD ?
 	filehandle DWORD ?
@@ -30,6 +30,7 @@ Include File.inc
 	successMsg byte "User registred Successfully",0
 	txt byte ".txt",0
 	newFile byte 20 DUP(?)
+	tabp byte " ",0
 .code
 registerStudent PROC
 
@@ -46,6 +47,10 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 	takeCredentials:
 
+	call CRLF
+	call CRLF
+	call CRLF
+	mov edx,offset tabp
 	mov edx,offset idMsg
 	call writeString
 
@@ -54,6 +59,11 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	call readString
 	mov idLen,eax
 	
+	
+	call CRLF
+	call CRLF
+	call CRLF
+	mov edx,offset tabp
 	mov edx,offset namemsg				;printing the message for user to enter the name
 	call writeString
 
@@ -63,6 +73,10 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 	mov nameLen,eax
 	
+	call CRLF
+	call CRLF
+	call CRLF
+	mov edx,offset tabp
 	mov edx,offset emailmsg				;printing the message for user to enter the email
 	call writeString
 
@@ -71,7 +85,11 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	call readString
 	mov emailLen,eax
 
-
+	
+	call CRLF
+	call CRLF
+	call CRLF
+	mov edx,offset tabp
 	mov edx,offset contactmsg				;printing the message for user to enter the contact number
 	call writeString
 
@@ -80,6 +98,10 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	call readString
 	mov contactLen,eax
 
+	call CRLF
+	call CRLF
+	call CRLF
+	mov edx,offset tabp
 	mov edx,offset addressMsg				;printing the message for user to enter the contact number
 	call writeString
 
@@ -87,7 +109,11 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	mov ecx,50
 	call readString
 	mov addressLen,eax
-
+	
+	call CRLF
+	call CRLF
+	call CRLF
+	mov edx,offset tabp
 	mov edx,offset passMsg				;printing the message for user to enter the password
 	call writeString
 
@@ -110,7 +136,7 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 	  mov edi,offset buffer
 	  readFileLoop:
-	  Invoke readUser,edi,bufferSize,ADDR temp.id,ADDR temp.Stuname,ADDR temp.email,ADDR temp.contact,ADDR temp.address,ADDR temp.password,addr bytesRead
+	  Invoke readStudent,edi,bufferSize,ADDR temp.id,ADDR temp.Stuname,ADDR temp.email,ADDR temp.contact,ADDR temp.address,ADDR temp.password,addr bytesRead
 
 	  add edi,bytesRead					;Moving to next line which contains the data of next user
 

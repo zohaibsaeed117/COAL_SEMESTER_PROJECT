@@ -131,29 +131,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="AuthFaculty.txt">
+      <FileType>Document</FileType>
+    </Text>
     <MASM Include="compareString.asm" />
     <MASM Include="concatStr.asm" />
     <MASM Include="coursedescrription.asm" />
     <MASM Include="courseschedule.asm" />
     <MASM Include="examsched.asm" />
+    <MASM Include="FacultyMenu.asm" />
     <MASM Include="gradepaper.asm" />
     <MASM Include="gradestore.asm" />
-    <MASM Include="LOGIN.ASM" />
+    <MASM Include="LoginFaculty.asm" />
+    <MASM Include="LoginStudent.ASM" />
     <MASM Include="main.asm">
       <FileType>Document</FileType>
     </MASM>
     <MASM Include="paper.asm" />
+    <MASM Include="PrintLoginMenu.asm" />
+    <MASM Include="PrintMainMenu.asm" />
     <MASM Include="printMenu.asm" />
-    <MASM Include="readUser.asm" />
+    <MASM Include="ReadFaculty.asm" />
+    <MASM Include="readStudent.asm" />
     <MASM Include="changePassword.asm" />
     <MASM Include="RegisterCourse.asm" />
     <MASM Include="registerStudent.asm" />
+    <MASM Include="StudentMenu.asm" />
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Auth.txt" />
+    <Text Include="AuthStudent.txt" />
     <Text Include="bioexam.txt" />
     <Text Include="biog.txt" />
     <Text Include="biomedical.txt" />

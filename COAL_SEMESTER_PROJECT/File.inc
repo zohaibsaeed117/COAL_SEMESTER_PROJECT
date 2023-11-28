@@ -10,27 +10,44 @@ STUDENT struct
 	address byte 20 DUP(0)
 STUDENT ENDS
 
+PrintMainMenu PROTO
+
+PrintLoginMenu PROTO			;will print the menu in which it will ask user if he wants to register a new student or login
+
 PrintMenu PROTO
+
+StudentMenu PROTO				;Student interface
+
+FacultyMenu PROTO				;Faculty interface
 
 registerStudent PROTO
 
-Login PROTO,
-id:PTR DWORD,
-stuName:PTR DWORD,
-email:PTR DWORD,
-contact:PTR DWORD,
-address:PTR DWORD,
-password:PTR DWORD
+LoginStudent PROTO,
+id:PTR BYTE,
+stuName:PTR BYTE,
+email:PTR BYTE,
+contact:PTR BYTE,
+address:PTR BYTE,
+password:PTR BYTE
 
-ReadUser PROTO,
-buffer:PTR DWORD,
+LoginFaculty PROTO
+
+ReadStudent PROTO,
+buffer:PTR BYTE,
 bufferSize:DWORD,
-id:PTR DWORD,
-stuName:PTR DWORD,
-email:PTR DWORD,
-contact:PTR DWORD,
-address:PTR DWORD,
-password:PTR DWORD,
+id:PTR BYTE,
+stuName:PTR BYTE,
+email:PTR BYTE,
+contact:PTR BYTE,
+address:PTR BYTE,
+password:PTR BYTE,
+bytesRead:PTR DWORD
+
+ReadFaculty PROTO,
+buffer:PTR BYTE,
+bufferSize:DWORD,
+email:PTR BYTE,
+password:PTR BYTE,
 bytesRead:PTR DWORD
 
 ChangePassword PROTO

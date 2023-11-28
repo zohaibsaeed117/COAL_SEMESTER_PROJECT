@@ -6,15 +6,15 @@ Include File.inc
 	check byte "Hello",0
 .code 
 
-readUser PROC uses edx ecx esi ebx,
-buffer:PTR DWORD,
+readStudent PROC uses edx ecx esi ebx,
+buffer:PTR BYTE,
 bufferSize:DWORD,
-id:PTR DWORD,
-stuName:PTR DWORD,
-email:PTR DWORD,
-contact:PTR DWORD,
-address:PTR DWORD,
-password:PTR DWORD,
+id:PTR BYTE,
+stuName:PTR BYTE,
+email:PTR BYTE,
+contact:PTR BYTE,
+address:PTR BYTE,
+password:PTR BYTE,
 bytesRead:PTR DWORD
 
 mov eax,bytesRead	
@@ -136,5 +136,5 @@ mov DWORD PTR[eax],0
 		add DWORD PTR[eax],3								;incrementing the space in the buffer after the name
 	
 ret
-readUser ENDP
+readStudent ENDP
 END

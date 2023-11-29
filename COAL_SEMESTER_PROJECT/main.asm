@@ -45,7 +45,6 @@ comment @
 	
 	@
 
-
 	again:
 	call printMainMenu
 	call readDec
@@ -66,7 +65,6 @@ comment @
 		call settextcolor
 		jmp again
 	.ENDIF
-
 
 
 

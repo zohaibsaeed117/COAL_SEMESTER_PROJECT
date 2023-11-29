@@ -10,6 +10,13 @@ STUDENT struct
 	address byte 20 DUP(0)
 STUDENT ENDS
 
+course struct
+	id byte 10 DUP(0)
+	Coursename BYTE 30 DUP(0)
+	creditHours BYTE 2 DUP(0)
+	TeacherName byte 20 DUP(0)
+course ENDS
+
 PrintMainMenu PROTO
 
 PrintLoginMenu PROTO			;will print the menu in which it will ask user if he wants to register a new student or login
@@ -43,6 +50,15 @@ address:PTR BYTE,
 password:PTR BYTE,
 bytesRead:PTR DWORD
 
+ReadCourse PROTO,
+buffer:PTR BYTE,
+bufferSize:DWORD,
+id:PTR BYTE,
+courseName:PTR BYTE,
+creditHours:PTR BYTE,
+teacherName:PTR BYTE,
+bytesRead:PTR DWORD
+
 ReadFaculty PROTO,
 buffer:PTR BYTE,
 bufferSize:DWORD,
@@ -54,6 +70,8 @@ ChangePassword PROTO
 
 RegisterCourse PROTO,
 studentName:PTR DWORD
+
+AddCourse PROTO						;This function is for Faculty member to add a new course
 
 compareStr PROTO,
 string1:PTR DWORD,

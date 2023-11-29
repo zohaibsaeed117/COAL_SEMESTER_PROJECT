@@ -134,6 +134,7 @@
     <Text Include="AuthFaculty.txt">
       <FileType>Document</FileType>
     </Text>
+    <MASM Include="AddCourse.asm" />
     <MASM Include="compareString.asm" />
     <MASM Include="concatStr.asm" />
     <MASM Include="coursedescrription.asm" />
@@ -151,6 +152,7 @@
     <MASM Include="PrintLoginMenu.asm" />
     <MASM Include="PrintMainMenu.asm" />
     <MASM Include="printMenu.asm" />
+    <MASM Include="ReadCourse.asm" />
     <MASM Include="ReadFaculty.asm" />
     <MASM Include="readStudent.asm" />
     <MASM Include="changePassword.asm" />
@@ -174,6 +176,7 @@
     <Text Include="comp.txt" />
     <Text Include="compexam.txt" />
     <Text Include="compsched.txt" />
+    <Text Include="courses.txt" />
     <Text Include="elecexam.txt" />
     <Text Include="elecg.txt" />
     <Text Include="elecshed.txt" />

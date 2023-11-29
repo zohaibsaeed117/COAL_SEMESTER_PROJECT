@@ -78,6 +78,12 @@
     <MASM Include="FacultyMenu.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="AddCourse.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="ReadCourse.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">
@@ -137,6 +143,9 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="AuthFaculty.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="courses.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

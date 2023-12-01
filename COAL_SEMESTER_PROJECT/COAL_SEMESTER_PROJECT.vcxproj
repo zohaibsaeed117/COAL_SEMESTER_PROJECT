@@ -158,6 +158,7 @@
     <MASM Include="changePassword.asm" />
     <MASM Include="RegisterCourse.asm" />
     <MASM Include="registerStudent.asm" />
+    <MASM Include="showCourses.asm" />
     <MASM Include="StudentMenu.asm" />
   </ItemGroup>
   <ItemGroup>

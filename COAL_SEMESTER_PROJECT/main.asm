@@ -6,6 +6,7 @@ INCLUDE file.inc
 	invalid BYTE "Invalid number entered!",13,10,0
 	msg byte ".txt",0
 	result byte 100 DUP(?)
+	userName byte "zohaib-saeed",0
 .code
 main PROC
 comment @
@@ -44,7 +45,7 @@ comment @
 	call CRLF
 	
 	@
-
+	comment @
 	again:
 	call printMainMenu
 	call readDec
@@ -65,9 +66,9 @@ comment @
 		call settextcolor
 		jmp again
 	.ENDIF
+	@
 
-
-
+	Invoke registerCourse,ADDR userName
 
 
 	quitNow:

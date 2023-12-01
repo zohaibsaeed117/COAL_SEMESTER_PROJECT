@@ -84,6 +84,9 @@
     <MASM Include="ReadCourse.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="showCourses.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

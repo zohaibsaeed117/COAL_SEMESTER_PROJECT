@@ -1,12 +1,13 @@
 Include File.inc
 .data
-
 .code
-
 registerCourse PROC,
-Studentid:PTR DWORD
+studentName:PTR DWORD
 
+	call showCourses
 
+	
+	
 ret
 registerCourse ENDP
 END

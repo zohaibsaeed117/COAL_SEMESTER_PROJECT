@@ -73,6 +73,8 @@ studentName:PTR DWORD
 
 AddCourse PROTO						;This function is for Faculty member to add a new course
 
+ShowCourses PROTO
+
 compareStr PROTO,
 string1:PTR DWORD,
 string2:PTR DWORD,

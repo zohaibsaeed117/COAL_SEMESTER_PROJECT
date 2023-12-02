@@ -91,9 +91,11 @@ schedule PROTO
 
 paper PROTO
 
-grade PROTO,
-marrk:DWORD
-
 gradest PROTO
 
 examings PROTO
+
+readfl PROTO,
+buffer:PTR BYTE,
+string:PTR BYTE,
+len:DWORD

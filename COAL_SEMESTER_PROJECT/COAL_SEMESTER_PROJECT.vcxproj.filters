@@ -42,9 +42,6 @@
     <MASM Include="paper.asm">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="gradepaper.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
     <MASM Include="gradestore.asm">
       <Filter>Source Files</Filter>
     </MASM>
@@ -85,6 +82,9 @@
       <Filter>Source Files</Filter>
     </MASM>
     <MASM Include="showCourses.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="readwrite.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>

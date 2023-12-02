@@ -1,107 +1,18 @@
 ~~~~~~~~~~~~~~~~~~~~~~
 Biomedical Engineering
 ~~~~~~~~~~~~~~~~~~~~~~
-Semster 1
-*********
-_____________________________________________________________________________________
-| Couse Name                      |  Credit hours  | Course Code  | Teachers Name   |
--------------------------------------------------------------------------------------
-| Programming Fundamentals        | 4              | PF12         | Ayesha Zubair   |
-| Programming Fundamentals lab    | 3              | P2FL3        | Rohan Khan      |
-| Intoduction to Computing        | 4              | I6TC4        | Yummna Butt     |
-| Intoduction to Computing lab    | 2              | L5ITC        | Afraz Khalid    |
-| Calculus                        | 3              | CA34         | Daniyal Aslam   |
-| Fundamental English             | 2              | FE34         | Shahid Mehmood  |
-| Applied Physics                 | 1              | AP8H0        | Alina Tahir     |
--------------------------------------------------------------------------------------
-Semster 2
-*********
-_____________________________________________________________________________________
-| Couse Name                      |  Credit hours  | Course Code  | Teachers Name   |
--------------------------------------------------------------------------------------
-| Programming Fundamentals        | 4              | PF12         | Ayesha Zubair   |
-| Programming Fundamentals lab    | 3              | P2FL3        | Rohan Khan      |
-| Intoduction to Computing        | 4              | I6TC4        | Yummna Butt     |
-| Intoduction to Computing lab    | 2              | L5ITC        | Afraz Khalid    |
-| Calculus                        | 3              | CA34         | Daniyal Aslam   |
-| Fundamental English             | 2              | FE34         | Shahid Mehmood  |
-| Applied Physics                 | 1              | AP8H0        | Alina Tahir     |
--------------------------------------------------------------------------------------
-Semster 3
-*********
-_____________________________________________________________________________________
-| Couse Name                      |  Credit hours  | Course Code  | Teachers Name   |
--------------------------------------------------------------------------------------
-| Programming Fundamentals        | 4              | PF12         | Ayesha Zubair   |
-| Programming Fundamentals lab    | 3              | P2FL3        | Rohan Khan      |
-| Intoduction to Computing        | 4              | I6TC4        | Yummna Butt     |
-| Intoduction to Computing lab    | 2              | L5ITC        | Afraz Khalid    |
-| Calculus                        | 3              | CA34         | Daniyal Aslam   |
-| Fundamental English             | 2              | FE34         | Shahid Mehmood  |
-| Applied Physics                 | 1              | AP8H0        | Alina Tahir     |
--------------------------------------------------------------------------------------
-Semster 4
-*********
-_____________________________________________________________________________________
-| Couse Name                      |  Credit hours  | Course Code  | Teachers Name   |
--------------------------------------------------------------------------------------
-| Programming Fundamentals        | 4              | PF12         | Ayesha Zubair   |
-| Programming Fundamentals lab    | 3              | P2FL3        | Rohan Khan      |
-| Intoduction to Computing        | 4              | I6TC4        | Yummna Butt     |
-| Intoduction to Computing lab    | 2              | L5ITC        | Afraz Khalid    |
-| Calculus                        | 3              | CA34         | Daniyal Aslam   |
-| Fundamental English             | 2              | FE34         | Shahid Mehmood  |
-| Applied Physics                 | 1              | AP8H0        | Alina Tahir     |
--------------------------------------------------------------------------------------
-Semster 5
-*********
-_____________________________________________________________________________________
-| Couse Name                      |  Credit hours  | Course Code  | Teachers Name   |
--------------------------------------------------------------------------------------
-| Programming Fundamentals        | 4              | PF12         | Ayesha Zubair   |
-| Programming Fundamentals lab    | 3              | P2FL3        | Rohan Khan      |
-| Intoduction to Computing        | 4              | I6TC4        | Yummna Butt     |
-| Intoduction to Computing lab    | 2              | L5ITC        | Afraz Khalid    |
-| Calculus                        | 3              | CA34         | Daniyal Aslam   |
-| Fundamental English             | 2              | FE34         | Shahid Mehmood  |
-| Applied Physics                 | 1              | AP8H0        | Alina Tahir     |
--------------------------------------------------------------------------------------
-Semseter 6
-**********
-_____________________________________________________________________________________
-| Couse Name                      |  Credit hours  | Course Code  | Teachers Name   |
--------------------------------------------------------------------------------------
-| Programming Fundamentals        | 4              | PF12         | Ayesha Zubair   |
-| Programming Fundamentals lab    | 3              | P2FL3        | Rohan Khan      |
-| Intoduction to Computing        | 4              | I6TC4        | Yummna Butt     |
-| Intoduction to Computing lab    | 2              | L5ITC        | Afraz Khalid    |
-| Calculus                        | 3              | CA34         | Daniyal Aslam   |
-| Fundamental English             | 2              | FE34         | Shahid Mehmood  |
-| Applied Physics                 | 1              | AP8H0        | Alina Tahir     |
--------------------------------------------------------------------------------------
-Semster 7
-*********
-_____________________________________________________________________________________
-| Couse Name                      |  Credit hours  | Course Code  | Teachers Name   |
--------------------------------------------------------------------------------------
-| Programming Fundamentals        | 4              | PF12         | Ayesha Zubair   |
-| Programming Fundamentals lab    | 3              | P2FL3        | Rohan Khan      |
-| Intoduction to Computing        | 4              | I6TC4        | Yummna Butt     |
-| Intoduction to Computing lab    | 2              | L5ITC        | Afraz Khalid    |
-| Calculus                        | 3              | CA34         | Daniyal Aslam   |
-| Fundamental English             | 2              | FE34         | Shahid Mehmood  |
-| Applied Physics                 | 1              | AP8H0        | Alina Tahir     |
--------------------------------------------------------------------------------------
-Semster 8
-*********
-_____________________________________________________________________________________
-| Couse Name                      |  Credit hours  | Course Code  | Teachers Name   |
--------------------------------------------------------------------------------------
-| Programming Fundamentals        | 4              | PF12         | Ayesha Zubair   |
-| Programming Fundamentals lab    | 3              | P2FL3        | Rohan Khan      |
-| Intoduction to Computing        | 4              | I6TC4        | Yummna Butt     |
-| Intoduction to Computing lab    | 2              | L5ITC        | Afraz Khalid    |
-| Calculus                        | 3              | CA34         | Daniyal Aslam   |
-| Fundamental English             | 2              | FE34         | Shahid Mehmood  |
-| Applied Physics                 | 1              | AP8H0        | Alina Tahir     |
--------------------------------------------------------------------------------------
+__________________________________________________________________
+| Couse Name                      |Chs |CourseCode|Teachers Name |
+------------------------------------------------------------------
+| Programming Fundamentals        | 4  |PF12      |Ayesha Zubair |
+| Programming Fundamentals lab    | 3  |P2FL3     |Rohan Khan    |
+| Intoduction to Computing        | 4  |I6TC4     |Yummna Butt   |
+| Intoduction to Computing lab    | 2  |L5ITC     |Afraz Khalid  |
+| Calculus                        | 3  |CA34      |Daniyal Aslam |
+| Fundamental English             | 2  |FE34      |Shahid Mehmood|
+| Applied Physics                 | 1  |AP8H0     |Alina Tahir   |
+| Intoduction to Computing        | 4  |I6TC4     |Yummna Butt   |
+| Intoduction to Computing lab    | 2  |L5ITC     |Afraz Khalid  |
+| Calculus                        | 3  |CA34      |Daniyal Aslam |
+| Fundamental English             | 2  |FE34      |Shahid Mehmood|
+| Applied Physics                 | 1  |AP8H0     |Alina Tahir   |

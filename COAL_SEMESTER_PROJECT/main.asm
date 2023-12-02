@@ -9,7 +9,7 @@ INCLUDE file.inc
 	userName byte "zohaib-saeed",0
 .code
 main PROC
-comment @
+
 	again:
 	call clrscr
 	call PrintMenu
@@ -40,12 +40,12 @@ comment @
 		mov eax,white+(black * 16)				   
 		call settextcolor
 	.ENDIF
-	call waitMsg
+	
 	jmp again
 	call CRLF
-	
-	@
+
 	comment @
+	
 	again:
 	call printMainMenu
 	call readDec
@@ -66,9 +66,10 @@ comment @
 		call settextcolor
 		jmp again
 	.ENDIF
-	@
+	
 
 	Invoke registerCourse,ADDR userName
+	@
 
 
 	quitNow:

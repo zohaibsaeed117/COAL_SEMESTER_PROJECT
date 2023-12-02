@@ -141,7 +141,6 @@
     <MASM Include="courseschedule.asm" />
     <MASM Include="examsched.asm" />
     <MASM Include="FacultyMenu.asm" />
-    <MASM Include="gradepaper.asm" />
     <MASM Include="gradestore.asm" />
     <MASM Include="LoginFaculty.asm" />
     <MASM Include="LoginStudent.ASM" />
@@ -156,6 +155,7 @@
     <MASM Include="ReadFaculty.asm" />
     <MASM Include="readStudent.asm" />
     <MASM Include="changePassword.asm" />
+    <MASM Include="readwrite.asm" />
     <MASM Include="RegisterCourse.asm" />
     <MASM Include="registerStudent.asm" />
     <MASM Include="showCourses.asm" />

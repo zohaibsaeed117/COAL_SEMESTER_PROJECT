@@ -116,8 +116,6 @@ call writedec
 mov edx,offset yes
 call writestring
 
-INVOKE grade,marks             ;grade function call
-
 ret
 paper ENDP
 

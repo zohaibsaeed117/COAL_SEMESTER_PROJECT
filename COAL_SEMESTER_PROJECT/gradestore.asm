@@ -16,6 +16,12 @@ comp BYTE "1. Computer Science",13,10
  BYTE "4. Chemical Engineering",13,10
  BYTE "Enter your choice : ",0
 invalid BYTE "Invalid number entered!",13,10,0
+more BYTE "Do you want to add anyother thing?",13,10,
+           "Press 1 for yes and 0 for no : ",0
+lala BYTE 500 DUP(?)
+len DWORD ?
+bytesWritten DWORD ?
+bytesRead DWORD 0
 
 .code
 
@@ -30,8 +36,8 @@ call readdec
 mov eax,cyan+(black * 16)
 call settextcolor
 
-mov edx,offset compg
-call openinputfile
+INVOKE createFile, ADDR compg,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
+
 mov filehandle,eax
 
 .IF eax == INVALID_HANDLE_VALUE              ;invalid file-handle
@@ -45,6 +51,32 @@ mov ecx,lengthof buffer
 call readfromfile
 mov edx,offset buffer
 call writestring
+
+call crlf
+
+mov edx,offset more
+call writestring
+call readdec
+
+.IF eax==1
+
+mov edx,offset lala
+	mov ecx,500
+    call readstring
+   mov len,eax
+
+	INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END	
+
+   INVOKE WriteFile,
+	filehandle,offset lala,len,
+	ADDR bytesWritten, 0	
+	mov eax,filehandle
+call closefile
+jmp quit
+
+.ENDIF
+
 mov eax,filehandle
 call closefile
 jmp quit
@@ -54,8 +86,8 @@ jmp quit
 mov eax,cyan+(black * 16)
 call settextcolor
 
-mov edx,offset electrig
-call openinputfile
+INVOKE createFile, ADDR electrig,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
+
 mov filehandle,eax
 
 .IF eax == INVALID_HANDLE_VALUE              ;invalid file-handle
@@ -69,6 +101,32 @@ mov ecx,lengthof buffer
 call readfromfile
 mov edx,offset buffer
 call writestring
+
+call crlf
+
+mov edx,offset more
+call writestring
+call readdec
+
+.IF eax==1
+
+mov edx,offset lala
+	mov ecx,500
+    call readstring
+   mov len,eax
+
+	INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END	
+
+   INVOKE WriteFile,
+	filehandle,offset lala,len,
+	ADDR bytesWritten, 0	
+	mov eax,filehandle
+call closefile
+jmp quit
+
+.ENDIF
+
 mov eax,filehandle
 call closefile
 jmp quit
@@ -78,8 +136,8 @@ jmp quit
 mov eax,cyan+(black * 16)
 call settextcolor
 
-mov edx,offset biolog
-call openinputfile
+INVOKE createFile, ADDR biolog,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
+
 mov filehandle,eax
 
 .IF eax == INVALID_HANDLE_VALUE              ;invalid file-handle
@@ -93,6 +151,31 @@ mov ecx,lengthof buffer
 call readfromfile
 mov edx,offset buffer
 call writestring
+
+call crlf
+
+mov edx,offset more
+call writestring
+call readdec
+
+.IF eax==1
+
+mov edx,offset lala
+	mov ecx,500
+    call readstring
+   mov len,eax
+
+	INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END	
+
+   INVOKE WriteFile,
+	filehandle,offset lala,len,
+	ADDR bytesWritten, 0	
+	mov eax,filehandle
+call closefile
+jmp quit
+.ENDIF
+
 mov eax,filehandle
 call closefile
 
@@ -101,8 +184,8 @@ call closefile
 mov eax,cyan+(black * 16)
 call settextcolor
 
-mov edx,offset chemicalg
-call openinputfile
+INVOKE createFile, ADDR chemicalg,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
+
 mov filehandle,eax
 
 .IF eax == INVALID_HANDLE_VALUE              ;invalid file-handle
@@ -116,6 +199,31 @@ mov ecx,lengthof buffer
 call readfromfile
 mov edx,offset buffer
 call writestring
+
+call crlf
+
+mov edx,offset more
+call writestring
+call readdec
+
+.IF eax==1
+
+mov edx,offset lala
+	mov ecx,500
+    call readstring
+   mov len,eax
+
+	INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END	
+
+   INVOKE WriteFile,
+	filehandle,offset lala,len,
+	ADDR bytesWritten, 0	
+	mov eax,filehandle
+call closefile
+jmp quit
+.ENDIF
+
 mov eax,filehandle
 call closefile
 

@@ -160,6 +160,7 @@
     <MASM Include="registerStudent.asm" />
     <MASM Include="showCourses.asm" />
     <MASM Include="StudentMenu.asm" />
+    <Text Include="Programming-Fundamental.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc" />

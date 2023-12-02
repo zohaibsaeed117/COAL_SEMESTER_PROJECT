@@ -16,6 +16,7 @@ Invoke str_length,string2
 mov ecx,eax
 mov esi,string2
 rep movsb
+mov BYTE PTR[edi],0
 ret
 concatStr ENDP
 END

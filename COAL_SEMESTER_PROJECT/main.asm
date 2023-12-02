@@ -6,10 +6,10 @@ INCLUDE file.inc
 	invalid BYTE "Invalid number entered!",13,10,0
 	msg byte ".txt",0
 	result byte 100 DUP(?)
-	userName byte "zohaib-saeed",0
+	studentId byte "2022-CS-611",0
 .code
 main PROC
-
+	comment @
 	again:
 	call clrscr
 	call PrintMenu
@@ -43,9 +43,8 @@ main PROC
 	
 	jmp again
 	call CRLF
+	@
 
-	comment @
-	
 	again:
 	call printMainMenu
 	call readDec
@@ -67,9 +66,9 @@ main PROC
 		jmp again
 	.ENDIF
 	
+	invoke registerCourse,ADDR studentid
 
-	Invoke registerCourse,ADDR userName
-	@
+	
 
 
 	quitNow:

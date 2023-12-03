@@ -1,5 +1,7 @@
 Include File.inc
 
+
+
 .data
 buffersize=50000
 file11 BYTE "Items.txt",0
@@ -10,6 +12,7 @@ yourchoice BYTE "Enter a number: ",0
 uni BYTE  "University Of Engineering and Technology",0
 cafe BYTE   "Welocme	to	Cafeteria",0
 filehandler1 dd ?
+filehandler2 dd ?
 buffer dd buffersize DUP(?)
 Modifysize dd 0
 newsize dd 0
@@ -88,7 +91,7 @@ call readstring
 mov len1,eax
 
 INVOKE SetFilePointer,
-filehandler11,0,0,FILE_END
+filehandler1,0,0,FILE_END
 
 INVOKE WriteFile,
 filehandler1,offset buffstr1,len1,

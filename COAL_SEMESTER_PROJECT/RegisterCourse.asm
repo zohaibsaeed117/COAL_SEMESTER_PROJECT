@@ -1,9 +1,10 @@
 Include File.inc
 .data
 	courses byte "courses.txt",0
-	registeredCourse byte 35 DUP(?)
+	newFile byte 35 DUP(?)
 	filehandleAllCourse DWORD ?
-	filehandleRegisteredCourse DWORD ?
+	filehandlegrade DWORD ?
+	filehandleattendance DWORD ?
 	tempCourse course <>
 	courseId byte 10 DUP(?)
 	idMsg byte "Enter Code of the course you want to register: ",0
@@ -19,6 +20,10 @@ Include File.inc
 	bufferSize DWORD ?
 	space byte " ",0
 	len DWORD ?
+	pathGrades byte "coursesGrades\",0
+	pathAttendance byte "CourseAttendance\",0
+	gradesFile byte 50 DUP(?)
+	AttendanceFile byte 50 DUP(?)
 	anotherCourse byte "Do you want to register another course?(Y/N)",0
 .code
 registerCourse PROC,
@@ -80,15 +85,12 @@ registeragain:
 addCourseInfile:
 	;--------------------------------------------Writing all the course details in the file---------------------------|
 CourseFound:
-	Invoke ConcatStr,ADDR tempCourse.courseName,ADDR txt,ADDR registeredCourse
+	Invoke concatstr,ADDR tempCourse.courseName,ADDR txt,ADDR newFile
+	Invoke concatStr,ADDR pathGrades,ADDR newFile,ADDR gradesFile
 
-	INVOKE createFile, ADDR registeredCourse,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
-	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
+	invoke CreateFile,ADDR gradesFIle,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
+	  mov filehandlegrade,eax			; save file handle
 
-	  mov filehandleRegisteredCourse,eax			; save file handle
-
-	  mov edx,offset registeredCourse
-	  call writeString
 
 	.IF eax == INVALID_HANDLE_VALUE
 	  mov  edx,OFFSET errMsg		; Display error message
@@ -101,7 +103,7 @@ courseFileBuffer byte 500 DUP(?)
 string byte 30 DUP(?)
 alreadyRegisteredMsg  byte "You are already registered!",0
 .code
-	Invoke readFile,filehandleRegisteredCourse,ADDR courseFilebuffer, 5000,ADDR bufferSize,0
+	Invoke readFile,filehandlegrade,ADDR courseFilebuffer, 5000,ADDR bufferSize,0
 	cmp bufferSize,0
 	je registerStudentInCourse
 
@@ -119,43 +121,76 @@ alreadyRegisteredMsg  byte "You are already registered!",0
 	cmp ecx,0
 	jnle checkagain
 
-
+	;--------------------------------------writing student id in file of grades-------------------
 	registerStudentInCourse:
+
 	 Invoke str_length,studentid
 	 mov len,eax
 
 	INVOKE SetFilePointer,
-	  filehandleRegisteredCourse,0,0,FILE_END	
+	  filehandlegrade,0,0,FILE_END	
 
 	INVOKE WriteFile,
-		filehandleRegisteredCourse,studentid, len,
+		filehandlegrade,studentid, len,
 		ADDR bytesWritten, 0				;writing the id of the course in the authentication file
 
 		INVOKE SetFilePointer,
-	  filehandleRegisteredCourse,0,0,FILE_END	
+	  filehandlegrade,0,0,FILE_END	
 
 	INVOKE WriteFile,
-		filehandleRegisteredCourse, ADDR space, 1,
+		filehandlegrade, ADDR space, 1,
 		ADDR bytesWritten, 0
 
 		INVOKE SetFilePointer,
-	  filehandleRegisteredCourse,0,0,FILE_END	
+	  filehandlegrade,0,0,FILE_END	
 
 	INVOKE WriteFile,
-		filehandleRegisteredCourse, ADDR grade, 4,		;Entering a space after the user id
+		filehandlegrade, ADDR grade, 4,		;Entering a space after the user id
+		ADDR bytesWritten, 0
+
+	;--------------------------------------writing student id in file of attendance-------------------
+	Invoke concatstr,ADDR tempCourse.courseName,ADDR txt,ADDR newFile
+	Invoke concatStr,ADDR pathAttendance,ADDR newFile,ADDR AttendanceFile
+
+	invoke CreateFile,ADDR AttendanceFile,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
+	mov filehandleattendance,eax
+	Invoke str_length,studentid
+	 mov len,eax
+
+	INVOKE SetFilePointer,
+	  filehandleattendance,0,0,FILE_END	
+
+	INVOKE WriteFile,
+		filehandleattendance,studentid, len,
+		ADDR bytesWritten, 0				;writing the id of the course in the authentication file
+
+		INVOKE SetFilePointer,
+	  filehandleattendance,0,0,FILE_END	
+
+	INVOKE WriteFile,
+		filehandleattendance, ADDR space, 1,
+		ADDR bytesWritten, 0
+
+		INVOKE SetFilePointer,
+	  filehandleattendance,0,0,FILE_END	
+
+	INVOKE WriteFile,
+		filehandleattendance, ADDR grade, 4,		;Entering a space after the user id
 		ADDR bytesWritten, 0
 
 	mov edx,offset successMsg
 	call writeString
 	call CRLF
-	mov eax,filehandleRegisteredCourse
+	mov eax,filehandleattendance
+	call closeFile
+	mov eax,filehandlegrade
 	call closeFile
 	jmp quit
 alreadyRegistered:
-	mov edx,offset alreadyRegisteredMsg
+	mov edx,offset filehandleattendance
 	call writeString
 	call CRLF
-	mov eax,filehandleRegisteredCourse
+	mov eax,filehandleGrade
 	call closeFile
 	jmp quit
 notFound:

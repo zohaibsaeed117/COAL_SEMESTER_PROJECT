@@ -24,6 +24,10 @@ Include File.inc
 	courseFoundMsg byte "Course Already Exists",0
 	successMsg byte "New Course added Successfully",0
 	txt byte ".txt",0
+	pathGrades byte "coursesGrades\",0
+	pathAttendance byte "CourseAttendance\",0
+	gradesFile byte 50 DUP(?)
+	AttendanceFile byte 50 DUP(?)
 	newFile byte 20 DUP(?)
 .code
 addcourse proc
@@ -169,11 +173,21 @@ addCourseInfile:
 
 	mov edx,offset successMsg
 	call writeString
+
 	;Creating a file of newly Added Course
 	Invoke concatstr,ADDR newCourse.courseName,ADDR txt,ADDR newFile
-	invoke CreateFile,ADDR newFile,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
-	mov edx,eax
+	Invoke concatStr,ADDR pathGrades,ADDR newFile,ADDR gradesFile
+
+
+	invoke CreateFile,ADDR gradesFIle,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
 	call closeFile
+
+	Invoke concatstr,ADDR newCourse.courseName,ADDR txt,ADDR newFile
+	Invoke concatStr,ADDR pathAttendance,ADDR newFile,ADDR AttendanceFile
+
+	invoke CreateFile,ADDR AttendanceFile,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
+	call closeFile
+	
 	jmp quit
 
 courseFound:

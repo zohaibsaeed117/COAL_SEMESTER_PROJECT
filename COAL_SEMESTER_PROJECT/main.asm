@@ -65,8 +65,8 @@ main PROC
 		call settextcolor
 		jmp again
 	.ENDIF
-	
-	invoke registerCourse,ADDR studentid
+	call CRLF
+	call showCourses
 
 	
 

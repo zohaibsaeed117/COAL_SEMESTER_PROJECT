@@ -1,3 +1,2 @@
-CS-214 Programming-Fundamental 3 Danish-Mohsin!
-HU-111 Communication-Skills 3 Hassan-Imtiaz!
-CS-614 Object-Oriented-Programming 3 Nadeem-Iqbal!
+CS-214 programming-fundamentals 3 Danish-Mohsin!
+HU-111 Functional-English 3 Hasan-Imtiaz!

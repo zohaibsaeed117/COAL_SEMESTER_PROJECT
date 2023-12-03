@@ -132,6 +132,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <MASM Include="Cafeteria.asm" />
+    <MASM Include="giveexam.asm" />
+    <MASM Include="gradepaper.asm" />
     <MASM Include="Transport.asm" />
     <Text Include="AuthFaculty.txt">
       <FileType>Document</FileType>

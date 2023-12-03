@@ -89,13 +89,22 @@ description PROTO
 
 schedule PROTO
 
-paper PROTO
-
 gradest PROTO
 
 examings PROTO
+
+Transport PROTO
+
+Cafeteria PROTO
 
 readfl PROTO,
 buffer:PTR BYTE,
 string:PTR BYTE,
 len:DWORD
+
+solo PROTO
+
+paper PROTO
+
+gral PROTO,
+marks:DWORD

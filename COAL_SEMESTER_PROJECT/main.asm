@@ -7,8 +7,15 @@ INCLUDE file.inc
 	msg byte ".txt",0
 	result byte 100 DUP(?)
 	userName byte "zohaib-saeed",0
+
 .code
 main PROC
+
+  ;............Give exam
+    INVOKE solo
+
+
+comment @
 
 	again:
 	call clrscr
@@ -48,7 +55,7 @@ main PROC
 	jmp again
 	call CRLF
 
-	comment @
+	
 	
 	again:
 	call printMainMenu

@@ -116,6 +116,8 @@ call writedec
 mov edx,offset yes
 call writestring
 
+INVOKE gral,marks
+
 ret
 paper ENDP
 

@@ -141,6 +141,8 @@
     <MASM Include="courseschedule.asm" />
     <MASM Include="examsched.asm" />
     <MASM Include="FacultyMenu.asm" />
+    <MASM Include="giveexam.asm" />
+    <MASM Include="gradepaper.asm" />
     <MASM Include="gradestore.asm" />
     <MASM Include="LoginFaculty.asm" />
     <MASM Include="LoginStudent.ASM" />

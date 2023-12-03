@@ -9,9 +9,11 @@ INCLUDE file.inc
 	studentId byte "2022-CS-611",0
 .code
 main PROC
-	comment @
+
+
+	
 	again:
-	call clrscr
+	
 	call PrintMenu
 	mov eax,choice
 	call ReadInt
@@ -30,6 +32,8 @@ main PROC
 	    Invoke gradest
 	.ELSEIF choice==7
 	    Invoke examings
+	.ELSEIF choice==8
+	    Invoke solo
 	.ELSEIF choice==0
 	jmp quitNow
 	.ELSE
@@ -43,8 +47,8 @@ main PROC
 	
 	jmp again
 	call CRLF
-	@
-
+	
+	comment @
 	again:
 	call printMainMenu
 	call readDec
@@ -67,9 +71,8 @@ main PROC
 	.ENDIF
 	call CRLF
 	call showCourses
-
+	@
 	
-
 
 	quitNow:
 INVOKE ExitProcess,0 

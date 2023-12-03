@@ -87,6 +87,12 @@
     <MASM Include="readwrite.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="giveexam.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="gradepaper.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

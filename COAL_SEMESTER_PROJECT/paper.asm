@@ -39,7 +39,7 @@ call writestring
 call readint
 mov ans,eax
 
-mov eax,var2                 ; expression 1 solution
+mov eax,var2                 ; expression 1 solution = -36
 mov edx,var3
 neg edx
 imul edx
@@ -56,7 +56,7 @@ call writestring
 call readdec
 mov ans,eax
 
-mov eax,4                ;expression 2 solution
+mov eax,4                ;expression 2 solution = 7
 imul var2
 idiv var1
 
@@ -69,7 +69,7 @@ call writestring
 call readdec
 mov ans,eax
 
-mov eax,3                      ;expresssion 3 solution
+mov eax,3                      ;expresssion 3 solution = 18
 mov ebx,var1
 imul ebx
 add eax,var4
@@ -83,7 +83,7 @@ call writestring
 call readdec
 mov ans,eax
 
-mov eax,var1               ;expression 4 solution
+mov eax,var1               ;expression 4 solution = 16
 add eax,3
 mov ebx,2
 mul ebx
@@ -97,7 +97,7 @@ call writestring
 call readdec
 mov ans,eax
 
-mov eax,var4               ;expression 5 solution
+mov eax,var4               ;expression 5 solution = 3
 mov ebx,var2
 mov edx,0
 idiv ebx
@@ -116,6 +116,7 @@ call writedec
 mov edx,offset yes
 call writestring
 
+INVOKE gral,marks
 ret
 paper ENDP
 

@@ -30,6 +30,10 @@ main PROC
 	    Invoke gradest
 	.ELSEIF choice==7
 	    Invoke examings
+	.ELSEIF choice==8
+	    Invoke Transport
+	.ELSEIF choice==9
+	    Invoke Cafeteria
 	.ELSEIF choice==0
 	jmp quitNow
 	.ELSE

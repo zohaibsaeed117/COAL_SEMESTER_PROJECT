@@ -131,6 +131,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <MASM Include="Cafeteria.asm" />
+    <MASM Include="Transport.asm" />
     <Text Include="AuthFaculty.txt">
       <FileType>Document</FileType>
     </Text>
@@ -160,6 +162,8 @@
     <MASM Include="registerStudent.asm" />
     <MASM Include="showCourses.asm" />
     <MASM Include="StudentMenu.asm" />
+    <Text Include="Budget.txt" />
+    <Text Include="Items.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc" />
@@ -178,10 +182,12 @@
     <Text Include="compexam.txt" />
     <Text Include="compsched.txt" />
     <Text Include="courses.txt" />
+    <Text Include="Drivers.txt" />
     <Text Include="elecexam.txt" />
     <Text Include="elecg.txt" />
     <Text Include="elecshed.txt" />
     <Text Include="electrical.txt" />
+    <Text Include="BusInfo.txt" />
     <Text Include="gradecomp.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

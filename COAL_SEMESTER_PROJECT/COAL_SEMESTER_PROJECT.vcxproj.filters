@@ -87,6 +87,12 @@
     <MASM Include="readwrite.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="Transport.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="Cafeteria.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">
@@ -149,6 +155,18 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="courses.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="BusInfo.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Drivers.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Items.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Budget.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

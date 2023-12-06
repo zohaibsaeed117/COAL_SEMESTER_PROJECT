@@ -130,10 +130,17 @@ alreadyRegisteredMsg  byte "You are already registered!",0
 	checkagain:
 	Invoke readfl,esi,ADDR string,ecx			;reading student id
 
+	loop1:
+		cmp BYTE PTR[esi],'!'
+		je breakLoop1
+		inc esi
+		loop loop1
+	breakLoop1:
+		add esi,3
+		sub ecx,3
 	Invoke compareStr,ADDR string,studentId,ADDR flag			;reading student grade
 	cmp flag,1
 	je alreadyRegistered
-	Invoke readfl,esi,ADDR string,ecx
 	cmp ecx,0
 	jnle checkagain
 

@@ -45,9 +45,6 @@
     <MASM Include="gradestore.asm">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="printMenu.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
     <MASM Include="concatStr.asm">
       <Filter>Source Files</Filter>
     </MASM>
@@ -97,6 +94,15 @@
       <Filter>Source Files</Filter>
     </MASM>
     <MASM Include="gradepaper.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="menuforstudents.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="studentdesp.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="studentschedule.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>

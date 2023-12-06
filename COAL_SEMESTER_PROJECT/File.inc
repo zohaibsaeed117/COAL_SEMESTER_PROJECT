@@ -69,7 +69,7 @@ bytesRead:PTR DWORD
 ChangePassword PROTO
 
 RegisterCourse PROTO,
-studentName:PTR DWORD
+studentid:PTR BYTE
 
 AddCourse PROTO						;This function is for Faculty member to add a new course
 
@@ -102,9 +102,17 @@ buffer:PTR BYTE,
 string:PTR BYTE,
 len:DWORD
 
-solo PROTO
+stutest PROTO
 
 paper PROTO
 
 gral PROTO,
 marks:DWORD
+
+studentdescription PROTO
+
+stuschedule PROTO
+
+main PROTO
+
+studentchoices PROTO

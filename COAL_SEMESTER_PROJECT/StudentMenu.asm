@@ -1,5 +1,7 @@
 Include File.inc
 .data
+
+	uni byte "---------------------------------Welcome to University Managment System--------------------------------",0dh,0ah,0
 	choice byte ?
 	stu student <>
 	thanks byte "Thanks For using University Management System",0
@@ -7,32 +9,39 @@ Include File.inc
 
 .code
 studentMenu Proc
-	again:
+    
 	call clrscr
-	call printLoginMenu		;Printing menu
 
-	call readDec
-	mov choice,al
-	.IF choice==1
-		Invoke LoginStudent,ADDR stu.id,ADDR stu.Stuname,ADDR stu.email,ADDR stu.contact,ADDR stu.address,ADDR stu.password
-	.ELSEIF choice==2
-	call CLRSCR
-		call registerStudent
-		jmp again
-	.ELSEIF choice==0
-		mov edx,offset thanks
-		call writeString
-	.ELSE
+mov eax,cyan(black*16)    ;welcoming the user to unversity
+call settextcolor
+mov edx,offset uni
+call writestring
+
+call printLoginMenu		;Printing menu
+
+call readDec
+mov choice,al
+
+.IF choice==1
+    call clrscr
+	Invoke LoginStudent,ADDR stu.id,ADDR stu.Stuname,ADDR stu.email,ADDR stu.contact,ADDR stu.address,ADDR stu.password
+	INVOKE studentchoices          ;...........student authorities
+
+.ELSEIF choice==2
+     call CLRSCR
+     call registerStudent
+	 INVOKE studentchoices         ;...........student authorities
+
+.ELSE
 		mov eax,red+(black * 16)
 		call settextcolor
 		mov edx,offset invalid
 		call writestring
 		mov eax,white+(black * 16)				   
 		call settextcolor
-		jmp again
-	.ENDIF
-
 		
+.ENDIF
+
 
 	ret
 studentMenu ENDP

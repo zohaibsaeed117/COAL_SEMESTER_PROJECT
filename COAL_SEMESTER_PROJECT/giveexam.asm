@@ -18,7 +18,6 @@ buffer byte 5000 DUP(?)
 	txt byte ".txt",0
 	newFile byte 20 DUP(?)
 	msk BYTE "Marks : ",0
-	lol BYTE 2 DUP(?)
 	newLine byte " ",0dh,0ah,0
 	nameMsg byte "Enter your name : ",0
 	ContactMsg byte "Enter your Contact Number : ",0
@@ -30,8 +29,8 @@ buffer byte 5000 DUP(?)
 	emailLen DWORD ?
 	passwordlen DWORD ?
 	stu student <>
-	;temp student <>
-	loli BYTE 2 DUP(?)
+	var1 BYTE 2 DUP(?)
+	var2 BYTE 2 DUP(?)
 	gp BYTE "Grade : ",0
 	namely BYTE "Name : ",0
 	passw BYTE "Password : ",0
@@ -44,9 +43,9 @@ buffer byte 5000 DUP(?)
 
 .code
 
-solo PROC
+stutest PROC
 
-mov edx,offset tabp
+    mov edx,offset tabp
 	mov edx,offset idMsg
 	call writeString
 
@@ -215,7 +214,6 @@ mov edx,offset tabp
 		filehandle,offset cors,lenc ,
 		ADDR bytesWritten, 0		
 
-		;''''''''''''''''''''''''''''''''''''''
 		INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END
 
@@ -326,7 +324,7 @@ call clrscr
 
 		INVOKE paper
 
-		mov lol,bl
+		mov var2,bl
 		INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END
 
@@ -338,7 +336,7 @@ call clrscr
 	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
-		filehandle, ADDR lol, 2,
+		filehandle, ADDR var2, 2,
 		ADDR bytesWritten, 0
 
 
@@ -363,89 +361,89 @@ call clrscr
 		filehandle, ADDR msk, 8,
 		ADDR bytesWritten, 0
 
-.IF lol=='A'
+.IF var2=='A'
 
-mov loli,'5'
+mov var1,'5'
        
-		mov lol,cl
+		
 		INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END
 
 	  INVOKE WriteFile,
-		filehandle, ADDR loli,2,
+		filehandle, ADDR var1,2,
 		ADDR bytesWritten, 0
 
 		jmp quit
 
         
-.ELSEIF lol=='B'
+.ELSEIF var2=='B'
 
-mov loli,'4'
+mov var1,'4'
 
-		mov lol,cl
+		
 		INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END
 
 	  INVOKE WriteFile,
-		filehandle, ADDR loli,2,
+		filehandle, ADDR var1,2,
 		ADDR bytesWritten, 0
 
 		jmp quit
         
         
-.ELSEIF lol=='C'
+.ELSEIF var2=='C'
 
-mov loli,'3'
+mov var1,'3'
 
-		mov lol,cl
+	
 		INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END
 
 	  INVOKE WriteFile,
-		filehandle, ADDR loli,2,
+		filehandle, ADDR var1,2,
 		ADDR bytesWritten, 0
 
         jmp quit
         
-.ELSEIF lol=='D'
+.ELSEIF var2=='D'
 
 
-mov loli,'2'
+mov var1,'2'
 
-	mov lol,cl
+	
 		INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END
 
 	  INVOKE WriteFile,
-		filehandle, ADDR loli,2,
+		filehandle, ADDR var1,2,
 		ADDR bytesWritten, 0
 
 		jmp quit
 	
-.ELSEIF lol=='E'
+.ELSEIF var2=='E'
 
-mov loli,'1'
+mov var1,'1'
 		
-		mov lol,cl
+		
 		INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END
 
 	  INVOKE WriteFile,
-		filehandle, ADDR loli,2,
+		filehandle, ADDR var1,2,
 		ADDR bytesWritten, 0
       
 	  jmp quit
         
-.ELSEIF lol=='F'
+.ELSEIF var2=='F'
      
-mov loli,'0'
+mov var1,'0'
 
-		mov lol,cl
+		
 		INVOKE SetFilePointer,
 	  filehandle,0,0,FILE_END
 
 	  INVOKE WriteFile,
-		filehandle, ADDR loli,2,
+		filehandle, ADDR var1,2,
 		ADDR bytesWritten, 0
 
           
@@ -457,11 +455,7 @@ quit:
 mov eax,filehandle
 	mov edx,eax
 	call closeFile
-     
-
-
-
 
 ret
-solo ENDP
+stutest ENDP
 END

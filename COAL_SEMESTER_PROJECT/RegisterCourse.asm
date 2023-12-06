@@ -25,6 +25,8 @@ Include File.inc
 	gradesFile byte 50 DUP(?)
 	AttendanceFile byte 50 DUP(?)
 	anotherCourse byte "Do you want to register another course?(Y/N)",0
+	stu student <>
+
 .code
 registerCourse PROC,
 Studentid:PTR byte

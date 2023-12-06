@@ -134,6 +134,9 @@
     <MASM Include="Cafeteria.asm" />
     <MASM Include="giveexam.asm" />
     <MASM Include="gradepaper.asm" />
+    <MASM Include="menuforstudents.asm" />
+    <MASM Include="studentdesp.asm" />
+    <MASM Include="studentschedule.asm" />
     <MASM Include="Transport.asm" />
     <Text Include="AuthFaculty.txt">
       <FileType>Document</FileType>
@@ -154,7 +157,6 @@
     <MASM Include="paper.asm" />
     <MASM Include="PrintLoginMenu.asm" />
     <MASM Include="PrintMainMenu.asm" />
-    <MASM Include="printMenu.asm" />
     <MASM Include="ReadCourse.asm" />
     <MASM Include="ReadFaculty.asm" />
     <MASM Include="readStudent.asm" />

@@ -26,6 +26,8 @@ errMsg BYTE "CANNOT OPEN FILE",0
 
 .code
 Cafeteria PROC
+
+call clrscr
 mov eax,yellow+(black*16)
 call settextcolor
 mov dh,0
@@ -128,7 +130,6 @@ jmp quit
 
 
 quit:
-exit
 
 ret
 Cafeteria ENDP

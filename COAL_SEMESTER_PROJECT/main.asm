@@ -11,80 +11,48 @@ INCLUDE file.inc
 .code
 main PROC
 
-Invoke takeAttendance
-comment @
-  ;............Give exam
-    INVOKE solo
+again:
+call clrscr
+call PrintMainMenu
+call readdec
+mov choice,eax
 
+.IF choice==1                    ;....Student menu
+	   INVOKE studentmenu
 
+.ELSEIF choice==2                ;....Menu for Faculty
+		INVOKE facultymenu
 
-	again:
-	call clrscr
-	call PrintMenu
-	mov eax,choice
-	call ReadInt
-	mov choice,eax
-	.IF choice==1
-		Invoke LoginStudent,ADDR user.id,ADDR user.Stuname,ADDR user.email,ADDR user.contact,ADDR user.address,ADDR user.password
-	.ELSEIF choice==2
-		Invoke registerStudent
-	.ELSEIF choice==3
-	Invoke ChangePassword
-	.ELSEIF choice==4
-	    Invoke description
-	.ELSEIF choice==5
-	    Invoke schedule
-	.ELSEIF choice==6
-	    Invoke gradest
-	.ELSEIF choice==7
-	    Invoke examings
-	.ELSEIF choice==8
-	    Invoke Transport
-	.ELSEIF choice==9
-	    Invoke Cafeteria
-	.ELSEIF choice==0
-	jmp quitNow
-	.ELSE
-		mov eax,red+(black * 16)
+.ELSEIF choice==0                ;....To exit
+		mov eax,lightgreen(black*16)
 		call settextcolor
-		mov edx,offset invalid
-		call writestring
-		mov eax,white+(black * 16)				   
-		call settextcolor
-	.ENDIF
-	
-	jmp again
-	call CRLF
-
-	
-	
-	again:
-	call printMainMenu
-	call readDec
-	mov choice,eax
-	.IF choice ==1
-		call studentMenu
-	.ELSEIF choice ==2
-		call facultyMenu
-	.ELSEIF choice ==0
 		mov edx,offset thanks
 		call writeString
-	.ELSE
-		mov eax,red+(black * 16)
+		call crlf
+		call crlf
+		call crlf
+		jmp quit
+
+.ELSE                            ;......In case user enterd the wrong number not given in menu
+mov eax,cyan+(black * 16)
 		call settextcolor
 		mov edx,offset invalid
 		call writestring
 		mov eax,white+(black * 16)				   
 		call settextcolor
 		jmp again
-	.ENDIF
+
+.ENDIF
 	
+quit:
+	nop
 
-	Invoke registerCourse,ADDR userName
-	@
+	mov eax,white(black*16)           ;.....deafult text color setting
+	call settextcolor
 
 
-	quitNow:
+
+
 INVOKE ExitProcess,0 
 main ENDP
 END main

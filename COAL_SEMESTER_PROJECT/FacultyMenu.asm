@@ -7,6 +7,8 @@ Include File.inc
 		  "Press 4 for course description",0dh,0ah,
 		  "Press 5 for course schedule",0dh,0ah,
 		  "Press 6 to view exam schedule",0dh,0ah,
+		  "Press 7 to view grade system",0dh,0ah,
+		  "Press 8 to view attendance system",0dh,0ah,
 		  "Enter your Choice: ",0
 	  invalid BYTE "Invalid number entered!",13,10,0
 	choice DWORD ?
@@ -68,6 +70,11 @@ mov choice,eax
 .ELSEIF choice==7
 	    Invoke gradest
 		call crlf
+		call waitmsg
+
+.ELSEIF choice==8
+		Invoke takeAttendance
+        call crlf
 		call waitmsg
 
 	

@@ -78,6 +78,8 @@ call ReadFromFile
 mov edx,offset buffer
 call writestring
 
+call crlf
+call crlf
 mov edx,offset Askk
 call writestring
 call readint

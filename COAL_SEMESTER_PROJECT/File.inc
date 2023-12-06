@@ -75,6 +75,11 @@ AddCourse PROTO						;This function is for Faculty member to add a new course
 
 ShowCourses PROTO
 
+takeAttendance PROTO
+
+markAttendance PROTO,
+attendance:DWORD
+
 compareStr PROTO,
 string1:PTR DWORD,
 string2:PTR DWORD,
@@ -116,3 +121,8 @@ stuschedule PROTO
 main PROTO
 
 studentchoices PROTO
+
+
+Cafeteria PROTO
+
+Transport PROTO

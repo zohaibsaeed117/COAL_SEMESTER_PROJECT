@@ -214,7 +214,6 @@ showCourses PROC
 
 	cmp bufferSize,0
 	jnle readFileLoop
-	call gotoxy
 	quit:
 	mov eax,white+(black * 16)
 	call settextcolor

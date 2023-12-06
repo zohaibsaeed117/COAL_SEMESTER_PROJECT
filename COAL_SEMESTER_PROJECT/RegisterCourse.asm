@@ -12,7 +12,7 @@ Include File.inc
 	successMsg byte "Your course has been registered successfully",0
 	notFoundMsg byte "Course not found",0
 	txt byte ".txt",0
-	grade byte "_!",0dh,0ah,0
+	grade byte "!",0dh,0ah,0
 	flag byte 0
 	bytesWritten byte ?
 	bytesRead DWORD ?
@@ -20,7 +20,7 @@ Include File.inc
 	bufferSize DWORD ?
 	space byte " ",0
 	len DWORD ?
-	pathGrades byte "coursesGrades\",0
+	pathGrades byte "CoursesGrades\",0
 	pathAttendance byte "CourseAttendance\",0
 	gradesFile byte 50 DUP(?)
 	AttendanceFile byte 50 DUP(?)
@@ -134,7 +134,6 @@ alreadyRegisteredMsg  byte "You are already registered!",0
 	cmp flag,1
 	je alreadyRegistered
 	Invoke readfl,esi,ADDR string,ecx
-	dec ecx					;because we have "_!",0dh,0ah in our string one char is extra
 	cmp ecx,0
 	jnle checkagain
 
@@ -162,7 +161,7 @@ alreadyRegisteredMsg  byte "You are already registered!",0
 	  filehandlegrade,0,0,FILE_END	
 
 	INVOKE WriteFile,
-		filehandlegrade, ADDR grade, 4,		;Entering a space after the user id
+		filehandlegrade, ADDR grade, 3,		;Entering a space after the user id
 		ADDR bytesWritten, 0
 
 	;--------------------------------------writing student id in file of attendance-------------------
@@ -188,7 +187,7 @@ alreadyRegisteredMsg  byte "You are already registered!",0
 	  filehandleattendance,0,0,FILE_END	
 
 	INVOKE WriteFile,
-		filehandleattendance, ADDR grade, 4,		;Entering a space after the user id
+		filehandleattendance, ADDR grade, 3,		;Entering a space after the user id
 		ADDR bytesWritten, 0
 
 	mov edx,offset successMsg
@@ -213,8 +212,8 @@ notFound:
 	call writeString
 	call CRLF
 quit:
-    call closeFile
     mov eax,filehandleallCourse
+	call closeFile
 	mov edx,offset anotherCourse
 	call writeString
 	call CRLF

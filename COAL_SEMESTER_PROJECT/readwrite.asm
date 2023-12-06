@@ -20,6 +20,8 @@ len:DWORD
 	loop1:
 		cmp BYTE PTR[esi],"!"
 		je EndofLine
+		cmp BYTE PTR[esi]," "
+		je endOFWord
 		mov bl,[esi]
 		mov [edi],bl
 		inc esi
@@ -27,12 +29,17 @@ len:DWORD
 
 	loop loop1
 
+	EndofWord:
+		mov BYTE PTR[edi],0
+		inc esi
+		dec ecx
+		jmp quit
 	endofLine:
 	mov BYTE PTR[edi],0
 	add esi,3
 	sub ecx,2
-
-
+	
+quit:
 ret
 readfl EndP
 end

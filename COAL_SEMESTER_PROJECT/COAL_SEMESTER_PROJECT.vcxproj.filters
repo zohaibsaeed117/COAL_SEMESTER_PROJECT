@@ -96,13 +96,15 @@
     <MASM Include="gradepaper.asm">
       <Filter>Source Files</Filter>
     </MASM>
-    <MASM Include="menuforstudents.asm">
+    <MASM Include="takeAttendance.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="MarkAttendance.asm">
+      <Filter>Source Files</Filter>
+      <MASM Include="menuforstudents.asm">
       <Filter>Source Files</Filter>
     </MASM>
     <MASM Include="studentdesp.asm">
-      <Filter>Source Files</Filter>
-    </MASM>
-    <MASM Include="studentschedule.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>

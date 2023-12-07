@@ -104,11 +104,14 @@ Cafeteria PROTO
 
 hostelAllot PROTO,
 id:PTR BYTE,
-stuName:PTR BYTE,
-email:PTR BYTE,
-contact:PTR BYTE,
-address:PTR BYTE,
-password:PTR BYTE
+stuName:PTR BYTE
+
+
+HostelStudent PROTO,
+buffer:PTR BYTE,
+bufferSize:DWORD,
+id:PTR BYTE,
+stuName:PTR BYTE
 
 readfl PROTO,
 buffer:PTR BYTE,

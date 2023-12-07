@@ -135,6 +135,7 @@
     <MASM Include="giveexam.asm" />
     <MASM Include="gradepaper.asm" />
     <MASM Include="Hostel.asm" />
+    <MASM Include="HostelStudent.asm" />
     <MASM Include="MarkAttendance.asm" />
     <MASM Include="menuforstudents.asm" />
     <MASM Include="studentdesp.asm" />
@@ -172,6 +173,7 @@
     <Text Include="Budget.txt" />
     <Text Include="hostelrecord.txt" />
     <Text Include="Items.txt" />
+    <Text Include="Studentcheck.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc" />

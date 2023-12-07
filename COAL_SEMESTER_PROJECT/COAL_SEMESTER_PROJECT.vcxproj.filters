@@ -114,6 +114,9 @@
     <MASM Include="Hostel.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="HostelStudent.asm">
+      <Filter>Resource Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">
@@ -191,6 +194,9 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="hostelrecord.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Studentcheck.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

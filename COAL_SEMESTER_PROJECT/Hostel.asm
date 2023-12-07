@@ -7,7 +7,7 @@ call writestring
 pop edx
 ENDM
 .data
-	authentication byte "AuthStudent.txt",0
+	authentication byte "Studentcheck.txt",0
 	buffer byte 5000 DUP(?)
 	bufferSize DWORD ?
 	filehandle DWORD ?
@@ -20,17 +20,13 @@ ENDM
 	notFound byte "Wrong Credentials",0
 	hostel byte "A room is allocated to you",0
 	tempId byte 20 DUP(?)
-	tempPassword byte 10 DUP(?)
 	tabp byte "	",0
 
 .code
 hostelAllot PROC,
 id:PTR BYTE,
 stuName:PTR BYTE,
-email:PTR BYTE,
-contact:PTR BYTE,
-address:PTR BYTE,
-password:PTR BYTE
+
 
 takeCredentials:
 call clrscr
@@ -64,9 +60,7 @@ INVOKE createFile, ADDR authentication,GENERIC_READ,FILE_SHARE_READ or FILE_SHAR
 	mWrite passMsg			
 
 
-	mov edx,offset temppassword					
-	mov ecx,10
-	call readString
+	
 	
 	;-----------------------------------------Checking whether the user exists already or not-------------------------|
 
@@ -74,7 +68,7 @@ INVOKE createFile, ADDR authentication,GENERIC_READ,FILE_SHARE_READ or FILE_SHAR
 	
 	  mov edi,offset buffer
 	  readFileLoop:
-	  Invoke readStudent,edi,bufferSize,id,Stuname,email,contact,address,password,addr bytesRead
+	  Invoke HostelStudent,edi,bufferSize,id,Stuname,addr bytesRead
 
 	  add edi,bytesRead					;Moving to next line which contains the data of next user
 
@@ -86,9 +80,7 @@ INVOKE createFile, ADDR authentication,GENERIC_READ,FILE_SHARE_READ or FILE_SHAR
 	  Invoke compareStr, id,ADDR Tempid,ADDR flag
 	  cmp flag,0
 	  je emailNotFound
-	  Invoke compareStr, password,ADDR temppassword,ADDR flag
-	  cmp flag,1
-	  je quit
+	  
 	  emailNotFound:
 	  cmp bufferSize,0
 	  jnle readFileLoop

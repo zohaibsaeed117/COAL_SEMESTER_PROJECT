@@ -102,6 +102,14 @@ Transport PROTO
 
 Cafeteria PROTO
 
+hostelAllot PROTO,
+id:PTR BYTE,
+stuName:PTR BYTE,
+email:PTR BYTE,
+contact:PTR BYTE,
+address:PTR BYTE,
+password:PTR BYTE
+
 readfl PROTO,
 buffer:PTR BYTE,
 string:PTR BYTE,

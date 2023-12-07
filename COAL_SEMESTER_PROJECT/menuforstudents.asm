@@ -8,6 +8,7 @@ Include File.inc
 	  "Press 3 for Courses Schedule",0dh,0ah,
 	  "Press 4 for viewing Exam schedule",0dh,0ah,
 	  "Press 5 to give exam",0dh,0ah,
+	  "Press 6 to book a room in hostel",0dh,0ah,
 	  "Press 0 to exit",0dh,0ah,
       "Enter your Choice: ",0
 	  
@@ -78,6 +79,12 @@ call clrscr
 .ELSEIF choice==5
 	call clrscr
     INVOKE stutest
+	call crlf
+    call waitmsg
+
+.ELSEIF choice==6
+	call clrscr
+    INVOKE hostelAllot
 	call crlf
     call waitmsg
 

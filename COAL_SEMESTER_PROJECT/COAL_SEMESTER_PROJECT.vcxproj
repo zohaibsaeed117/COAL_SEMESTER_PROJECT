@@ -134,6 +134,7 @@
     <MASM Include="Cafeteria.asm" />
     <MASM Include="giveexam.asm" />
     <MASM Include="gradepaper.asm" />
+    <MASM Include="Hostel.asm" />
     <MASM Include="MarkAttendance.asm" />
     <MASM Include="menuforstudents.asm" />
     <MASM Include="studentdesp.asm" />

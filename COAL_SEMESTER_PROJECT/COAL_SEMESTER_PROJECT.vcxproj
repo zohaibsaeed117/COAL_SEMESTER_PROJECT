@@ -134,10 +134,10 @@
     <MASM Include="Cafeteria.asm" />
     <MASM Include="giveexam.asm" />
     <MASM Include="gradepaper.asm" />
-        <MASM Include="menuforstudents.asm" />
+    <MASM Include="MarkAttendance.asm" />
+    <MASM Include="menuforstudents.asm" />
     <MASM Include="studentdesp.asm" />
     <MASM Include="studentschedule.asm" />
-      <MASM Include="MarkAttendance.asm" />
     <MASM Include="takeAttendance.asm" />
     <MASM Include="Transport.asm" />
     <Text Include="AuthFaculty.txt">

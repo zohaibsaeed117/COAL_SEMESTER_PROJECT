@@ -9,6 +9,7 @@ Include File.inc
 		  "Press 6 to view exam schedule",0dh,0ah,
 		  "Press 7 to view grade system",0dh,0ah,
 		  "Press 8 to view attendance system",0dh,0ah,
+		  "Press 0 to exit",0dh,0ah,
 		  "Enter your Choice: ",0
 	  invalid BYTE "Invalid number entered!",13,10,0
 	choice DWORD ?
@@ -38,47 +39,58 @@ call writeString
 call readDec
 mov choice,eax
 .IF choice==1
+		call clrscr
 		Invoke AddCourse
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==2
+		call clrscr
 		INVOKE Transport
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==3
+		call clrscr
 		INVOKE Cafeteria
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==4
+		call clrscr
         Invoke description
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==5
+		call clrscr
 		 Invoke schedule
 		 call crlf
 		 call waitmsg
 
 .ELSEIF choice==6
+	   	 call clrscr
 		 Invoke examings
 		 call crlf
 		 call waitmsg
 
 .ELSEIF choice==7
+		call clrscr
 	    Invoke gradest
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==8
+		call clrscr
 		Invoke takeAttendance
         call crlf
 		call waitmsg
 
+.ELSEIF choice==0
+	    jmp quit
 	
 .ELSE
+		call clrscr
 		mov eax,red+(black * 16)
 		call settextcolor
 		mov edx,offset invalid
@@ -91,7 +103,6 @@ mov choice,eax
 quit:
 nop
 
-INVOKE main
 
 
 ret

@@ -32,6 +32,9 @@ mov choice,al
      call registerStudent
 	 INVOKE studentchoices         ;...........student authorities
 
+.ELSEIF choice==0
+     jmp quit
+
 .ELSE
 		mov eax,red+(black * 16)
 		call settextcolor
@@ -41,6 +44,8 @@ mov choice,al
 		call settextcolor
 		
 .ENDIF
+
+quit:
 
 
 	ret

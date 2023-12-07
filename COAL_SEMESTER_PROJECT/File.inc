@@ -118,8 +118,6 @@ studentdescription PROTO
 
 stuschedule PROTO
 
-main PROTO
-
 studentchoices PROTO
 
 

@@ -8,6 +8,7 @@ Include File.inc
 	  "Press 3 for Courses Schedule",0dh,0ah,
 	  "Press 4 for viewing Exam schedule",0dh,0ah,
 	  "Press 5 to give exam",0dh,0ah,
+	  "Press 0 to exit",0dh,0ah,
       "Enter your Choice: ",0
 	  
 	choice DWORD ?
@@ -23,9 +24,13 @@ Include File.inc
  
 studentchoices PROC
 
+call clrscr
 
 Invoke registerCourse,ADDR userName         ;......registration for course
 call clrscr
+
+
+again:
 
 mov eax,cyan(black*16)    ;welcoming the user to unversity
 call settextcolor
@@ -45,37 +50,53 @@ mov choice,eax
 call clrscr
 
 .IF choice==1
+    call clrscr
 	Invoke ChangePassword
 	call crlf
 	call waitmsg
 
 .ELSEIF choice==2
+	call clrscr
     INVOKE studentdescription
 	call crlf
 	call waitmsg
 
 
 .ELSEIF choice==3
+   call clrscr
    INVOKE stuschedule
    call crlf
-   	call waitmsg
+   call waitmsg
 
 
 .ELSEIF choice==4
+	call clrscr
     INVOKE examings
 	call crlf
 	call waitmsg
 
 .ELSEIF choice==5
+	call clrscr
     INVOKE stutest
 	call crlf
     call waitmsg
 
+.ELSEIF choice==0
+    jmp quit
+
+.ELSE
+		call clrscr
+        mov eax,red+(black * 16)
+		call settextcolor
+		mov edx,offset invalid
+		call writestring
+		mov eax,white+(black * 16)				   
+		call settextcolor
+		jmp again
 
 .ENDIF
 
-INVOKE main
-	
+quit:
 
 ret
 studentchoices ENDP

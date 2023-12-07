@@ -34,7 +34,7 @@ mov choice,eax
 		jmp quit
 
 .ELSE                            ;......In case user enterd the wrong number not given in menu
-mov eax,cyan+(black * 16)
+mov eax,red+(black * 16)
 		call settextcolor
 		mov edx,offset invalid
 		call writestring
@@ -43,7 +43,10 @@ mov eax,cyan+(black * 16)
 		jmp again
 
 .ENDIF
-	
+
+jmp again
+
+
 quit:
 	nop
 

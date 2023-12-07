@@ -27,7 +27,7 @@ studentchoices PROC
 
 call clrscr
 
-Invoke registerCourse,ADDR userName         ;......registration for course
+;Invoke registerCourse,ADDR userName         ;......registration for course
 call clrscr
 
 

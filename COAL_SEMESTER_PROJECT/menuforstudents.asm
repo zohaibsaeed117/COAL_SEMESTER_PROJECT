@@ -19,6 +19,8 @@ Include File.inc
 	msg byte ".txt",0
 	result byte 100 DUP(?)
 	userName byte "zohaib-saeed",0
+	stu student <>
+
 
 
 .code
@@ -84,7 +86,7 @@ call clrscr
 
 .ELSEIF choice==6
 	call clrscr
-    INVOKE hostelAllot
+    INVOKE hostelAllot,ADDR stu.id,ADDR stu.Stuname,ADDR stu.email,ADDR stu.contact,ADDR stu.address,ADDR stu.password
 	call crlf
     call waitmsg
 

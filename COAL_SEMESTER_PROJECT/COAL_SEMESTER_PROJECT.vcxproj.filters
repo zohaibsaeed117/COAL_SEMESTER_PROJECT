@@ -112,7 +112,7 @@
       <Filter>Source Files</Filter>
     </MASM>
     <MASM Include="Hostel.asm">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +188,9 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="Budget.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="hostelrecord.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

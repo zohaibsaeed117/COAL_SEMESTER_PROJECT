@@ -170,6 +170,7 @@
     <MASM Include="showCourses.asm" />
     <MASM Include="StudentMenu.asm" />
     <Text Include="Budget.txt" />
+    <Text Include="hostelrecord.txt" />
     <Text Include="Items.txt" />
   </ItemGroup>
   <ItemGroup>

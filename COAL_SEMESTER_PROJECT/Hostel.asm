@@ -18,7 +18,6 @@ ENDM
 	passMsg byte "Enter your Password: ",0 
 	flag byte ?
 	notFound byte "Wrong Credentials",0
-	successMsg byte "You are successfully logged in",0
 	hostel byte "A room is allocated to you",0
 	tempId byte 20 DUP(?)
 	tempPassword byte 10 DUP(?)
@@ -102,7 +101,7 @@ call closeFile
 call waitMsg
 jmp takeCredentials
 quit:
-mWrite successMsg
+
 mWrite hostel
 mov eax,1
 call CRLF

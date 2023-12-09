@@ -102,11 +102,6 @@ Transport PROTO
 
 Cafeteria PROTO
 
-hostelAllot PROTO,
-id:PTR BYTE,
-stuName:PTR BYTE
-
-
 HostelStudent PROTO,
 buffer:PTR BYTE,
 bufferSize:DWORD,
@@ -131,7 +126,8 @@ stuschedule PROTO
 
 studentchoices PROTO
 
-
 Cafeteria PROTO
 
 Transport PROTO
+
+Hostel PROTO

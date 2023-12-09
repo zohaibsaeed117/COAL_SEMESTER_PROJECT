@@ -1,104 +1,67 @@
-Include File.inc
+INCLUDE File.inc
 
-mWrite MACRO buffer
-push edx
-mov edx,offset buffer
-call writestring
-pop edx
-ENDM
 .data
-	authentication byte "Studentcheck.txt",0
-	buffer byte 5000 DUP(?)
-	bufferSize DWORD ?
-	filehandle DWORD ?
-	bytesWritten DWORD ?
-	bytesRead DWORD 0
-	errMsg byte "Unable to open File",0
-	IdMsg byte "Enter your Id: ",0
-	passMsg byte "Enter your Password: ",0 
-	flag byte ?
-	notFound byte "Wrong Credentials",0
-	hostel byte "A room is allocated to you",0
-	tempId byte 20 DUP(?)
-	tabp byte "	",0
+
+buffersize DWORD ?
+file BYTE "hostelrecord.txt",0
+roomallow BYTe "A room has been allocated to you.",13,10,0
+buffer BYTE 5000 DUP (?)
+filehandle DWORD ?
+bytesread DWORD 0
+bytesWritten DWORD ?
+newLine byte "!",13,10,0
+id BYTE 20 DUP(?)
+idmssg BYTE "Enter id:",0
+len DWORD ?
+errMsg byte "Unable to open File",13,10,0
 
 .code
-hostelAllot PROC,
-id:PTR BYTE,
-stuName:PTR BYTE,
 
+Hostel PROC
 
-takeCredentials:
-call clrscr
-INVOKE createFile, ADDR authentication,GENERIC_READ,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
+INVOKE createFile, ADDR file,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 
 
-	mov filehandle,eax			; save file handle
+	  mov filehandle,eax			; save file handle
 	.IF eax == INVALID_HANDLE_VALUE
-	  mWrite errMsg
+	  mov  edx,OFFSET errMsg		; Display error message
+	  call WriteString
 	  jmp  quit
 	.ENDIF
 
-	call CRLF
-	call CRLF
-	call CRLF
-	mWrite tabp
+	mov edx,offset idmssg
+	call writestring
 
-	mWrite idMsg				
+	mov edx,offset id
+	mov ecx,lengthof id
+	call readstring
+	mov len,eax
 
+	INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END	
 
-	mov edx,offset tempid						
-	mov ecx,20
-	call readString
-
-	call CRLF
-	call CRLF
-	call CRLF
-	mWrite tabp
-
-	mWrite passMsg			
+	INVOKE WriteFile,
+		filehandle,offset id, len,
+		ADDR bytesWritten, 0				;writing the id of the user in the authentication file
 
 
-	
-	
-	;-----------------------------------------Checking whether the user exists already or not-------------------------|
 
-	Invoke ReadFile,filehandle,offset buffer,5000,ADDR bufferSize,0
-	
-	  mov edi,offset buffer
-	  readFileLoop:
-	  Invoke HostelStudent,edi,bufferSize,id,Stuname,addr bytesRead
+		INVOKE SetFilePointer,
+	  filehandle,0,0,FILE_END
 
-	  add edi,bytesRead					;Moving to next line which contains the data of next user
+	INVOKE WriteFile,
+		filehandle, ADDR newLine, 3,
+		ADDR bytesWritten, 0
 
 
-	  mov eax,bytesRead
-	  sub bufferSize,eax				;subracting the buffersize after taking details of one user
+		mov edx,offset roomallow
+		call writestring
 
+	quit:
+	mov eax,filehandle
+	call closefile
 
-	  Invoke compareStr, id,ADDR Tempid,ADDR flag
-	  cmp flag,0
-	  je emailNotFound
-	  
-	  emailNotFound:
-	  cmp bufferSize,0
-	  jnle readFileLoop
-
-mWrite notFound
-
-call CRLF
-mov edx,fileHandle
-call closeFile
-call waitMsg
-jmp takeCredentials
-quit:
-
-mWrite hostel
-mov eax,1
-call CRLF
-	mov edx,filehandle
-	call closeFile
 ret
-hostelAllot endp
-end
+Hostel ENDP
+END

@@ -86,7 +86,7 @@ call clrscr
 
 .ELSEIF choice==6
 	call clrscr
-    INVOKE hostelAllot,ADDR stu.id,ADDR stu.Stuname
+    INVOKE Hostel
 	call crlf
     call waitmsg
 

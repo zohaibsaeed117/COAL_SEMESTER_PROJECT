@@ -1,16 +1,12 @@
 Include File.inc
 .data
-	authentication byte "Auth.txt",0
+	authentication byte "AuthStudent.txt",0
 	buffer byte 5000 DUP(?)
 	bufferSize DWORD ?
 	filehandle DWORD ?
 	bytesbuffer DWORD ?
 	bytesWritten DWORD ?
 	bytesRead DWORD 0
-	errMsg byte "Unable to open File",0
-	IdMsg byte "Enter your Id: ",0
-	passMsg byte "Enter your Password: ",0 
-	newpassMsg byte "Enter your new Password: ",0 
 	flag byte ?
 	success byte ?
 	notFound byte "Wrong Credentials",0
@@ -30,21 +26,18 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 
 	mov filehandle,eax			; save file handle
 	.IF eax == INVALID_HANDLE_VALUE
-	  mov  edx,OFFSET errMsg		; Display error message
-	  call WriteString
+	  mWrite "Unable to open the file"
 	  jmp  quit
 	.ENDIF
 
 	
-	mov edx,offset idMsg				;printing the message for user to enter the email
-	call writeString
+	mWrite "	Enter your Id:"
 
 	mov edx,offset tempid						;Taking the id from user
 	mov ecx,20
 	call readString
 
-	mov edx,offset passMsg				;printing the message for user to enter the password
-	call writeString
+	mWrite "	Enter your Password:"
 
 	mov edx,offset temppassword					;Taking the password from the user
 	mov ecx,10
@@ -82,8 +75,8 @@ userFound:
 	std
 	repne scasb
 	add edi,2
-	mov edx,offset newPassMsg
-	call writeString
+	
+	mWrite "	Enter New Password:"
 
 	mov edx,offset newpassword
 	mov ecx,10
@@ -97,19 +90,16 @@ userFound:
 	invoke CreateFile,ADDR authentication,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
 	mov filehandle,eax
 	.IF eax == INVALID_HANDLE_VALUE
-	  mov  edx,OFFSET errMsg		; Display error message
-	  call WriteString
+	  mWrite "Unable to open the file"
 	  jmp  quit
 	.ENDIF
 
 	Invoke WriteFile,filehandle,offset buffer,bytesBuffer,ADDR bytesWritten,0
 
-	mov edx,offset successMsg
-	call writeString
+	mWrite "	Your password has been changed successfully!"
 	jmp quitProc
 quit:
-	mov edx,offset notFound
-	call writeString
+	mWrite "	User Not Found"
 	call CRLF
 quitPROC:
 	mov edx,filehandle

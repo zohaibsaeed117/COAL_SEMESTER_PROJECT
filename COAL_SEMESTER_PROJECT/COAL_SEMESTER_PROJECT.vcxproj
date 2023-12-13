@@ -132,6 +132,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <MASM Include="Cafeteria.asm" />
+    <MASM Include="CourseAttendace.asm" />
+    <MASM Include="GenerateAttendanceReport.asm" />
     <MASM Include="giveexam.asm" />
     <MASM Include="gradepaper.asm" />
     <MASM Include="hostel.asm" />

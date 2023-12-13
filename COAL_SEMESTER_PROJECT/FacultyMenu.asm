@@ -20,6 +20,9 @@ FacultyMenu PROC
 
 call Clrscr
 call LoginFaculty
+.IF eax==0
+	jmp quit
+.ENDIF
 
 call CLRSCR
 

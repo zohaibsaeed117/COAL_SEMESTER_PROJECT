@@ -4,13 +4,8 @@ Include File.inc
 	buffer byte 5000 DUP(?)
 	bufferSize DWORD ?
 	filehandle DWORD ?
-	bytesRead DWORD 0
-	errMsg byte "Unable to open File",0
-	EmailMsg byte "Enter your Email: ",0
-	passMsg byte "Enter your Password: ",0 
+	bytesRead DWORD 0 
 	flag byte ?
-	notFound byte "Wrong Credentials",0
-	successMsg byte "You are logged in successfully",0
 	tempEmail byte 50 DUP(?)
 	tempPassword byte 10 DUP(?)
 	email byte 20 DUP(?)
@@ -26,19 +21,14 @@ call Clrscr
 
 	mov filehandle,eax			; save file handle
 	.IF eax == INVALID_HANDLE_VALUE
-	  mov  edx,OFFSET errMsg		; Display error message
-	  call WriteString
+		mWrite "Unable to Open File"
 	  jmp  quit
 	.ENDIF
 
 	call CRLF
 	call CRLF
 	call CRLF
-	mov edx,offset tabp					
-	call writeString
-
-	mov edx,offset emailMsg				;printing the message for user to enter the email
-	call writeString
+	mWrite "	Enter your Email:"
 
 	mov edx,offset tempEmail						;Taking the Email from user
 	mov ecx,50
@@ -47,11 +37,8 @@ call Clrscr
 	call CRLF
 	call CRLF
 	call CRLF
-	mov edx,offset tabp
-	call writeString
+	mWrite "	Enter your Password:"
 
-	mov edx,offset passMsg				;printing the message for user to enter the password
-	call writeString
 
 	mov edx,offset temppassword					;Taking the password from the user
 	mov ecx,10
@@ -77,25 +64,33 @@ call Clrscr
 	  je emailNotFound
 	  Invoke compareStr, ADDR password,ADDR temppassword,ADDR flag
 	  cmp flag,1
-	  je quit
+	  je success
 	  emailNotFound:
 	  cmp bufferSize,0
 	  jnle readFileLoop
 
-	mov edx,offset notFound
-	call writeString
+	mWrite "Wrong Credentials!"
 	call CRLF
-	mov edx,fileHandle
-	call closeFile
+	mWrite "Do you want to try again(Y/N)"
+	call readChar
+	call CRLF
+	.IF al=='y'
+		jmp takeCredentials
+	.ELSEIF al=='Y'
+		jmp takeCredentials
+	.ENDIF
+	mov eax,0
+	jmp quit
+success:
+	mWrite "You are logged in Successfully"
+	call CRLF
 	call waitMsg
-	jmp takeCredentials
-quit:
-	mov edx,offset successMsg
-	call writeString
 	mov eax,1
-	call CRLF
-	mov edx,filehandle
+quit:
+push eax
+	mov eax,filehandle
 	call closeFile
+pop eax
 ret
 LoginFaculty ENDP
 END

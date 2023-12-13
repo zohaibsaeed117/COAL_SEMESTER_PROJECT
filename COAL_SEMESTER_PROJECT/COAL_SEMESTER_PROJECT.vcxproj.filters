@@ -114,6 +114,12 @@
     <MASM Include="hostel.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="GenerateAttendanceReport.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="CourseAttendace.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

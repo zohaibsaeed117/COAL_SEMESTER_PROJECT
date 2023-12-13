@@ -6,8 +6,6 @@ INCLUDE file.inc
 	invalid BYTE "Invalid number entered!",13,10,0
 	msg byte ".txt",0
 	result byte 100 DUP(?)
-	userId byte "2022-CS-633",0
-
 .code
 main PROC
 
@@ -53,9 +51,8 @@ quit:
 	mov eax,white(black*16)           ;.....deafult text color setting
 	call settextcolor
 
-
-
-
+	
+	
 INVOKE ExitProcess,0 
 main ENDP
 END main

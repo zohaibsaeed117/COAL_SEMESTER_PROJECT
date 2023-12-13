@@ -17,6 +17,7 @@ call settextcolor
 mov edx,offset uni
 call writestring
 
+again:
 call printLoginMenu		;Printing menu
 
 call readDec
@@ -30,7 +31,8 @@ mov choice,al
 .ELSEIF choice==2
      call CLRSCR
      call registerStudent
-	 INVOKE studentchoices         ;...........student authorities
+	 call CLRSCR
+	 jmp again         
 
 .ELSEIF choice==0
      jmp quit

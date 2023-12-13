@@ -8,13 +8,7 @@ Include File.inc
 	bytesRead DWORD 0
 	space byte " "
 	newLine byte "!",0dh,0ah,0
-	errMsg byte "Unable to open File",0
-	idMsg byte "Enter your ID: ",0
-	nameMsg byte "Enter your name: ",0
-	ContactMsg byte "Enter your Contact Number: ",0
-	AddressMsg byte "Enter your Address: ",0
-	emailMsg byte "Enter your email: ",0
-	passMsg byte "Enter your Password: ",0 
+	errMsg byte "Unable to open File",0 
 	len DWORD ?
 	idLen DWORD ?
 	nameLen DWORD ?
@@ -31,28 +25,28 @@ Include File.inc
 	txt byte ".txt",0
 	newFile byte 20 DUP(?)
 	tabp byte " ",0
+	choice byte ?
 .code
 registerStudent PROC
 
+	takeCredentials:
+	call CLRSCR
 INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 
 
 	mov filehandle,eax			; save file handle
 	.IF eax == INVALID_HANDLE_VALUE
-	  mov  edx,OFFSET errMsg		; Display error message
-	  call WriteString
+		mWrite "Unable to Open File"
 	  jmp  quit
 	.ENDIF
 
-	takeCredentials:
 
 	call CRLF
 	call CRLF
 	call CRLF
-	mov edx,offset tabp
-	mov edx,offset idMsg
-	call writeString
+
+	mwrite "	Enter your Id:"
 
 	mov edx,offset stu.id
 	mov ecx,20
@@ -63,9 +57,8 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	call CRLF
 	call CRLF
 	call CRLF
-	mov edx,offset tabp
-	mov edx,offset namemsg				;printing the message for user to enter the name
-	call writeString
+	
+	mwrite "	Enter your Name:"
 
 	mov edx,offset stu.stuName						;Taking name from the user as Input
 	mov ecx,20
@@ -76,9 +69,8 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	call CRLF
 	call CRLF
 	call CRLF
-	mov edx,offset tabp
-	mov edx,offset emailmsg				;printing the message for user to enter the email
-	call writeString
+	
+	mwrite "	Enter your Email:"
 
 	mov edx,offset stu.email						;Taking the email from user
 	mov ecx,50
@@ -89,9 +81,8 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	call CRLF
 	call CRLF
 	call CRLF
-	mov edx,offset tabp
-	mov edx,offset contactmsg				;printing the message for user to enter the contact number
-	call writeString
+	
+	mwrite "	Enter Your Conatact Number"
 
 	mov edx,offset stu.contact						;Taking the contact Number from user
 	mov ecx,50
@@ -101,9 +92,8 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	call CRLF
 	call CRLF
 	call CRLF
-	mov edx,offset tabp
-	mov edx,offset addressMsg				;printing the message for user to enter the contact number
-	call writeString
+	
+	mwrite "	Enter your Home Address:"
 
 	mov edx,offset stu.address					;Taking the contact Number from user
 	mov ecx,50
@@ -113,9 +103,8 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	call CRLF
 	call CRLF
 	call CRLF
-	mov edx,offset tabp
-	mov edx,offset passMsg				;printing the message for user to enter the password
-	call writeString
+	
+	mwrite "	Enter your Password:"
 
 	mov edx,offset stu.password					;Taking the password from the user
 	mov ecx,10
@@ -164,32 +153,19 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 		filehandle,offset stu.id, idlen,
 		ADDR bytesWritten, 0				;writing the id of the user in the authentication file
 
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END				
-
 	INVOKE WriteFile,
 		filehandle, ADDR space, 1,		;Entering a space after the user id
 		ADDR bytesWritten, 0
 
 		;writing name in file
 
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
 	INVOKE WriteFile,
 		filehandle,offset stu.stuName, namelen,
 		ADDR bytesWritten, 0				;writing the name of the user in the authentication file
 
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END				
-
 	INVOKE WriteFile,
 		filehandle, ADDR space, 1,		;Entering a space after the user name
 		ADDR bytesWritten, 0
-
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
 
 	  ;writing email in file
 	INVOKE WriteFile,
@@ -197,51 +173,35 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 		ADDR bytesWritten, 0
 	mov len,1
 
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
 		filehandle, ADDR space, len,
 		ADDR bytesWritten, 0
 
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
 	  ;writing contact in file
 	INVOKE WriteFile,
 		filehandle, offset stu.contact, contactlen,
 		ADDR bytesWritten, 0
 
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
 	INVOKE WriteFile,
 		filehandle, ADDR space, len,
 		ADDR bytesWritten, 0
 
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-	  ;writing contact
 	INVOKE WriteFile,
 		filehandle, offset stu.address, addresslen,
 		ADDR bytesWritten, 0
 
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
 		filehandle, ADDR space, 1,
 		ADDR bytesWritten, 0
 
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
 		filehandle, offset stu.password, passwordlen,
 		ADDR bytesWritten, 0
 		mov len,1
 
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
 		filehandle, ADDR newLine, 3,
@@ -259,14 +219,22 @@ INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_
 	jmp quit
 
 userFound:
-mov edx,offset userFoundMsg
-call writeString
+mov eax,red(16*black)
+call setTextColor
+mWrite "	User already Exists"
+mov eax,lightBlue(16*black)
+call setTextColor
 call CRLF
-jmp takeCredentials
 quit:
-	mov edx,filehandle
+	mov eax,filehandle
 	call closeFile
-	movzx eax,success
+	mWrite "	Do you want to register user again (Y/N): "
+	call readChar
+	.IF al=='y'
+		jmp takeCredentials
+	.ELSEIF al=='Y'
+		jmp takeCredentials
+	.ENDIF
 ret
 registerStudent endp
 end

@@ -1,5 +1,6 @@
 Include C:\Irvine\Irvine32.inc
 IncludeLib C:\Irvine\Irvine32.lib
+Include C:\Irvine\Macros.inc
 
 STUDENT struct
 	id byte 20 DUP(0)
@@ -79,6 +80,13 @@ takeAttendance PROTO
 
 markAttendance PROTO,
 attendance:DWORD
+
+GenerateAttendanceReport PROTO,
+studentId:PTR BYTE
+
+CourseAttendance PROTO,
+courseName:PTR BYTE,
+studnetId:PTR BYTE
 
 compareStr PROTO,
 string1:PTR DWORD,

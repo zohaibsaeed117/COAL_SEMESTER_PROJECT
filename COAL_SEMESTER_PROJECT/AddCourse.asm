@@ -9,10 +9,6 @@ Include File.inc
 	space byte " "
 	newLine byte "!",0dh,0ah,0
 	errMsg byte "Unable to open File",0
-	idMsg byte "Enter Course ID: ",0
-	nameMsg byte "Enter course name: ",0
-	creditMsg byte "Enter Credit Hours: ",0
-	teacherMsg byte "Enter course Teacher's Name: ",0
 	len DWORD ?
 	idLen DWORD ?
 	nameLen DWORD ?
@@ -21,7 +17,6 @@ Include File.inc
 	newCourse course <>
 	tempCourse course <>
 	flag byte ?
-	courseFoundMsg byte "Course Already Exists",0
 	successMsg byte "New Course added Successfully",0
 	txt byte ".txt",0
 	pathGrades byte "coursesGrades\",0
@@ -37,38 +32,46 @@ addcourse proc
 
 	mov filehandle,eax			; save file handle
 	.IF eax == INVALID_HANDLE_VALUE
-	  mov  edx,OFFSET errMsg		; Display error message
-	  call WriteString
+	  mWrite "	Unable to open the file!"
 	  jmp  quit
 	.ENDIF
 	
 	takeCourseData:
-	mov edx,offset idMsg
-	call writeString
+
+	call CRLF
+	call CRLF
+	call CRLF
+	mWrite "	Enter Course Id:"
 
 	mov edx,offset newCourse.id
 	mov ecx,10
 	call readString
 	mov idLen,eax
 
-	mov edx,offset NameMsg
-	call writeString
+	call CRLF
+	call CRLF
+	call CRLF
+	mWrite "	Enter Course Name:"
 
 	mov edx,offset newCourse.courseName
 	mov ecx,30
 	call readString
 	mov nameLen,eax
 
-	mov edx,offset creditMsg
-	call writeString
+	call CRLF
+	call CRLF
+	call CRLF
+	mWrite "	Enter Course Credits Hours:"
 
 	mov edx,offset newCourse.creditHours
 	mov ecx,2
 	call readString
 	mov creditHoursLen,eax
 
-	mov edx,offset teacherMsg
-	call writeString
+	call CRLF
+	call CRLF
+	call CRLF
+	mWrite "	Enter Course Teacher's Name:"
 
 	mov edx,offset newCourse.teacherName
 	mov ecx,20
@@ -113,10 +116,7 @@ addCourseInfile:
 
 	INVOKE WriteFile,
 		filehandle,offset newCourse.id, idlen,
-		ADDR bytesWritten, 0				;writing the id of the course in the authentication file
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END				
+		ADDR bytesWritten, 0				;writing the id of the course in the authentication file		
 
 	INVOKE WriteFile,
 		filehandle, ADDR space, 1,		;Entering a space after the user id
@@ -124,23 +124,13 @@ addCourseInfile:
 
 		;writing name in file
 
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
 	INVOKE WriteFile,
 		filehandle,offset newCourse.courseName, namelen,
 		ADDR bytesWritten, 0				;writing the name of the course in the authentication file
 
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END				
-
 	INVOKE WriteFile,
 		filehandle, ADDR space, 1,		;Entering a space after the user name
 		ADDR bytesWritten, 0
-
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
 
 	  ;writing credit Hours in file
 	INVOKE WriteFile,
@@ -148,31 +138,21 @@ addCourseInfile:
 		ADDR bytesWritten, 0
 	mov len,1
 
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
 	INVOKE WriteFile,
 		filehandle, ADDR space, len,
 		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
 
 	INVOKE WriteFile,
 		filehandle, offset newCourse.teacherName, teacherNamelen,
 		ADDR bytesWritten, 0
 		mov len,1
 
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
 	INVOKE WriteFile,
 		filehandle, ADDR newLine, 3,
 		ADDR bytesWritten, 0
 
 
-	mov edx,offset successMsg
-	call writeString
+	mWrite "	New Course Added successfully!"
 
 	;Creating a file of newly Added Course
 	Invoke concatstr,ADDR newCourse.courseName,ADDR txt,ADDR newFile
@@ -191,8 +171,7 @@ addCourseInfile:
 	jmp quit
 
 courseFound:
-mov edx,offset courseFoundMsg
-call writeString
+mWrite "	Course Already Exists!"
 call CRLF
 jmp takeCourseData
 quit:

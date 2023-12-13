@@ -2,6 +2,8 @@ Include File.inc
 .data
 	courses byte "courses.txt",0
 	newFile byte 35 DUP(?)
+	userFile BYTE 20 DUP(?)
+	file_handle_User_file DWORD ?
 	filehandleAllCourse DWORD ?
 	filehandlegrade DWORD ?
 	filehandleattendance DWORD ?
@@ -26,7 +28,6 @@ Include File.inc
 	AttendanceFile byte 50 DUP(?)
 	anotherCourse byte "Do you want to register another course?(Y/N)",0
 	stu student <>
-
 .code
 registerCourse PROC,
 Studentid:PTR byte
@@ -197,6 +198,43 @@ alreadyRegisteredMsg  byte "You are already registered!",0
 		filehandleattendance, ADDR grade, 3,		;Entering a space after the user id
 		ADDR bytesWritten, 0
 
+	;---------------------Writing the course name in students file-----------------
+
+	Invoke concatStr,studentId,ADDR txt,ADDR userFile
+
+	INVOKE createFile, ADDR userFile,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
+	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
+
+	mov file_handle_user_file,eax			; save file handle
+	.IF eax == INVALID_HANDLE_VALUE
+	  mov  edx,OFFSET errMsg		; Display error message
+	  call WriteString
+	  jmp  quit
+	.ENDIF
+
+	INVOKE SetFilePointer,
+	  file_handle_user_file,0,0,FILE_END	
+
+	  Invoke str_length,offset tempCourse.courseName
+	INVOKE WriteFile,
+		file_handle_user_file,offset tempCourse.coursename, eax,
+		ADDR bytesWritten, 0				;writing the id of the course in the authentication file
+
+		INVOKE SetFilePointer,
+	  file_handle_user_file,0,0,FILE_END	
+
+	INVOKE WriteFile,
+		file_handle_user_file, ADDR space, 1,
+		ADDR bytesWritten, 0
+
+		INVOKE SetFilePointer,
+	  file_handle_user_file,0,0,FILE_END	
+
+	INVOKE WriteFile,
+		file_handle_user_file, ADDR grade, 3,		
+		ADDR bytesWritten, 0
+	mov eax,file_handle_user_file
+	call closeFile
 	mov edx,offset successMsg
 	call writeString
 	call CRLF

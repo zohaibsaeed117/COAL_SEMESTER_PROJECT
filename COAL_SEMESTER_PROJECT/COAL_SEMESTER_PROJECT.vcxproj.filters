@@ -120,6 +120,15 @@
     <MASM Include="CourseAttendace.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="coalpaper.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="PFpaper.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="FEpaper.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

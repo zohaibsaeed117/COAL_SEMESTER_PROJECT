@@ -132,13 +132,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <MASM Include="Cafeteria.asm" />
+    <MASM Include="coalpaper.asm" />
     <MASM Include="CourseAttendace.asm" />
+    <MASM Include="FEpaper.asm" />
     <MASM Include="GenerateAttendanceReport.asm" />
     <MASM Include="giveexam.asm" />
     <MASM Include="gradepaper.asm" />
     <MASM Include="hostel.asm" />
     <MASM Include="MarkAttendance.asm" />
     <MASM Include="menuforstudents.asm" />
+    <MASM Include="PFpaper.asm" />
     <MASM Include="studentdesp.asm" />
     <MASM Include="studentschedule.asm" />
     <MASM Include="takeAttendance.asm" />

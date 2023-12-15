@@ -9,6 +9,11 @@ Include File.inc
 	  "	Enter your Choice-->",0dh,0ah,0dh,0ah,0dh,0ah,0
 .code
 PrintMainMenu PROC
+INVOKE FEpaper
+;INVOKE PFpaper
+;INVOKE coalpaper
+
+
 
 mov eax,cyan(black*16)
 call settextcolor

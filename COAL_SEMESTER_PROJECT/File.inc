@@ -139,3 +139,9 @@ Cafeteria PROTO
 Transport PROTO
 
 Hostel PROTO
+
+coalpaper PROTO
+
+PFpaper PROTO
+
+FEpaper PROTO

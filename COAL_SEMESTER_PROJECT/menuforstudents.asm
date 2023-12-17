@@ -80,7 +80,7 @@ call clrscr
 
 .ELSEIF choice==5
 	call clrscr
-    INVOKE stutest
+    ;INVOKE giveExam
 	call crlf
     call waitmsg
 

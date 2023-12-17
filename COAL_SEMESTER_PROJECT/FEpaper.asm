@@ -63,7 +63,6 @@ l2:
 inc esi
 loop l1
 
-call writedec
 
 ret
 FEpaper ENDP

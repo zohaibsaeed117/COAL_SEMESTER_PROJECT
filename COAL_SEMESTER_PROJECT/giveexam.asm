@@ -1,461 +1,204 @@
-INCLUDE File.inc
-
+Include File.inc
 .data
-
-buffer byte 5000 DUP(?)
+	courseId byte 20 DUP(?)
+	course_file byte "courses.txt",0
+	course_file_handle DWORD ?
+	course_file_buffer byte 5000 DUP(?)
 	bufferSize DWORD ?
-	filehandle DWORD ?
+	tempCourse course <>
+	bytesRead DWORD ?
+	flag byte ?
 	bytesWritten DWORD ?
-	bytesRead DWORD 0
-	errMsg byte "Unable to open File",0
-	IdMsg byte "Enter your Id: ",0
-	passMsg byte "Enter your Password: ",0 
-	notFound byte "Wrong Credentials",0
-	tempId byte 20 DUP(?)
-	templidlen dd ?
-	tempPassword byte 10 DUP(?)
-	tabp byte "	",0
-	txt byte ".txt",0
-	newFile byte 20 DUP(?)
-	msk BYTE "Marks : ",0
-	newLine byte " ",0dh,0ah,0
-	nameMsg byte "Enter your name : ",0
-	ContactMsg byte "Enter your Contact Number : ",0
-	emailMsg byte "Enter your email : ",0
-	len DWORD ?
-	idLen DWORD ?
-	nameLen DWORD ?
-	contactLen DWORD ?
-	emailLen DWORD ?
-	passwordlen DWORD ?
-	stu student <>
-	var1 BYTE 2 DUP(?)
-	var2 BYTE 2 DUP(?)
-	gp BYTE "Grade : ",0
-	namely BYTE "Name : ",0
-	passw BYTE "Password : ",0
-	con BYTE "Contact : ",0
-    maill BYTE "e-mail : ",0
-	ied BYTE "Id : ",0
-	coursee BYTE "Course name : ",0
-	cors BYTE 20 DUP(?)
-	lenc DWORD ?
-
+	finalbufferSize DWORD ?
 .code
+giveExam proc,
+studentId:PTR BYTE
 
-stutest PROC
-
-    mov edx,offset tabp
-	mov edx,offset idMsg
-	call writeString
-
-	mov edx,offset stu.id
+	call showCourses
+	
+	call CRLF
+	call CRLF
+	call CRLF
+	mWrite "Enter the course Id:"
+	
+	mov edx,offset courseId
 	mov ecx,20
 	call readString
-	mov idLen,eax
 
-	INVOKE str_copy,addr stu.id,addr tempid
-
-	Invoke concatstr,ADDR tempid,ADDR txt,ADDR newFile
-	 ;Creating a file 
-
-	invoke CreateFile,ADDR newFile,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
-	mov edx,eax
-	call closefile
-
-	INVOKE createFile, ADDR newFile,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
+	INVOKE createFile, ADDR course_file,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 
-
-	mov filehandle,eax			; save file handle
+	mov course_file_handle,eax			; save file handle
 	.IF eax == INVALID_HANDLE_VALUE
-	  mov  edx,OFFSET errMsg		; Display error message
-	  call WriteString
+	  mWrite "	Unable to open the file!"
 	  jmp  quit
 	.ENDIF
 
-	call CRLF
-	call CRLF
-	call CRLF
-	mov edx,offset tabp
-	mov edx,offset namemsg				;printing the message for user to enter the name
-	call writeString
+	;-----------------------------------------Checking whether the course exists already or not-------------------------|
 
-	mov edx,offset stu.stuName						;Taking name from the user as Input
-	mov ecx,20
-	call readString
+	Invoke ReadFile,course_file_handle,offset course_file_buffer,5000,ADDR bufferSize,0
 
-	mov nameLen,eax
-	
-	call CRLF
-	call CRLF
-	call CRLF
-	mov edx,offset tabp
-	mov edx,offset emailmsg				;printing the message for user to enter the email
-	call writeString
 
-	mov edx,offset stu.email						;Taking the email from user
-	mov ecx,50
-	call readString
-	mov emailLen,eax
+	  mov edi,offset course_file_buffer
+	  readFileLoop:
 
-	call CRLF
-	call CRLF
-	call CRLF
-	mov edx,offset tabp
-	mov edx,offset coursee			;printing the message for user to enter the contact number
-	call writeString
+	  Invoke readCourse,edi,bufferSize,ADDR tempcourse.id,ADDR tempcourse.courseName,
+	  ADDR tempcourse.creditHours,ADDR tempcourse.teachername,addr bytesRead
 
-	mov edx,offset cors					;Taking the contact Number from user
-	mov ecx,50
-	call readString
-	mov lenc,eax
+	  add edi,bytesRead					;Moving to next line which contains the data of next user
 
-	
-	call CRLF
-	call CRLF
-	call CRLF
-	mov edx,offset tabp
-	mov edx,offset contactmsg				;printing the message for user to enter the contact number
-	call writeString
 
-	mov edx,offset stu.contact						;Taking the contact Number from user
-	mov ecx,50
-	call readString
-	mov contactLen,eax
-	
-	call CRLF
-	call CRLF
-	call CRLF
-	mov edx,offset tabp
-	mov edx,offset passMsg				;printing the message for user to enter the password
-	call writeString
-
-	mov edx,offset stu.password					;Taking the password from the user
-	mov ecx,10
-	call readString
-	mov passwordLen,eax
-	
-	mov stu.password[eax],0
-	mov len,eax
-	;.................................................................................................................
-
-;writing name in file
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
-	INVOKE WriteFile,
-		filehandle,offset namely,7,
-		ADDR bytesWritten, 0		
-
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
-	INVOKE WriteFile,
-		filehandle,offset stu.stuName, namelen,
-		ADDR bytesWritten, 0				;writing the name of the user in the authentication file
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-	
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
-	INVOKE WriteFile,
-		filehandle,offset ied, 5,
-		ADDR bytesWritten, 0	
-		
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
-	INVOKE WriteFile,
-		filehandle,offset stu.id, idlen,
-		ADDR bytesWritten, 0				;writing the id of the user in the authentication file
+	  mov eax,bytesRead
+	  sub bufferSize,eax				;subracting the buffersize after taking details of one user
 
 
 
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-	
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
-	INVOKE WriteFile,
-		filehandle,offset coursee,14 ,
-		ADDR bytesWritten, 0		
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	  INVOKE WriteFile,
-		filehandle,offset cors,lenc ,
-		ADDR bytesWritten, 0		
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		;writing email in file
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
-	INVOKE WriteFile,
-		filehandle,offset maill, 9,
-		ADDR bytesWritten, 0		
-
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
+	  Invoke compareStr, ADDR tempcourse.id,ADDR courseId,ADDR flag
+	  cmp flag,1
+	  je courseFound
 	  
-	INVOKE WriteFile,
-		filehandle, offset stu.email, emaillen,
-		ADDR bytesWritten, 0
-	mov len,1
 
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
-	INVOKE WriteFile,
-		filehandle,offset con, 10,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	  ;writing contact in file
-
-	INVOKE WriteFile,
-		filehandle, offset stu.contact, contactlen,
-		ADDR bytesWritten, 0
-
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END	
-
-	INVOKE WriteFile,
-		filehandle,offset passw, 11,
-		ADDR bytesWritten, 0
-
-	INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, offset stu.password, passwordlen,
-		ADDR bytesWritten, 0
-		mov len,1
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-;##########################################################################################################
-
-call clrscr
-
-		INVOKE paper
-
-		mov var2,bl
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR gp, 8,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR var2, 2,
-		ADDR bytesWritten, 0
-
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	INVOKE WriteFile,
-		filehandle, ADDR newLine, 3,
-		ADDR bytesWritten, 0
-
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	  INVOKE WriteFile,
-		filehandle, ADDR msk, 8,
-		ADDR bytesWritten, 0
-
-.IF var2=='A'
-
-mov var1,'5'
-       
-		
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	  INVOKE WriteFile,
-		filehandle, ADDR var1,2,
-		ADDR bytesWritten, 0
-
-		jmp quit
-
-        
-.ELSEIF var2=='B'
-
-mov var1,'4'
-
-		
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	  INVOKE WriteFile,
-		filehandle, ADDR var1,2,
-		ADDR bytesWritten, 0
-
-		jmp quit
-        
-        
-.ELSEIF var2=='C'
-
-mov var1,'3'
-
-	
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	  INVOKE WriteFile,
-		filehandle, ADDR var1,2,
-		ADDR bytesWritten, 0
-
-        jmp quit
-        
-.ELSEIF var2=='D'
-
-
-mov var1,'2'
-
-	
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	  INVOKE WriteFile,
-		filehandle, ADDR var1,2,
-		ADDR bytesWritten, 0
-
-		jmp quit
-	
-.ELSEIF var2=='E'
-
-mov var1,'1'
-		
-		
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
-
-	  INVOKE WriteFile,
-		filehandle, ADDR var1,2,
-		ADDR bytesWritten, 0
-      
+	  cmp bufferSize,0
+	  jnle readFileLoop
+	  mWrite "Course Not Found"
 	  jmp quit
-        
-.ELSEIF var2=='F'
-     
-mov var1,'0'
+courseFound:
+mov eax,course_file_handle
+call closeFile
+;----------------------------------Checking whether student has registered the selected course-------------------------|
+.data
+	student_file byte 30 DUP(?)
+	student_file_handle DWORD ?
+	student_file_buffer byte 5000 DUP(?)
+	string byte 30 DUP(?)
+	txt byte ".txt",0
+	attendance DWORD ?
+.code
+	Invoke concatstr,studentid,ADDR txt,ADDR student_file
+	INVOKE createFile, ADDR student_file,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
+	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 
-		
-		INVOKE SetFilePointer,
-	  filehandle,0,0,FILE_END
+	mov student_File_handle,eax			; save file handle
+	.IF eax == INVALID_HANDLE_VALUE
+	  mWrite "	Unable to open the file!"
+	  jmp  quit
+	.ENDIF
 
-	  INVOKE WriteFile,
-		filehandle, ADDR var1,2,
-		ADDR bytesWritten, 0
+	Invoke ReadFile,student_file_handle,offset student_file_buffer,5000,ADDR bufferSize,0
+	mov eax,bufferSize
+	mov finalbufferSize,eax
+	.IF bufferSize==0			;If the file is empty
+		jmp NoCourseRegistered
+	.ENDIF
 
-          
-.ENDIF
-		
+	  mov esi,offset student_file_buffer
+	  mov ecx,bufferSize
+	  checkagain:
 
-quit:
+	 Invoke readfl,esi,ADDR string,ecx			;reading subjects student registered
+	 Invoke compareStr,ADDR string,ADDR tempcourse.courseName,ADDR flag
+	 cmp flag,1
+	 je registeredCourseFound
+	 loop1:
+		cmp BYTE PTR[esi],'!'
+		je breakLoop1
+		inc esi
+		loop loop1
+	breakLoop1:
+		add esi,3
+		sub ecx,3
+	cmp ecx,0
+	jnle checkagain
+	mov eax,course_file_handle
+	call closeFile
+	jmp quit
+registeredCourseFound:
+ja quit
+push ecx
+push esi					;To presever the offset at which the given subject is found
+	;------------------Checking if the student already have given exam or not--------------
 
-mov eax,filehandle
-	mov edx,eax
+	mov eax,0
+	checkLoop:
+		cmp BYTE PTR[esi],"!"
+		je breakLoop
+		inc esi
+		inc eax
+	cmp eax,3
+	jle checkLoop
+	breakLoop:
+	.IF eax>3
+		mWrite "You have already given Exam!"
+		call CRLF
+		jmp quit
+	.ENDIF
+
+	mov eax,course_file_handle
+	call closeFile
+	Invoke courseAttendance,ADDR tempCourse.courseName,studentid
+	mov attendance,eax
+	.IF eax<75
+		mWrite "Your attendance is less than 75%."
+		call CRLF
+		mWrite "You are not allowed to give exam"
+		call crlf
+		jmp quit
+	.ELSE
+.data
+	pf byte "Programming-Fundametals",0
+	fe byte "Functional-English",0
+	coal byte "COAL",0
+	marks DWORD ?
+.code
+	Invoke str_Compare,ADDR pf,ADDR tempCourse.courseName
+	je pflabel
+	Invoke str_Compare,offset fe,offset tempCourse.coursename
+	je felabel
+	Invoke str_Compare,offset coal,offset tempCourse.CourseName
+	je coallabel
+	pflabel:
+	Invoke pfpaper
+	jmp writeResult
+	felabel:
+	Invoke fepaper
+	jmp writeResult
+	coallabel:
+	Invoke coalpaper
+	jmp writeResult
+	.ENDIF
+writeResult:
+	mov marks,eax
+	pop esi
+	pop ecx
+	Invoke assignGrade,marks,attendance
+	
+	
+	mov eax,student_file_handle
+	call closeFile
+	;------------Writing result in exam ins student file----------
+
+	mov edx,offset student_File
+	call createOutputFile
+	mov student_file_handle,eax
+	add finalBuffersize,7				;added 7 bytes in the buffer
+
+	INVOKE WriteFile,student_file_handle,offset student_file_buffer, finalbufferSize,
+			ADDR bytesWritten, 0				;writing the name of the course in the authentication file
+	mov eax,student_File_handle
 	call closeFile
 
+	;--------------Writing result in grade file-------------------------------------
+	Invoke 
+
+	jmp quit
+noCourseRegistered:
+	mWrite "You have not registered any course yet!"
+	call CRLF
+	mov eax,student_file_handle
+	call closeFile
+quit:
+	mov eax,course_file_handle
+	call closeFile
 ret
-stutest ENDP
-END
+giveExam endp
+end

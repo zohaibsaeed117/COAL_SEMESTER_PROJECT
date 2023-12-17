@@ -18,7 +18,7 @@ courseAttendance PROC,
 CourseName:PTR BYTE,
 studentId:PTR BYTE
 
-	Invoke concatStr,courseName,ADDR txt,ADDR string	;"courseAttendance/Coal
+	Invoke concatStr,courseName,ADDR txt,ADDR string	;"courseAttendance/Coal""
 	Invoke concatStr,offset attendanceFileLocation,offset string,ADDR course_file	;"courseAttendance/COAL.txt
 
 	INVOKE createFile, ADDR course_file,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File

@@ -129,6 +129,15 @@
     <MASM Include="FEpaper.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="assignGrade.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="intToStr.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="MarksToGrade.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

@@ -3,7 +3,7 @@ Include File.inc
 	txt byte ".txt",0
 	student_file byte 20 DUP(?)
 	student_file_handle DWORD ?
-	buffer byte 5000 DUP(?)
+	course_file_buffer byte 5000 DUP(?)
 	bytesRead DWORD ?
 	bufferSize DWORD ?
 	errMsg byte "Unable to open the file",0
@@ -30,14 +30,14 @@ studentId:PTR BYTE
 
 	;-----------------------------------------Checking whether the course exists or not-------------------------|
 
-	Invoke ReadFile,student_file_handle,offset buffer,5000,ADDR bufferSize,0
+	Invoke ReadFile,student_file_handle,offset course_file_buffer,5000,ADDR bufferSize,0
 
 
 	.IF bufferSize==0			;If the file is empty
 		jmp NoCourseRegistered
 	.ENDIF
 
-	  mov esi,offset buffer
+	  mov esi,offset course_file_buffer
 	  mov ecx,bufferSize
 	  checkagain:
 

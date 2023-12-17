@@ -41,7 +41,7 @@ password:PTR BYTE
 LoginFaculty PROTO
 
 ReadStudent PROTO,
-buffer:PTR BYTE,
+course_file_buffer:PTR BYTE,
 bufferSize:DWORD,
 id:PTR BYTE,
 stuName:PTR BYTE,
@@ -52,7 +52,7 @@ password:PTR BYTE,
 bytesRead:PTR DWORD
 
 ReadCourse PROTO,
-buffer:PTR BYTE,
+course_file_buffer:PTR BYTE,
 bufferSize:DWORD,
 id:PTR BYTE,
 courseName:PTR BYTE,
@@ -61,7 +61,7 @@ teacherName:PTR BYTE,
 bytesRead:PTR DWORD
 
 ReadFaculty PROTO,
-buffer:PTR BYTE,
+course_file_buffer:PTR BYTE,
 bufferSize:DWORD,
 email:PTR BYTE,
 password:PTR BYTE,
@@ -111,17 +111,18 @@ Transport PROTO
 Cafeteria PROTO
 
 HostelStudent PROTO,
-buffer:PTR BYTE,
+course_file_buffer:PTR BYTE,
 bufferSize:DWORD,
 id:PTR BYTE,
 stuName:PTR BYTE
 
 readfl PROTO,
-buffer:PTR BYTE,
+course_file_buffer:PTR BYTE,
 string:PTR BYTE,
 len:DWORD
 
-stutest PROTO
+giveExam PROTO,
+studentid:PTR BYTE
 
 paper PROTO
 
@@ -145,3 +146,15 @@ coalpaper PROTO
 PFpaper PROTO
 
 FEpaper PROTO
+
+assignGrade PROTO,
+marks:DWORD,
+attendance:DWORD
+
+intTostr PROTO,
+var1:DWORD,
+string:PTR BYTE
+
+marksToGrade PROTO,
+marks:DWORD,
+string:PTR BYTE

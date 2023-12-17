@@ -6,11 +6,14 @@ INCLUDE file.inc
 	invalid BYTE "Invalid number entered!",13,10,0
 	msg byte ".txt",0
 	result byte 100 DUP(?)
+	id byte "2022-CS-628",0
 .code
 main PROC
 
-again:
+Invoke giveExam,ADDR id
+comment @
 call clrscr
+again:
 call PrintMainMenu
 call readdec
 mov choice,eax
@@ -52,7 +55,7 @@ quit:
 	call settextcolor
 
 	
-	
+	@
 INVOKE ExitProcess,0 
 main ENDP
 END main

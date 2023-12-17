@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <MASM Include="assignGrade.asm" />
     <MASM Include="Cafeteria.asm" />
     <MASM Include="coalpaper.asm" />
     <MASM Include="CourseAttendace.asm" />
@@ -139,7 +140,9 @@
     <MASM Include="giveexam.asm" />
     <MASM Include="gradepaper.asm" />
     <MASM Include="hostel.asm" />
+    <MASM Include="intToStr.asm" />
     <MASM Include="MarkAttendance.asm" />
+    <MASM Include="MarksToGrade.asm" />
     <MASM Include="menuforstudents.asm" />
     <MASM Include="PFpaper.asm" />
     <MASM Include="studentdesp.asm" />

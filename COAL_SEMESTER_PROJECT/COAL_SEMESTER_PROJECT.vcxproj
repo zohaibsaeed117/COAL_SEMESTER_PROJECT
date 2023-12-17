@@ -149,6 +149,8 @@
     <MASM Include="studentschedule.asm" />
     <MASM Include="takeAttendance.asm" />
     <MASM Include="Transport.asm" />
+    <MASM Include="writeGradeInFile.asm" />
+    <MASM Include="writeStudenGrade.asm" />
     <Text Include="AuthFaculty.txt">
       <FileType>Document</FileType>
     </Text>

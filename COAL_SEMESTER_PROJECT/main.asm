@@ -7,9 +7,10 @@ INCLUDE file.inc
 	msg byte ".txt",0
 	result byte 100 DUP(?)
 	id byte "2022-CS-628",0
+	pf byte "Programming-Fundamental",0
 .code
 main PROC
-
+;Invoke writeGradeInFile,ADDR id,ADDR pf,5
 Invoke giveExam,ADDR id
 comment @
 call clrscr

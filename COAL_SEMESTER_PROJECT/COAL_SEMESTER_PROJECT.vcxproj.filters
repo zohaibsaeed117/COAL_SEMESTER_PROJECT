@@ -138,6 +138,12 @@
     <MASM Include="MarksToGrade.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="writeGradeInFile.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
+    <MASM Include="writeStudenGrade.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

@@ -158,3 +158,11 @@ string:PTR BYTE
 marksToGrade PROTO,
 marks:DWORD,
 string:PTR BYTE
+
+writeGradeInFile PROTO,
+studentId:PTR BYTE,
+courseName:PTR BYTE,
+marks:DWORD							;To write grade in file
+
+writestudentGrade PROTO,				;Helping function
+marks:DWORD	

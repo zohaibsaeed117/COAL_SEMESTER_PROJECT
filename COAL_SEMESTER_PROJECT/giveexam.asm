@@ -188,8 +188,7 @@ writeResult:
 	call closeFile
 
 	;--------------Writing result in grade file-------------------------------------
-	Invoke 
-
+	Invoke writeGradeInFile,studentId,ADDR tempCourse.courseName,marks
 	jmp quit
 noCourseRegistered:
 	mWrite "You have not registered any course yet!"

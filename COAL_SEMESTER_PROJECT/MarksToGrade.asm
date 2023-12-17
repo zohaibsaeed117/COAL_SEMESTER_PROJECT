@@ -10,11 +10,11 @@ string:PTR BYTE
 	.IF marks==5
 		mov BYTE PTR[esi],'A'
 		mov BYTE PTR[esi+1],'+'
-		mov BYTE PTR[esi+1],0
+		mov BYTE PTR[esi+2],0
 	.ELSEIF marks==4
 	mov BYTE PTR[esi],'A'
 		mov BYTE PTR[esi+1],'-'
-		mov BYTE PTR[esi+1],0
+		mov BYTE PTR[esi+2],0
 	.ELSEIF marks==3
 	mov BYTE PTR[esi],'B'
 		mov BYTE PTR[esi+1],0
@@ -26,6 +26,9 @@ string:PTR BYTE
 		mov BYTE PTR[esi+1],0
 	.ELSEIF marks==0
 	mov BYTE PTR[esi],'F'
+		mov BYTE PTR[esi+1],0
+	.ELSE
+		mov BYTE PTR[esi],'I'
 		mov BYTE PTR[esi+1],0
 	.ENDIF
 	pop esi

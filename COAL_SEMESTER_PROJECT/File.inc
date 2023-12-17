@@ -129,6 +129,8 @@ paper PROTO
 gral PROTO,
 marks:DWORD
 
+forceCLS PROTO
+
 studentdescription PROTO
 
 stuschedule PROTO

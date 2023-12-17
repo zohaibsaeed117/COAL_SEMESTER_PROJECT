@@ -136,6 +136,7 @@
     <MASM Include="coalpaper.asm" />
     <MASM Include="CourseAttendace.asm" />
     <MASM Include="FEpaper.asm" />
+    <MASM Include="ForceClearScr.asm" />
     <MASM Include="GenerateAttendanceReport.asm" />
     <MASM Include="giveexam.asm" />
     <MASM Include="gradepaper.asm" />

@@ -30,7 +30,7 @@ Include File.inc
 registerStudent PROC
 
 	takeCredentials:
-	call CLRSCR
+	call forcecls
 INVOKE createFile, ADDR authentication,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 

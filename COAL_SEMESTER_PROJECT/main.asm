@@ -12,7 +12,7 @@ INCLUDE file.inc
 main PROC
 
 
-call clrscr
+call forceCLS
 again:
 call PrintMainMenu
 call readdec

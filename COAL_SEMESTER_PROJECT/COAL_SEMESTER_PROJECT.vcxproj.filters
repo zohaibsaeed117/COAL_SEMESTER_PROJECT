@@ -144,6 +144,9 @@
     <MASM Include="writeStudenGrade.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="ForceClearScr.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

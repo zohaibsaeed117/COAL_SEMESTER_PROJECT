@@ -10,7 +10,7 @@ Include File.inc
 .code
 studentMenu Proc
     
-	call clrscr
+	call forcecls
 
 mov eax,cyan(black*16)    ;welcoming the user to unversity
 call settextcolor
@@ -24,14 +24,14 @@ call readDec
 mov choice,al
 
 .IF choice==1
-    call clrscr
+    call forcecls
 	Invoke LoginStudent,ADDR stu.id,ADDR stu.Stuname,ADDR stu.email,ADDR stu.contact,ADDR stu.address,ADDR stu.password
 	INVOKE studentchoices,ADDR stu.id          ;...........student authorities
 
 .ELSEIF choice==2
-     call CLRSCR
+     call forcecls
      call registerStudent
-	 call CLRSCR
+	 call forcecls
 	 jmp again         
 
 .ELSEIF choice==0

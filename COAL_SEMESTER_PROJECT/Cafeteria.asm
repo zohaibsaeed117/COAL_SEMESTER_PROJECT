@@ -27,7 +27,7 @@ errMsg BYTE "CANNOT OPEN FILE",0
 .code
 Cafeteria PROC
 
-call clrscr
+call forcecls
 mov eax,yellow+(black*16)
 call settextcolor
 mov dh,0
@@ -116,7 +116,7 @@ jmp quit
 .ENDIF
 
 FL2:
-call clrscr
+call forcecls
 mov edx,offset file2
 call openInputFile
 mov filehandler2,eax

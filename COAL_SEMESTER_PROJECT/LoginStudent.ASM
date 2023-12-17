@@ -26,7 +26,7 @@ address:PTR BYTE,
 password:PTR BYTE
 
 takeCredentials:
-call clrscr
+call forcecls
 INVOKE createFile, ADDR authentication,GENERIC_READ,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 

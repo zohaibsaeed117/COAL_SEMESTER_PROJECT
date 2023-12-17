@@ -28,7 +28,7 @@ errMsg BYTE "CANNOT OPEN FILE",0
 
 .code
 Transport PROC
-call clrscr
+call forcecls
 mov eax,yellow+(black*16)
 call settextcolor
 mov dh,0

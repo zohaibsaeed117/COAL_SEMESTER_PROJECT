@@ -29,7 +29,7 @@ Include File.inc
 studentchoices PROC,
 studentId:PTR BYTE
 
-call clrscr
+call forcecls
 
 
 
@@ -50,55 +50,55 @@ call writestring
 call readdec
 mov choice,eax
 
-call clrscr
+call forcecls
 
 .IF choice==1
-    call clrscr
+    call forcecls
 	Invoke GenerateAttendanceReport,studentid
 	call crlf
 	call waitmsg
 
 .ELSEIF choice==2
-	call clrscr
+	call forcecls
     INVOKE studentdescription
 	call crlf
 	call waitmsg
 
 
 .ELSEIF choice==3
-   call clrscr
+   call forcecls
    INVOKE stuschedule
    call crlf
    call waitmsg
 
 
 .ELSEIF choice==4
-	call clrscr
+	call forcecls
     INVOKE examings
 	call crlf
 	call waitmsg
 
 .ELSEIF choice==5
-	call clrscr
+	call forcecls
     INVOKE giveExam,studentId
 	call crlf
     call waitmsg
 
 .ELSEIF choice==6
-	call clrscr
+	call forcecls
     INVOKE Hostel
 	call crlf
     call waitmsg
 .ELSEIF choice==7
-	call clrscr
+	call forcecls
 	call changePassword
-	call clrscr
+	call forcecls
 	call waitmsg
 .ELSEIF choice==0
     jmp quit
 
 .ELSE
-		call clrscr
+		call forcecls
         mov eax,red+(black * 16)
 		call settextcolor
 		mov edx,offset invalid

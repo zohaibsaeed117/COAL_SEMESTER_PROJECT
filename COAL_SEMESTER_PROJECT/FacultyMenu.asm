@@ -18,13 +18,13 @@ Include File.inc
 
 FacultyMenu PROC
 
-call Clrscr
+call forcecls
 call LoginFaculty
 .IF eax==0
 	jmp quit
 .ENDIF
 
-call CLRSCR
+call forcecls
 
 again:
 
@@ -42,49 +42,49 @@ call writeString
 call readDec
 mov choice,eax
 .IF choice==1
-		call clrscr
+		call forcecls
 		Invoke AddCourse
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==2
-		call clrscr
+		call forcecls
 		INVOKE Transport
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==3
-		call clrscr
+		call forcecls
 		INVOKE Cafeteria
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==4
-		call clrscr
+		call forcecls
         Invoke description
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==5
-		call clrscr
+		call forcecls
 		 Invoke schedule
 		 call crlf
 		 call waitmsg
 
 .ELSEIF choice==6
-	   	 call clrscr
+	   	 call forcecls
 		 Invoke examings
 		 call crlf
 		 call waitmsg
 
 .ELSEIF choice==7
-		call clrscr
+		call forcecls
 	    Invoke gradest
 		call crlf
 		call waitmsg
 
 .ELSEIF choice==8
-		call clrscr
+		call forcecls
 		Invoke takeAttendance
         call crlf
 		call waitmsg
@@ -93,7 +93,7 @@ mov choice,eax
 	    jmp quit
 	
 .ELSE
-		call clrscr
+		call forcecls
 		mov eax,red+(black * 16)
 		call settextcolor
 		mov edx,offset invalid

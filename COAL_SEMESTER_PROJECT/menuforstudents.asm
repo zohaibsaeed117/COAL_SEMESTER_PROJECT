@@ -3,12 +3,13 @@ Include File.inc
 .data
 		uni byte "-------Welcome to University Managment System--------",0dh,0ah,0
 	 
-	  menu BYTE "Press 1 for Changing password",0dh,0ah,
+	  menu BYTE "Press 1 To genrate attendance report",0dh,0ah,
 	  "Press 2 for Courses description",0dh,0ah,
 	  "Press 3 for Courses Schedule",0dh,0ah,
 	  "Press 4 for viewing Exam schedule",0dh,0ah,
 	  "Press 5 to give exam",0dh,0ah,
 	  "Press 6 to book a room in hostel",0dh,0ah,
+	  "Press 7 to change password",0dh,0ah,
 	  "Press 0 to exit",0dh,0ah,
       "Enter your Choice: ",0
 	  
@@ -25,12 +26,11 @@ Include File.inc
 
 .code
  
-studentchoices PROC
+studentchoices PROC,
+studentId:PTR BYTE
 
 call clrscr
 
-;Invoke registerCourse,ADDR userName         ;......registration for course
-call clrscr
 
 
 again:
@@ -54,7 +54,7 @@ call clrscr
 
 .IF choice==1
     call clrscr
-	Invoke ChangePassword
+	Invoke GenerateAttendanceReport,studentid
 	call crlf
 	call waitmsg
 
@@ -80,7 +80,7 @@ call clrscr
 
 .ELSEIF choice==5
 	call clrscr
-    ;INVOKE giveExam
+    INVOKE giveExam,studentId
 	call crlf
     call waitmsg
 
@@ -89,7 +89,11 @@ call clrscr
     INVOKE Hostel
 	call crlf
     call waitmsg
-
+.ELSEIF choice==7
+	call clrscr
+	call changePassword
+	call clrscr
+	call waitmsg
 .ELSEIF choice==0
     jmp quit
 
@@ -104,7 +108,8 @@ call clrscr
 		jmp again
 
 .ENDIF
-
+	cmp choice,0
+	jne again
 quit:
 
 ret

@@ -26,7 +26,7 @@ mov choice,al
 .IF choice==1
     call clrscr
 	Invoke LoginStudent,ADDR stu.id,ADDR stu.Stuname,ADDR stu.email,ADDR stu.contact,ADDR stu.address,ADDR stu.password
-	INVOKE studentchoices          ;...........student authorities
+	INVOKE studentchoices,ADDR stu.id          ;...........student authorities
 
 .ELSEIF choice==2
      call CLRSCR

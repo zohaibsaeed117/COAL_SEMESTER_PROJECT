@@ -6,8 +6,6 @@ Include File.inc
 .code
 writestudentGrade PROC,
 marks:DWORD
-mov eax,marks
-call writeDec
 mov buffer,esi			;Preserving the intial value of buffer
 mov edi,offset tempBuffer
 

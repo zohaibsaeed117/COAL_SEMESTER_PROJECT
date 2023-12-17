@@ -100,7 +100,7 @@ mov edx,offset successMsg
 call writeString
 mov eax,1
 call CRLF
-	mov edx,filehandle
+	mov eax,filehandle
 	call closeFile
 ret
 LoginStudent endp

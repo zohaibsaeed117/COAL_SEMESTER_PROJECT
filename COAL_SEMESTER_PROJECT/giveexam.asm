@@ -180,7 +180,7 @@ writeResult:
 	mov edx,offset student_File
 	call createOutputFile
 	mov student_file_handle,eax
-	add finalBuffersize,7				;added 7 bytes in the buffer
+	add finalBuffersize,6				;added 7 bytes in the buffer
 
 	INVOKE WriteFile,student_file_handle,offset student_file_buffer, finalbufferSize,
 			ADDR bytesWritten, 0				;writing the name of the course in the authentication file

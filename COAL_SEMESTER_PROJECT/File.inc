@@ -133,7 +133,8 @@ studentdescription PROTO
 
 stuschedule PROTO
 
-studentchoices PROTO
+studentchoices PROTO,
+studentId:PTR BYTE
 
 Cafeteria PROTO
 

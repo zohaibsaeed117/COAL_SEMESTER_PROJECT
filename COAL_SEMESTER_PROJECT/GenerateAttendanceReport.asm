@@ -17,7 +17,6 @@ GenerateAttendanceReport PROC,
 studentId:PTR BYTE
 
 	Invoke concatStr,studentId,offset txt,ADDR student_file
-
 	INVOKE createFile, ADDR student_file,GENERIC_READ or GENERIC_WRITE,FILE_SHARE_READ or FILE_SHARE_WRITE, NULL,		;Opening File
 	  OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0
 

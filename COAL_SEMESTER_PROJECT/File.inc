@@ -169,3 +169,6 @@ marks:DWORD							;To write grade in file
 
 writestudentGrade PROTO,				;Helping function
 marks:DWORD	
+
+showStudentResult PROTO,
+studentId:PTR BYTE

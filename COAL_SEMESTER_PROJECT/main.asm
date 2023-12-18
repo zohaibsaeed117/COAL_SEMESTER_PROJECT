@@ -11,8 +11,8 @@ INCLUDE file.inc
 .code
 main PROC
 
-
-call forceCLS
+Invoke showStudentResult,offset id
+comment @
 again:
 call PrintMainMenu
 call readdec
@@ -55,7 +55,7 @@ quit:
 	call settextcolor
 
 	
-	
+	@
 INVOKE ExitProcess,0 
 main ENDP
 END main

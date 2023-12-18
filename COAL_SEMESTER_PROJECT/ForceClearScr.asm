@@ -10,7 +10,7 @@ ForceCLS  PROC
             PUSH ECX
                 mov ecx,115
                 BLANKS:
-                       MOV EAX, 020H 
+                       MOV EAX, " "
                        CALL  WriteChar
                     Loop BLANKS
             POP  ECX

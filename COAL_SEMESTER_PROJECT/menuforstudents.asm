@@ -3,13 +3,14 @@ Include File.inc
 .data
 		uni byte "-------Welcome to University Managment System--------",0dh,0ah,0
 	 
-	  menu BYTE "Press 1 To genrate attendance report",0dh,0ah,
-	  "Press 2 for Courses description",0dh,0ah,
-	  "Press 3 for Courses Schedule",0dh,0ah,
-	  "Press 4 for viewing Exam schedule",0dh,0ah,
-	  "Press 5 to give exam",0dh,0ah,
-	  "Press 6 to book a room in hostel",0dh,0ah,
-	  "Press 7 to change password",0dh,0ah,
+	  menu BYTE "Press 1 to register Course",0dh,0ah,
+	  "Press 2 To genrate attendance report",0dh,0ah,
+	  "Press 3 for Courses description",0dh,0ah,
+	  "Press 4 for Courses Schedule",0dh,0ah,
+	  "Press 5 for viewing Exam schedule",0dh,0ah,
+	  "Press 6 to give exam",0dh,0ah,
+	  "Press 7 to book a room in hostel",0dh,0ah,
+	  "Press 8 to change password",0dh,0ah,
 	  "Press 0 to exit",0dh,0ah,
       "Enter your Choice: ",0
 	  
@@ -54,42 +55,46 @@ call forcecls
 
 .IF choice==1
     call forcecls
+	Invoke registerCourse,studentId
+	call crlf
+	call waitmsg
+.ELSEIF choice==2
+	call forcecls
 	Invoke GenerateAttendanceReport,studentid
 	call crlf
 	call waitmsg
-
-.ELSEIF choice==2
+.ELSEIF choice==3
 	call forcecls
     INVOKE studentdescription
 	call crlf
 	call waitmsg
 
 
-.ELSEIF choice==3
+.ELSEIF choice==4
    call forcecls
    INVOKE stuschedule
    call crlf
    call waitmsg
 
 
-.ELSEIF choice==4
+.ELSEIF choice==5
 	call forcecls
     INVOKE examings
 	call crlf
 	call waitmsg
 
-.ELSEIF choice==5
+.ELSEIF choice==6
 	call forcecls
     INVOKE giveExam,studentId
 	call crlf
     call waitmsg
 
-.ELSEIF choice==6
+.ELSEIF choice==7
 	call forcecls
     INVOKE Hostel
 	call crlf
     call waitmsg
-.ELSEIF choice==7
+.ELSEIF choice==8
 	call forcecls
 	call changePassword
 	call forcecls

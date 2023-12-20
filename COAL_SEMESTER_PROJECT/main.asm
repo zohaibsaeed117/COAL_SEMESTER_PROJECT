@@ -2,17 +2,14 @@ INCLUDE file.inc
 .data
 	choice DWORD ?
 	user student <>
-	thanks byte "ThankYou for using University Management System",0
+	thanks byte "Thank You for using University Management System",0
 	invalid BYTE "Invalid number entered!",13,10,0
 	msg byte ".txt",0
 	result byte 100 DUP(?)
-	id byte "2022-CS-617",0
+	id byte "2022-CS-633",0
 	pf byte "Programming-Fundamental",0
 .code
 main PROC
-
-Invoke showStudentResult,offset id
-comment @
 again:
 call PrintMainMenu
 call readdec
@@ -55,7 +52,7 @@ quit:
 	call settextcolor
 
 	
-	@
+	
 INVOKE ExitProcess,0 
 main ENDP
 END main

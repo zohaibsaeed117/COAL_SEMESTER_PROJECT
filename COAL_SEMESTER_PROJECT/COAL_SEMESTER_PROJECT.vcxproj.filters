@@ -150,6 +150,9 @@
     <MASM Include="showStudentResult.asm">
       <Filter>Source Files</Filter>
     </MASM>
+    <MASM Include="printResult.asm">
+      <Filter>Source Files</Filter>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc">

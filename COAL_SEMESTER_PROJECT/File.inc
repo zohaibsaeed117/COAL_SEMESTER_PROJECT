@@ -172,3 +172,8 @@ marks:DWORD
 
 showStudentResult PROTO,
 studentId:PTR BYTE
+
+printResult PROTO,
+courseName:PTR BYTE,
+attendance:PTR BYTE,
+grade:PTR BYTE

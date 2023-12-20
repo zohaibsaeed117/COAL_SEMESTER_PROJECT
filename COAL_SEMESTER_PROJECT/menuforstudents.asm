@@ -9,8 +9,9 @@ Include File.inc
 	  "Press 4 for Courses Schedule",0dh,0ah,
 	  "Press 5 for viewing Exam schedule",0dh,0ah,
 	  "Press 6 to give exam",0dh,0ah,
-	  "Press 7 to book a room in hostel",0dh,0ah,
-	  "Press 8 to change password",0dh,0ah,
+	  "Press 7 to view result",0dh,0ah,
+	  "Press 8 to book a room in hostel",0dh,0ah,
+	  "Press 9 to change password",0dh,0ah,
 	  "Press 0 to exit",0dh,0ah,
       "Enter your Choice: ",0
 	  
@@ -88,13 +89,19 @@ call forcecls
     INVOKE giveExam,studentId
 	call crlf
     call waitmsg
-
+	
 .ELSEIF choice==7
+	call forcecls
+    INVOKE showStudentResult,studentId
+	call crlf
+    call waitmsg
+
+.ELSEIF choice==8
 	call forcecls
     INVOKE Hostel
 	call crlf
     call waitmsg
-.ELSEIF choice==8
+.ELSEIF choice==9
 	call forcecls
 	call changePassword
 	call forcecls

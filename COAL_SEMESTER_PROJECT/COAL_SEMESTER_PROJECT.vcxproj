@@ -146,6 +146,7 @@
     <MASM Include="MarksToGrade.asm" />
     <MASM Include="menuforstudents.asm" />
     <MASM Include="PFpaper.asm" />
+    <MASM Include="printResult.asm" />
     <MASM Include="showStudentResult.asm" />
     <MASM Include="studentdesp.asm" />
     <MASM Include="studentschedule.asm" />

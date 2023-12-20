@@ -11,6 +11,7 @@ INCLUDE file.inc
 .code
 main PROC
 again:
+
 call PrintMainMenu
 call readdec
 mov choice,eax

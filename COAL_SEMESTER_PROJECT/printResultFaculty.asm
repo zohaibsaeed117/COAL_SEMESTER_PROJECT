@@ -3,10 +3,9 @@ Include File.inc
 bufferInfo CONSOLE_SCREEN_BUFFER_INFO <>
 console_buffer_handle DWORD ?
 .code
-printResult PROC,
-courseName:PTR BYTE,
-attendance:PTR BYTE,
-Grade:PTR BYTE
+printResultFaculty PROC,
+studentId:PTR BYTE,
+grade:PTR BYTE
 
 	mwrite "|"				;Print line at start of the new line
 
@@ -25,14 +24,14 @@ Grade:PTR BYTE
 	call gotoXy
 
 
-	mov edx,courseName						
-	call writeString							;Writing the courseName
+	mov edx,studentId						
+	call writeString							;Writing the studentid
 
 
 	invoke GetConsoleScreenBufferInfo, console_buffer_handle, ADDR BufferInfo
 	mov bx,bufferInfo.dwCursorPosition.x
-	Invoke str_length,courseName
-	mov ecx,30
+	Invoke str_length,studentId
+	mov ecx,16
 	sub ecx,eax
 
 	mov dl,bl
@@ -50,43 +49,7 @@ Grade:PTR BYTE
 	mov bx,bufferInfo.dwCursorPosition.x
 
 	mov dl,bl
-	add dl,7					;setting the intial position of x coord for courseName
-
-	mov bx,bufferInfo.dwCursorPosition.y
-	mov dh,bl
-
-	call gotoXy
-
-
-	mov edx,attendance						
-	call writeString							;Writing the attendance
-
-	mwrite "%"
-
-	invoke GetConsoleScreenBufferInfo, console_buffer_handle, ADDR BufferInfo
-	mov bx,bufferInfo.dwCursorPosition.x
-
-	Invoke str_length,attendance
-	add eax,1				;because of % sign
-	mov ecx,13
-	sub ecx,eax
-
-	mov dl,bl
-	add dl,cl
-
-
-	mov bx,bufferInfo.dwCursorPosition.y
-	mov dh,bl
-
-	call gotoXy
-
-	mWrite "|"
-	
-	invoke GetConsoleScreenBufferInfo, console_buffer_handle, ADDR BufferInfo
-	mov bx,bufferInfo.dwCursorPosition.x
-
-	mov dl,bl
-	add dl,6					;setting the intial position of x coord for courseName
+	add dl,8					;setting the intial position of x coord for courseName
 
 	mov bx,bufferInfo.dwCursorPosition.y
 	mov dh,bl
@@ -115,6 +78,6 @@ Grade:PTR BYTE
 
 	mWrite "|"
 
-	ret
-printResult ENDP
-END
+ret
+printResultFaculty ENDP
+end

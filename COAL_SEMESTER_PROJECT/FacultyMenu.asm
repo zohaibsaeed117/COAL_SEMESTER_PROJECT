@@ -9,6 +9,7 @@ Include File.inc
 		  "Press 6 to view exam schedule",0dh,0ah,
 		  "Press 7 to view grade system",0dh,0ah,
 		  "Press 8 to view attendance system",0dh,0ah,
+		  "Press 9 to view Result",0dh,0ah,
 		  "Press 0 to exit",0dh,0ah,
 		  "Enter your Choice: ",0
 	  invalid BYTE "Invalid number entered!",13,10,0
@@ -86,6 +87,11 @@ mov choice,eax
 .ELSEIF choice==8
 		call forcecls
 		Invoke takeAttendance
+        call crlf
+		call waitmsg
+.ELSEIF choice==9
+		call forcecls
+		call showCourseResult
         call crlf
 		call waitmsg
 

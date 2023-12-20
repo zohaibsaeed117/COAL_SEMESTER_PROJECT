@@ -175,7 +175,7 @@ writeResult:
 	
 	mov eax,student_file_handle
 	call closeFile
-	;------------Writing result in exam ins student file----------
+	;------------Writing result in exam in student file----------
 
 	mov edx,offset student_File
 	call createOutputFile

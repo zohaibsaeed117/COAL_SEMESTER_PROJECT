@@ -177,3 +177,9 @@ printResult PROTO,
 courseName:PTR BYTE,
 attendance:PTR BYTE,
 grade:PTR BYTE
+
+showCourseResult PROTO
+
+printResultFaculty PROTO,
+studentId:PTR BYTE,
+grade:PTR BYTE

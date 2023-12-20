@@ -1,6 +1,6 @@
 Include File.inc
 .data
-	uni byte "---------------------------------Welcome to University Managment System--------------------------------",0dh,0ah,0
+	uni byte "		--------------------------------- WELCOME TO UNIVERSITY MANAGEMENT SYSTEM --------------------------------",0dh,0ah,0
 	menu BYTE "Press 1 to Register a new Course",0dh,0ah,
 	      "Press 2 for transport information",0dh,0ah,
 		  "Press 3 for Cafetria information",0dh,0ah,
@@ -29,14 +29,18 @@ call forcecls
 
 again:
 
-mov eax,cyan(black*16)    ;welcoming the user to unversity
+call crlf
+call crlf
+mov eax,cyan+(black*16)    ;welcoming the user to university
 call settextcolor
 mov edx,offset uni
 call writestring
 call crlf
 call crlf
+call crlf
 
-	
+mov eax,yellow(black*16)    
+call settextcolor
 mov edx,offset menu
 call writeString
 
@@ -47,30 +51,39 @@ mov choice,eax
 		Invoke AddCourse
 		call crlf
 		call waitmsg
+		call clrscr
 
 .ELSEIF choice==2
 		call forcecls
 		INVOKE Transport
 		call crlf
 		call waitmsg
+				call clrscr
+
 
 .ELSEIF choice==3
 		call forcecls
 		INVOKE Cafeteria
 		call crlf
 		call waitmsg
+				call clrscr
+
 
 .ELSEIF choice==4
 		call forcecls
         Invoke description
 		call crlf
 		call waitmsg
+				call clrscr
+
 
 .ELSEIF choice==5
 		call forcecls
 		 Invoke schedule
 		 call crlf
 		 call waitmsg
+		 		call clrscr
+
 
 .ELSEIF choice==6
 	   	 call forcecls
@@ -83,19 +96,25 @@ mov choice,eax
 	    Invoke gradest
 		call crlf
 		call waitmsg
+				call clrscr
+
 
 .ELSEIF choice==8
 		call forcecls
 		Invoke takeAttendance
         call crlf
 		call waitmsg
+				call clrscr
+
 .ELSEIF choice==9
 		call forcecls
 		call showCourseResult
         call crlf
 		call waitmsg
+				call clrscr
 
 .ELSEIF choice==0
+		call clrscr
 	    jmp quit
 	
 .ELSE
@@ -106,6 +125,8 @@ mov choice,eax
 		call writestring
 		mov eax,white+(black * 16)				   
 		call settextcolor
+				call clrscr
+
 		jmp again
 	.ENDIF
 

@@ -188,6 +188,7 @@
     <Text Include="hostelrecord.txt" />
     <Text Include="Items.txt" />
     <Text Include="Studentcheck.txt" />
+    <Text Include="welcoming.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="File.inc" />

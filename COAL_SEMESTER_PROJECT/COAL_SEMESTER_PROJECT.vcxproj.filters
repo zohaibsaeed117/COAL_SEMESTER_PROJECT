@@ -241,5 +241,8 @@
     <Text Include="hostelrecord.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="welcoming.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

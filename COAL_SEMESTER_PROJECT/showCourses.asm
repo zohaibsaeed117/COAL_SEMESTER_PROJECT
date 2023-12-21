@@ -34,7 +34,7 @@ showCourses PROC
 
 	Invoke ReadFile,filehandle,offset buffer,5000,ADDR bufferSize,0
 
-	mov eax,blue+(black * 16)
+	mov eax,cyan+(black * 16)
 	call settextcolor
 
 	mov edx,offset header

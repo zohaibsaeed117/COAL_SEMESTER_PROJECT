@@ -1,7 +1,6 @@
 Include File.inc
 .data
 
-	uni byte "---------------------------------Welcome to University Managment System--------------------------------",0dh,0ah,0
 	choice byte ?
 	stu student <>
 	thanks byte "Thanks For using University Management System",0
@@ -12,10 +11,9 @@ studentMenu Proc
     
 	call forcecls
 
-mov eax,cyan(black*16)    ;welcoming the user to unversity
+
+mov eax,yellow(black*16)   
 call settextcolor
-mov edx,offset uni
-call writestring
 
 again:
 call printLoginMenu		;Printing menu
@@ -35,6 +33,8 @@ mov choice,al
 	 jmp again         
 
 .ELSEIF choice==0
+		call clrscr
+
      jmp quit
 
 .ELSE
@@ -44,6 +44,8 @@ mov choice,al
 		call writestring
 		mov eax,white+(black * 16)				   
 		call settextcolor
+				call clrscr
+
 		
 .ENDIF
 

@@ -2,8 +2,9 @@ INCLUDE file.inc
 .data
 	choice DWORD ?
 	user student <>
-	thanks byte "Thank You for using University Management System",0
-	invalid BYTE "Invalid number entered!",13,10,0
+	Line BYTE ".	--------------------------------------------------",13,10,0
+	thanks byte "	Thank You for using University Management System",13,10,0
+	invalid BYTE "	Invalid number entered!",13,10,0
 	msg byte ".txt",0
 	result byte 100 DUP(?)
 	id byte "2022-CS-633",0
@@ -27,7 +28,11 @@ mov choice,eax
 .ELSEIF choice==0                ;....To exit
 		mov eax,lightgreen(black*16)
 		call settextcolor
+		mov edx,offset line
+		call writeString
 		mov edx,offset thanks
+		call writeString
+		mov edx,offset line
 		call writeString
 		call crlf
 		call crlf

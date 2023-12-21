@@ -1,20 +1,6 @@
 Include File.inc
 
 .data
-		uni byte "-------Welcome to University Managment System--------",0dh,0ah,0
-	 
-	  menu BYTE "Press 1 to register Course",0dh,0ah,
-	  "Press 2 To genrate attendance report",0dh,0ah,
-	  "Press 3 for Courses description",0dh,0ah,
-	  "Press 4 for Courses Schedule",0dh,0ah,
-	  "Press 5 for viewing Exam schedule",0dh,0ah,
-	  "Press 6 to give exam",0dh,0ah,
-	  "Press 7 to view result",0dh,0ah,
-	  "Press 8 to book a room in hostel",0dh,0ah,
-	  "Press 9 to change password",0dh,0ah,
-	  "Press 0 to exit",0dh,0ah,
-      "Enter your Choice: ",0
-	  
 	choice DWORD ?
 	user student <>
 	thanks byte "ThankYou for using University Management System",0
@@ -31,24 +17,53 @@ Include File.inc
 studentchoices PROC,
 studentId:PTR BYTE
 
-call forcecls
-
-
 
 again:
 
+call forcecls
 mov eax,cyan(black*16)    ;welcoming the user to unversity
 call settextcolor
-mov edx,offset uni
-call writestring
-call crlf
-call crlf
-
+mwrite "------------------Welcome to University Managment System------------------"
+call CRLF
+call CRLF
+call CRLF
 mov eax,yellow(black*16)    
 call settextcolor
 
-mov edx,offset menu
-call writestring
+mWrite "	Press 1 to register Course"
+call CRLF
+call CRLF
+mWrite "	Press 2 To genrate attendance report"
+call CRLF
+call CRLF
+mWrite "	Press 3 for Courses description"
+call CRLF
+call CRLF
+mWrite "	Press 4 for Courses Schedule"
+call CRLF
+call CRLF
+mWrite "	Press 5 for viewing Exam schedule"
+call CRLF
+call CRLF
+mWrite "	Press 6 to give exam"
+call CRLF
+call CRLF
+mWrite "	Press 7 to view result"
+call CRLF
+call CRLF
+mWrite "	Press 8 to book a room in hostel"
+call CRLF
+call CRLF
+mWrite "	Press 9 to change password"
+call CRLF
+call CRLF
+mWrite "	Press 0 to exit"
+call CRLF
+call CRLF
+mWrite "	Enter your Choice-->"
+
+
+
 call readdec
 mov choice,eax
 

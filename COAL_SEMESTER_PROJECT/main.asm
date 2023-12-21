@@ -17,11 +17,13 @@ call readdec
 mov choice,eax
 
 .IF choice==1                    ;....Student menu
+		call forceCls
 	   INVOKE studentmenu
-
+	   call forceCLS
 .ELSEIF choice==2                ;....Menu for Faculty
+		call forceCLS
 		INVOKE facultymenu
-
+		call forceCLS
 .ELSEIF choice==0                ;....To exit
 		mov eax,lightgreen(black*16)
 		call settextcolor
